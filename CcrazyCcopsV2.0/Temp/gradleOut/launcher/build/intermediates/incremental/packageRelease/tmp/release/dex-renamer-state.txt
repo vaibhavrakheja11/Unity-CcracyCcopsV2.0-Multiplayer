@@ -1,0 +1,4 @@
+#Mon Apr 27 17:13:28 MDT 2020
+base.0=/Users/vaibhavrakheja/Documents/Unity Car Game/CcrazyCcopsV2.0/Temp/gradleOut/launcher/build/intermediates/transforms/dexMerger/release/0
+path.0=classes.dex
+renamed.0=classes.dex
