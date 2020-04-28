@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/vaibhavrakheja/Documents/Unity Car Game/CcrazyCcopsV2.0/Temp/gradleOut/launcher/build/intermediates/res/merged/release/values_values.arsc.flat",
+            "outputFile": "/Users/vaibhavrakheja/Documents/Unity Car Game/Unity-CcracyCcopsV2.0-Multiplayer/CcrazyCcopsV2.0/Temp/gradleOut/launcher/build/intermediates/res/merged/release/values_values.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/vaibhavrakheja/Documents/Unity Car Game/CcrazyCcopsV2.0/Temp/gradleOut/launcher/src/main/res/values/strings.xml",
+                    "source": "/Users/vaibhavrakheja/Documents/Unity Car Game/Unity-CcracyCcopsV2.0-Multiplayer/CcrazyCcopsV2.0/Temp/gradleOut/launcher/src/main/res/values/strings.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "2,2",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/Users/vaibhavrakheja/Documents/Unity Car Game/CcrazyCcopsV2.0/Temp/gradleOut/launcher/src/main/res/values/styles.xml",
+                    "source": "/Users/vaibhavrakheja/Documents/Unity Car Game/Unity-CcracyCcopsV2.0-Multiplayer/CcrazyCcopsV2.0/Temp/gradleOut/launcher/src/main/res/values/styles.xml",
                     "from": {
                         "startLines": "5,2,7",
                         "startColumns": "0,0,0",
@@ -42,10 +42,10 @@
             ]
         },
         {
-            "outputFile": "/Users/vaibhavrakheja/Documents/Unity Car Game/CcrazyCcopsV2.0/Temp/gradleOut/launcher/build/intermediates/res/merged/release/values-v21_values-v21.arsc.flat",
+            "outputFile": "/Users/vaibhavrakheja/Documents/Unity Car Game/Unity-CcracyCcopsV2.0-Multiplayer/CcrazyCcopsV2.0/Temp/gradleOut/launcher/build/intermediates/res/merged/release/values-v21_values-v21.arsc.flat",
             "map": [
                 {
-                    "source": "/Users/vaibhavrakheja/Documents/Unity Car Game/CcrazyCcopsV2.0/Temp/gradleOut/launcher/src/main/res/values-v21/styles.xml",
+                    "source": "/Users/vaibhavrakheja/Documents/Unity Car Game/Unity-CcracyCcopsV2.0-Multiplayer/CcrazyCcopsV2.0/Temp/gradleOut/launcher/src/main/res/values-v21/styles.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "0",

@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
+using System.Collections;
 using UnityStandardAssets.CrossPlatformInput;
+
 
 namespace UnityStandardAssets.Vehicles.Car
 {
@@ -9,12 +11,28 @@ namespace UnityStandardAssets.Vehicles.Car
     {
         private CarController m_Car; // the car controller we want to use
 
+        public bool isReady;
 
+        public GameObject particleGameObjectL;
+        public GameObject particleGameObjectR;
 
         private void Awake()
         {
             // get the car controller
             m_Car = GetComponent<CarController>();
+            isReady = true;
+        }
+
+        public void Update()
+        {
+            if(isReady)
+            {
+                particleGameObjectL.GetComponent<ParticleSystem>().Stop();
+                particleGameObjectR.GetComponent<ParticleSystem>().Stop();
+            }
+            if(Input.GetKeyDown(KeyCode.LeftShift) && isReady){
+                 Nitrous();
+            }
         }
 
 
@@ -25,6 +43,7 @@ namespace UnityStandardAssets.Vehicles.Car
             float v = CrossPlatformInputManager.GetAxis("Vertical");
             float handbrake = CrossPlatformInputManager.GetAxis("Jump");
             
+            
 
 #if !MOBILE_INPUT
             
@@ -33,5 +52,23 @@ namespace UnityStandardAssets.Vehicles.Car
             m_Car.Move(h, v, v, handbrake);
 #endif
         }
+
+
+        public void Nitrous() {
+            //audio.PlayOneShot(activateSound, 1);
+            isReady = false;
+            this.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * 800, ForceMode.Acceleration);
+            particleGameObjectL.GetComponent<ParticleSystem>().Play();
+            particleGameObjectR.GetComponent<ParticleSystem>().Play();
+            StartCoroutine(Boost());
+     
+        }
+
+        IEnumerator Boost()
+            {
+                yield return new WaitForSeconds(2.0f);
+                isReady = true;
+        }
+
     }
 }
