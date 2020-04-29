@@ -30,9 +30,9 @@ namespace UnityStandardAssets.Vehicles.Car
                 particleGameObjectL.GetComponent<ParticleSystem>().Stop();
                 particleGameObjectR.GetComponent<ParticleSystem>().Stop();
             }
-            if(Input.GetKeyDown(KeyCode.LeftShift) && isReady){
-                 Nitrous();
-            }
+            // if(Input.GetKeyDown(KeyCode.LeftShift) && isReady){
+            //      Nitrous();
+            // }
         }
 
 
@@ -42,7 +42,14 @@ namespace UnityStandardAssets.Vehicles.Car
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
             float v = CrossPlatformInputManager.GetAxis("Vertical");
             float handbrake = CrossPlatformInputManager.GetAxis("Jump");
+            float boost = CrossPlatformInputManager.GetAxis("Boost");
             
+            if(boost > 0.001f)
+            {
+                Debug.Log("Boost");
+                Nitrous();
+            }
+
             
 
 #if !MOBILE_INPUT
@@ -56,17 +63,22 @@ namespace UnityStandardAssets.Vehicles.Car
 
         public void Nitrous() {
             //audio.PlayOneShot(activateSound, 1);
+            if(isReady)
+            {
             isReady = false;
-            this.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * 800, ForceMode.Acceleration);
+            this.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * 300, ForceMode.Acceleration);
             particleGameObjectL.GetComponent<ParticleSystem>().Play();
             particleGameObjectR.GetComponent<ParticleSystem>().Play();
             StartCoroutine(Boost());
+            }
+            
+            
      
         }
 
         IEnumerator Boost()
             {
-                yield return new WaitForSeconds(2.0f);
+                yield return new WaitForSeconds(4.0f);
                 isReady = true;
         }
 
