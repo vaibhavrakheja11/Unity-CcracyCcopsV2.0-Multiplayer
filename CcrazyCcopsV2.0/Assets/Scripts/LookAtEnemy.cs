@@ -9,6 +9,8 @@ public class LookAtEnemy : MonoBehaviour
 
     public GameObject DefaultAim;
     public Transform[] EnemyArray;
+    public GameObject[] EnemyArrayObj;
+
  
     public GameObject fovStartPoint;
     // We will use the forward direction of whatever GameObject you give it.
@@ -36,6 +38,16 @@ public class LookAtEnemy : MonoBehaviour
  
     private Quaternion lookAt;
     private Quaternion targetRotation;
+
+    void Start()
+    {
+        EnemyArrayObj = GameObject.FindGameObjectsWithTag("Enemy");
+       for(int i=0; i<EnemyArrayObj.Length; i++)
+       {
+           Debug.Log(EnemyArrayObj[i].name);
+           EnemyArray[i] = EnemyArrayObj[i].transform;
+       }
+    }
  
     void Update()
     {

@@ -31,6 +31,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         }
 
 
+
         public void SetAxisNeutralState()
         {
             CrossPlatformInputManager.SetAxisZero(Name);
