@@ -8,15 +8,22 @@ using Photon.Pun;
 public class NetworkedPlayer : MonoBehaviourPunCallbacks
 {
     public static GameObject LocalPlayerInstance;
-    public GameObject playerNamePrefab;
+    //public GameObject playerNamePrefab;
     public Rigidbody rigidbody;
     public Renderer jeepMesh;
 
-    void Awake()
+    public void Awake()
     {
         if(photonView.IsMine)
         {
+            Debug.Log("Photon view.ismine is true");
             LocalPlayerInstance = gameObject;
         }
+        else    
+        {
+            Debug.Log("Another player just connected");
+        }
     }
+    
+
 }

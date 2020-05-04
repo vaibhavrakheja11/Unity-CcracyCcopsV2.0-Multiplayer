@@ -1,32 +1,20 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp-firstpass.dll:
-    - Circuit
-    - UnityStandardAssets.CrossPlatformInput.ButtonHandler
-    - UnityStandardAssets.CrossPlatformInput.Joystick
-    - UnityStandardAssets.CrossPlatformInput.MobileControlRig
     - UnityStandardAssets.Vehicles.Car.CarAudio
     - UnityStandardAssets.Vehicles.Car.CarController
     - UnityStandardAssets.Vehicles.Car.CarUserControl
     - UnityStandardAssets.Vehicles.Car.SkidTrail
     - UnityStandardAssets.Vehicles.Car.WheelEffects
     Assembly-CSharp.dll:
-    - LaunchManager
     - LookAtEnemy
+    - NetworkManager
     - NetworkedPlayer
-    - RaceMonitor
-    - SelectCar
-    - Spin
-    - UnityStandardAssets.Vehicles.Car.AgentAIController
+    - PlayerListEntryInitializer
+    - Shoot
     - brake_light
-    Cinemachine.dll:
-    - Cinemachine.CinemachineBrain
-    - Cinemachine.CinemachineComposer
-    - Cinemachine.CinemachinePipeline
-    - Cinemachine.CinemachineTransposer
-    - Cinemachine.CinemachineVirtualCamera
-    PhotonUnityNetworking.Editor.dll:
-    - Photon.Pun.PunSceneSettings
+    PhotonUnityNetworking.Utilities.dll:
+    - Photon.Pun.UtilityScripts.TextButtonTransition
     PhotonUnityNetworking.dll:
     - Photon.Pun.PhotonRigidbodyView
     - Photon.Pun.PhotonTransformView
@@ -34,24 +22,32 @@ ScriptsOnlyBuild:
     - Photon.Pun.ServerSettings
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
+    Unity.TextMeshPro.dll:
+    - TMPro.TMP_FontAsset
+    - TMPro.TMP_Settings
+    - TMPro.TMP_SpriteAsset
+    - TMPro.TMP_StyleSheet
+    - TMPro.TextMeshProUGUI
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
-    - UnityEngine.EventSystems.EventTrigger
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.GridLayoutGroup
+    - UnityEngine.UI.HorizontalLayoutGroup
     - UnityEngine.UI.Image
     - UnityEngine.UI.InputField
-    - UnityEngine.UI.RawImage
-    - UnityEngine.UI.Shadow
+    - UnityEngine.UI.LayoutElement
     - UnityEngine.UI.Text
+    - UnityEngine.UI.Toggle
+    - UnityEngine.UI.VerticalLayoutGroup
   sceneClasses:
-    Assets/Scenes/GUIScene.unity:
+    Assets/Scenes/LobbyScene.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -70,118 +66,9 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
-    - Class: 54
-      Script: {instanceID: 0}
-    - Class: 65
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 82
-      Script: {instanceID: 0}
-    - Class: 83
-      Script: {instanceID: 0}
-    - Class: 84
-      Script: {instanceID: 0}
-    - Class: 96
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 108
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 11196}
-    - Class: 114
-      Script: {instanceID: 11326}
-    - Class: 114
-      Script: {instanceID: 11402}
-    - Class: 114
-      Script: {instanceID: 11404}
-    - Class: 114
-      Script: {instanceID: 11456}
-    - Class: 114
-      Script: {instanceID: 11772}
-    - Class: 114
-      Script: {instanceID: 11834}
-    - Class: 114
-      Script: {instanceID: 11844}
-    - Class: 114
-      Script: {instanceID: 11944}
-    - Class: 114
-      Script: {instanceID: 11972}
-    - Class: 114
-      Script: {instanceID: 12242}
-    - Class: 114
-      Script: {instanceID: 12308}
-    - Class: 114
-      Script: {instanceID: 12382}
-    - Class: 114
-      Script: {instanceID: 12462}
-    - Class: 114
-      Script: {instanceID: 12486}
-    - Class: 114
-      Script: {instanceID: 12528}
-    - Class: 114
-      Script: {instanceID: 12710}
-    - Class: 114
-      Script: {instanceID: 12720}
-    - Class: 114
-      Script: {instanceID: 12968}
-    - Class: 114
-      Script: {instanceID: 13018}
-    - Class: 114
-      Script: {instanceID: 13092}
-    - Class: 114
-      Script: {instanceID: 13288}
-    - Class: 114
-      Script: {instanceID: 13434}
-    - Class: 114
-      Script: {instanceID: 13520}
-    - Class: 115
-      Script: {instanceID: 0}
-    - Class: 128
-      Script: {instanceID: 0}
-    - Class: 136
-      Script: {instanceID: 0}
-    - Class: 146
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 196
-      Script: {instanceID: 0}
-    - Class: 198
-      Script: {instanceID: 0}
-    - Class: 199
-      Script: {instanceID: 0}
-    - Class: 213
-      Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
-      Script: {instanceID: 0}
-    Assets/Scenes/SampleScene.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
-      Script: {instanceID: 0}
-    - Class: 23
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 33
-      Script: {instanceID: 0}
-    - Class: 43
-      Script: {instanceID: 0}
-    - Class: 48
+    - Class: 49
       Script: {instanceID: 0}
     - Class: 54
-      Script: {instanceID: 0}
-    - Class: 64
       Script: {instanceID: 0}
     - Class: 65
       Script: {instanceID: 0}
@@ -199,61 +86,81 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 108
       Script: {instanceID: 0}
+    - Class: 109
+      Script: {instanceID: 0}
     - Class: 114
       Script: {instanceID: 11196}
     - Class: 114
-      Script: {instanceID: 11402}
+      Script: {instanceID: 11306}
     - Class: 114
       Script: {instanceID: 11404}
     - Class: 114
-      Script: {instanceID: 11456}
+      Script: {instanceID: 11406}
     - Class: 114
-      Script: {instanceID: 11624}
+      Script: {instanceID: 11458}
     - Class: 114
-      Script: {instanceID: 11772}
+      Script: {instanceID: 11522}
     - Class: 114
-      Script: {instanceID: 11834}
+      Script: {instanceID: 11598}
     - Class: 114
-      Script: {instanceID: 11844}
+      Script: {instanceID: 11774}
     - Class: 114
-      Script: {instanceID: 11856}
+      Script: {instanceID: 11836}
     - Class: 114
-      Script: {instanceID: 11944}
+      Script: {instanceID: 11846}
     - Class: 114
-      Script: {instanceID: 12032}
+      Script: {instanceID: 11946}
     - Class: 114
-      Script: {instanceID: 12204}
+      Script: {instanceID: 11974}
     - Class: 114
-      Script: {instanceID: 12224}
+      Script: {instanceID: 11984}
     - Class: 114
-      Script: {instanceID: 12330}
+      Script: {instanceID: 12120}
     - Class: 114
-      Script: {instanceID: 12334}
+      Script: {instanceID: 12246}
     - Class: 114
-      Script: {instanceID: 12382}
+      Script: {instanceID: 12312}
     - Class: 114
-      Script: {instanceID: 12462}
+      Script: {instanceID: 12324}
     - Class: 114
-      Script: {instanceID: 12602}
+      Script: {instanceID: 12388}
     - Class: 114
-      Script: {instanceID: 12720}
+      Script: {instanceID: 12468}
     - Class: 114
-      Script: {instanceID: 12828}
+      Script: {instanceID: 12534}
     - Class: 114
-      Script: {instanceID: 12876}
+      Script: {instanceID: 12576}
     - Class: 114
-      Script: {instanceID: 13018}
+      Script: {instanceID: 12596}
     - Class: 114
-      Script: {instanceID: 13092}
+      Script: {instanceID: 12716}
     - Class: 114
-      Script: {instanceID: 13314}
+      Script: {instanceID: 12726}
     - Class: 114
-      Script: {instanceID: 13466}
+      Script: {instanceID: 12748}
     - Class: 114
-      Script: {instanceID: 13488}
+      Script: {instanceID: 12752}
     - Class: 114
-      Script: {instanceID: 13520}
+      Script: {instanceID: 12768}
+    - Class: 114
+      Script: {instanceID: 13020}
+    - Class: 114
+      Script: {instanceID: 13024}
+    - Class: 114
+      Script: {instanceID: 13098}
+    - Class: 114
+      Script: {instanceID: 13280}
+    - Class: 114
+      Script: {instanceID: 13440}
+    - Class: 114
+      Script: {instanceID: 13526}
+    - Class: 114
+      Script: {instanceID: 13544}
+    - Class: 114
+      Script: {instanceID: 14870}
     - Class: 115
+      Script: {instanceID: 0}
+    - Class: 120
       Script: {instanceID: 0}
     - Class: 128
       Script: {instanceID: 0}
@@ -334,6 +241,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Utilities.dll
     namespaceName: Photon.Pun.UtilityScripts
     className: PhotonStatsGui
+  - hash:
+      serializedVersion: 2
+      Hash: 1ad09c03cc200229b661ab8d661eb008
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: NetworkManager
   - hash:
       serializedVersion: 2
       Hash: a2113831d3323f931007e1b3812dc814
@@ -684,7 +597,7 @@ ScriptsOnlyBuild:
     className: ControlPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 8943f5194e2db20b7f0c5b5a0b54277f
+      Hash: a79480017298da0834c37e63a69639dd
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: NetworkedPlayer
@@ -742,6 +655,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: 
     className: CameraSwitch
+  - hash:
+      serializedVersion: 2
+      Hash: fc1bd549938cd08b0b9d47015702703c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerListEntryInitializer
   - hash:
       serializedVersion: 2
       Hash: 4bd1cc3c85989d2213a9a8fd9d09e63f
@@ -850,6 +769,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.dll
     namespaceName: Photon.Pun
     className: PhotonTransformView
+  - hash:
+      serializedVersion: 2
+      Hash: 443e1568ce992cc0d1ad52a4c241ccb8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Shoot
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1086,7 +1011,7 @@ ScriptsOnlyBuild:
     className: PunTurnManager
   - hash:
       serializedVersion: 2
-      Hash: b255897a2db7cefe612549c88099c3fb
+      Hash: ae7a3f0f4a593699aa05c83b37093be9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: RaceMonitor
@@ -1422,6 +1347,5 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   platform: 13
   scenePathNames:
-  - Assets/Scenes/GUIScene.unity
-  - Assets/Scenes/SampleScene.unity
-  playerPath: /Users/vaibhavrakheja/Documents/Unity Car Game/Unity-CcracyCcopsV2.0-Multiplayer/CcrazyCcopsV2.0/CcracyCopsApk0.2.apk
+  - Assets/Scenes/LobbyScene.unity
+  playerPath: /Users/vaibhavrakheja/Documents/Unity Car Game/Unity-CcracyCcopsV2.0-Multiplayer/CcrazyCcopsV2.0/CcracyCopsApk0.1.0.apk

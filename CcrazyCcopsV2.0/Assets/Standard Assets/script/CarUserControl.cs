@@ -2,12 +2,14 @@ using System;
 using UnityEngine;
 using System.Collections;
 using UnityStandardAssets.CrossPlatformInput;
+using Photon.Realtime;
+using Photon.Pun;
 
 
 namespace UnityStandardAssets.Vehicles.Car
 {
     [RequireComponent(typeof (CarController))]
-    public class CarUserControl : MonoBehaviour
+    public class CarUserControl : MonoBehaviourPunCallbacks
     {
         private CarController m_Car; // the car controller we want to use
 
@@ -47,16 +49,24 @@ namespace UnityStandardAssets.Vehicles.Car
             if(boost > 0.001f)
             {
                 Debug.Log("Boost");
+                if(photonView.IsMine)
+                {
                 Nitrous();
+               }
             }
 
             
 
 #if !MOBILE_INPUT
-            
+             if(photonView.IsMine)
+                {
             m_Car.Move(h, v, v, handbrake);
+                }
 #else
+        if(photonView.IsMine)
+                {
             m_Car.Move(h, v, v, handbrake);
+              }
 #endif
         }
 
