@@ -5,6 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - MiniGun
+  - MachineGun
+  - RocketLauncher
+  - LaserGun
+  - Shooter
+  - Target
+  - Missile
+  - PlayerBody
   layers:
   - Default
   - TransparentFX

@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Realtime;
+using Photon.Pun;
  
-public class LookAtEnemy : MonoBehaviour
+public class LookAtEnemy : MonoBehaviourPunCallbacks
 {
     public GameObject enemy;
     // This is what the player is looking at. In this example it is the dinosaur's head.
@@ -39,6 +41,8 @@ public class LookAtEnemy : MonoBehaviour
     private Quaternion lookAt;
     private Quaternion targetRotation;
 
+    public float MaxDist = 30f;
+
     void Start()
     {
         EnemyArrayObj = GameObject.FindGameObjectsWithTag("Enemy");
@@ -47,22 +51,48 @@ public class LookAtEnemy : MonoBehaviour
            Debug.Log(EnemyArrayObj[i].name);
            EnemyArray[i] = EnemyArrayObj[i].transform;
        }
+
+       Invoke("FindEnenmy", 10f);
     }
  
     void Update()
     {
+       
         RotateGun();
 
-        
 
         float dist = Vector3.Distance(GetClosestEnemy(EnemyArray).gameObject.transform.position, fovStartPoint.transform.position);
-        if(dist < 30f)
+        if(dist < MaxDist)
         {
             enemy = GetClosestEnemy(EnemyArray).gameObject;
         }
         else
         {
             enemy = DefaultAim;
+        }
+        
+    }
+
+    
+
+    public GameObject GetEnemyForMissile()
+    {
+        return enemy;
+    }
+
+    public void FindEnenmy()
+    {
+        if(GameObject.FindGameObjectsWithTag("Player")!=null)
+        {
+        EnemyArrayObj = GameObject.FindGameObjectsWithTag("Player");
+       for(int i=0; i<EnemyArrayObj.Length; i++)
+       {
+            if(!EnemyArrayObj[i].GetComponent<PhotonView>().IsMine)
+            {
+           Debug.Log(EnemyArrayObj[i].name);
+           EnemyArray[i] = EnemyArrayObj[i].transform;
+            }
+       }
         }
         
     }
@@ -136,7 +166,7 @@ public class LookAtEnemy : MonoBehaviour
     }
 
 
-    Transform GetClosestEnemy(Transform[] enemies)
+    public Transform GetClosestEnemy(Transform[] enemies)
         {
             Transform tMin = null;
             float minDist = Mathf.Infinity;

@@ -19,6 +19,8 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
 
     public GameObject StartGame; 
 
+    public GameObject waitingText;
+
 
     int playerCar;
     // Start is called before the first frame update
@@ -30,6 +32,7 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
         }
 
         StartGame.SetActive(false);
+        waitingText.SetActive(false);
         playerCar = PlayerPrefs.GetInt("PlayerCar");
         int RandomSpw = Random.Range(0, spawnPoints.Length);
         Vector3 StartPos = spawnPoints[RandomSpw].position;
@@ -38,8 +41,9 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
 
         if(PhotonNetwork.IsConnected)
         {
-            StartPos = spawnPoints[PhotonNetwork.CurrentRoom.PlayerCount-1].position;
-            StartRot = spawnPoints[PhotonNetwork.CurrentRoom.PlayerCount-1].rotation;
+            int sp = Random.Range(0, spawnPoints.Length);
+            StartPos = spawnPoints[sp].position;
+            StartRot = spawnPoints[sp].rotation;
 
             if(NetworkedPlayer.LocalPlayerInstance == null)
             {
@@ -53,32 +57,41 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
                 
                 StartGame.SetActive(true);
             }
+            else
+            {
+                    waitingText.SetActive(true);
+            }
         }
         else{
+
+            
 
             pcar = Instantiate(players[playerCar]);
 
             pcar.transform.position = StartPos;
             pcar.transform.rotation = StartRot;
 
-            foreach(Transform t in spawnPoints)
-                {
-                GameObject player = Instantiate(players[Random.Range(0,players.Length)]);
-                player.transform.position = t.position;
-                player.transform.rotation = t.rotation;
-                }
+            // foreach(Transform t in spawnPoints)
+            //     {
+            //     GameObject player = Instantiate(players[Random.Range(1,players.Length)]);
+            //     player.transform.position = t.position;
+            //     player.transform.rotation = t.rotation;
+            //     }
 
-            StartMatch();
+            BeginGame();
         }
+
+        Debug.Log(pcar.name);
+        var vcam = Camera.GetComponentInChildren<CinemachineVirtualCamera>();
+        vcam.LookAt = pcar.transform;
+        vcam.Follow = pcar.transform;
 
         
         playerCar = PlayerPrefs.GetInt("PlayerCar");
         
 
          
-        var vcam = Camera.GetComponentInChildren<CinemachineVirtualCamera>();
-        vcam.LookAt = pcar.transform;
-        vcam.Follow = pcar.transform;
+        
         
 
     }
@@ -89,10 +102,23 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
         
     }
 
+    public void BeginGame()
+    {
+        if(PhotonNetwork.IsMasterClient)
+        {
+            photonView.RPC("StartMatch", RpcTarget.All, null);
+        }
+       
+        
+    }
+
+    [PunRPC]
     public void StartMatch()
     {
-        StartCoroutine(playCountdown());
         StartGame.SetActive(false);
+        waitingText.SetActive(false);
+        StartCoroutine(playCountdown());
+        
     }
 
 
