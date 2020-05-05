@@ -38,6 +38,15 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     public GameObject StartGameButton;
 
+    public Text GameModeText;
+
+    public Image PannelBackground;
+
+    public Sprite racingBackground;
+
+    public Sprite deathRaceBackground;
+    
+
 
 
 
@@ -45,6 +54,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     void Start()
     {
         ActivatePanel(LoginUIPanel.name);
+        PhotonNetwork.AutomaticallySyncScene = true;
     }
 
     // Update is called once per frame
@@ -155,6 +165,18 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
             RoomInfoText.text = "Room Name: "+ PhotonNetwork.CurrentRoom.Name + " " +  " Players/MaxPlayers: "+ PhotonNetwork.CurrentRoom.PlayerCount + " / "+ PhotonNetwork.CurrentRoom.MaxPlayers;
 
+            if(PhotonNetwork.CurrentRoom.CustomProperties.ContainsValue("rc"))
+            {
+                //Racing Mode
+                GameModeText.text = "Death Race";
+                PannelBackground.sprite = racingBackground;
+            }
+            else if(PhotonNetwork.CurrentRoom.CustomProperties.ContainsValue("dr"))
+            {
+                //DeathRace GameMode;
+                GameModeText.text = "Demolition";
+                PannelBackground.sprite = deathRaceBackground;
+            }
             if(playerListGameObjects ==null)
             {
                 playerListGameObjects = new Dictionary<int, GameObject>();
@@ -186,6 +208,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
                 RoomInfoText.text = "Room Name: "+ PhotonNetwork.CurrentRoom.Name + " " +  " Players/MaxPlayers: "+ PhotonNetwork.CurrentRoom.PlayerCount + " / "+ PhotonNetwork.CurrentRoom.MaxPlayers;
+
 
                 GameObject pLayerListGameObject = Instantiate(PlayerListPrefab);
                 pLayerListGameObject.transform.SetParent(PlayerListContent.transform);
@@ -295,6 +318,23 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public void OnLeaveGameButtonClicked()
     {
         PhotonNetwork.LeaveRoom();
+    }
+
+    public void OnStartGameButtonClicked()
+    {
+        if(PhotonNetwork.CurrentRoom.CustomProperties.ContainsKey("gm"))
+        {
+            if(PhotonNetwork.CurrentRoom.CustomProperties.ContainsValue("rc"))
+            {
+                //racingBackground Game Mode
+                PhotonNetwork.LoadLevel("SampleScene");
+            }
+            else if(PhotonNetwork.CurrentRoom.CustomProperties.ContainsValue("dr"))
+            {
+                //DeathRace Game Mode
+                 PhotonNetwork.LoadLevel("SampleScene");
+            }
+        }
     }
 
 

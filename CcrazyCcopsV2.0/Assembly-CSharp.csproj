@@ -50,6 +50,8 @@
      <Compile Include="Assets\Resources\Shoot.cs" />
      <Compile Include="Assets\Scripts\AgentAIController.cs" />
      <Compile Include="Assets\Scripts\AgentController.cs" />
+     <Compile Include="Assets\Scripts\BulletScript.cs" />
+     <Compile Include="Assets\Scripts\DeathRacePlayer.cs" />
      <Compile Include="Assets\Scripts\Drive.cs" />
      <Compile Include="Assets\Scripts\Drive2.cs" />
      <Compile Include="Assets\Scripts\FlipCar.cs" />
@@ -61,9 +63,13 @@
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\PlayerListEntryInitializer.cs" />
      <Compile Include="Assets\Scripts\RaceMonitor.cs" />
+     <Compile Include="Assets\Scripts\RacingPlayer.cs" />
+     <Compile Include="Assets\Scripts\RocketScript.cs" />
      <Compile Include="Assets\Scripts\SelectCar.cs" />
      <Compile Include="Assets\Scripts\Skidmarks.cs" />
      <Compile Include="Assets\Scripts\Spin.cs" />
+     <Compile Include="Assets\Scripts\TakeDamage.cs" />
+     <Compile Include="Assets\Scripts\WeaponManager.cs" />
      <Compile Include="Assets\Scripts\WheelSkid.cs" />
      <Compile Include="Assets\Scripts\brake_light.cs" />
      <Compile Include="Assets\Scripts\on_off_light.cs" />

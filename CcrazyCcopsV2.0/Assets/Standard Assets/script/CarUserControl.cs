@@ -61,12 +61,12 @@ namespace UnityStandardAssets.Vehicles.Car
              if(photonView.IsMine)
                 {
             m_Car.Move(h, v, v, handbrake);
-                }
+               }
 #else
         if(photonView.IsMine)
                 {
             m_Car.Move(h, v, v, handbrake);
-              }
+             }
 #endif
         }
 

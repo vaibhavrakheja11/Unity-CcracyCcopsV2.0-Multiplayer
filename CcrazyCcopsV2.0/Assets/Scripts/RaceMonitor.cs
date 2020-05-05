@@ -41,8 +41,9 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
 
         if(PhotonNetwork.IsConnected)
         {
-            StartPos = spawnPoints[PhotonNetwork.CurrentRoom.PlayerCount-1].position;
-            StartRot = spawnPoints[PhotonNetwork.CurrentRoom.PlayerCount-1].rotation;
+            int sp = Random.Range(0, spawnPoints.Length);
+            StartPos = spawnPoints[sp].position;
+            StartRot = spawnPoints[sp].rotation;
 
             if(NetworkedPlayer.LocalPlayerInstance == null)
             {
@@ -70,12 +71,12 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
             pcar.transform.position = StartPos;
             pcar.transform.rotation = StartRot;
 
-            foreach(Transform t in spawnPoints)
-                {
-                GameObject player = Instantiate(players[Random.Range(0,players.Length)]);
-                player.transform.position = t.position;
-                player.transform.rotation = t.rotation;
-                }
+            // foreach(Transform t in spawnPoints)
+            //     {
+            //     GameObject player = Instantiate(players[Random.Range(1,players.Length)]);
+            //     player.transform.position = t.position;
+            //     player.transform.rotation = t.rotation;
+            //     }
 
             BeginGame();
         }
