@@ -322,6 +322,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     public void OnStartGameButtonClicked()
     {
+        PhotonNetwork.CurrentRoom.IsOpen = false;
+        PhotonNetwork.CurrentRoom.IsVisible = false;
         if(PhotonNetwork.CurrentRoom.CustomProperties.ContainsKey("gm"))
         {
             if(PhotonNetwork.CurrentRoom.CustomProperties.ContainsValue("rc"))

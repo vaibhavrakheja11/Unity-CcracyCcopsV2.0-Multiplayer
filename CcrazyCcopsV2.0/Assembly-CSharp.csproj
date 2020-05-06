@@ -62,9 +62,11 @@
      <Compile Include="Assets\Scripts\OpenElement.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\PlayerListEntryInitializer.cs" />
+     <Compile Include="Assets\Scripts\PlayerScore.cs" />
      <Compile Include="Assets\Scripts\RaceMonitor.cs" />
      <Compile Include="Assets\Scripts\RacingPlayer.cs" />
      <Compile Include="Assets\Scripts\RocketScript.cs" />
+     <Compile Include="Assets\Scripts\ScoreSheet.cs" />
      <Compile Include="Assets\Scripts\SelectCar.cs" />
      <Compile Include="Assets\Scripts\Skidmarks.cs" />
      <Compile Include="Assets\Scripts\Spin.cs" />

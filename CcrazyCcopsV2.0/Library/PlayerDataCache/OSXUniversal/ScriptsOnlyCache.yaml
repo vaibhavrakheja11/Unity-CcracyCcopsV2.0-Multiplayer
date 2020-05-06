@@ -959,7 +959,7 @@ ScriptsOnlyBuild:
     className: PhotonTransformView
   - hash:
       serializedVersion: 2
-      Hash: 7e1dd343938ebc33b4468e6bd1b88233
+      Hash: 5a46eb3d9ae8aae66ef7e4dcd8e37e7d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Shoot
@@ -1567,4 +1567,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/LobbyScene.unity
   - Assets/Scenes/SampleScene.unity
-  playerPath: /Users/vaibhavrakheja/Documents/Unity Car Game/Unity-CcracyCcopsV2.0-Multiplayer/CcrazyCcopsV2.0/CcracyCcopsv0.1.19.app
+  playerPath: /Users/vaibhavrakheja/Documents/Unity Car Game/Unity-CcracyCcopsV2.0-Multiplayer/CcrazyCcopsV2.0/Build/MacOs/CcracyCcopsv0.1.20.app

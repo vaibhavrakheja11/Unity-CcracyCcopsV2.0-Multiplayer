@@ -48,7 +48,7 @@ public class LookAtEnemy : MonoBehaviourPunCallbacks
         EnemyArrayObj = GameObject.FindGameObjectsWithTag("Enemy");
        for(int i=0; i<EnemyArrayObj.Length; i++)
        {
-           Debug.Log(EnemyArrayObj[i].name);
+           //Debug.Log(EnemyArrayObj[i].name);
            EnemyArray[i] = EnemyArrayObj[i].transform;
        }
 
@@ -89,7 +89,7 @@ public class LookAtEnemy : MonoBehaviourPunCallbacks
        {
             if(!EnemyArrayObj[i].GetComponent<PhotonView>().IsMine)
             {
-           Debug.Log(EnemyArrayObj[i].name);
+           //Debug.Log(EnemyArrayObj[i].name);
            EnemyArray[i] = EnemyArrayObj[i].transform;
             }
        }

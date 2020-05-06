@@ -15,11 +15,15 @@ public class RocketScript : MonoBehaviourPunCallbacks
     public float speed;
 
     float bulletDamage;
+
+    private string shotBy;
+
+    private string shotTo;
+
+    
     void Start()
     {
        
-        
-        
         
     }
 
@@ -40,6 +44,7 @@ public class RocketScript : MonoBehaviourPunCallbacks
     public void Initialize(float damage)
     {
         bulletDamage = damage;
+       
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -49,17 +54,40 @@ public class RocketScript : MonoBehaviourPunCallbacks
         
         if(collision.gameObject.CompareTag("Player"))
         {
-           
+            shotTo = collision.gameObject.GetComponent<PhotonView>().Owner.NickName;
              if(!collision.gameObject.GetComponent<PhotonView>().IsMine)
              {
-                collision.gameObject.GetComponent<PhotonView>().RPC("DoDamage", RpcTarget.AllBuffered, bulletDamage);
-                Debug.Log("Dealth "+bulletDamage+" damage to "+ collision.gameObject.name); 
+                if(shotBy!=shotTo)
+                {
+                collision.gameObject.GetComponent<PhotonView>().RPC("DoDamage", RpcTarget.AllBuffered, bulletDamage, shotTo, shotBy);
+                
+                photonView.RPC("SetScore", RpcTarget.All, null);
+                }
+                //Debug.Log("Dealth "+bulletDamage+" damage to "+ collision.gameObject.name); 
             }
             
             Destroy(gameObject);
         }
 
         
+    }
+
+
+    public void SetShotBy(string ShotBy)
+    {
+        shotBy = ShotBy;
+    }
+
+    public string GetShotBy()
+    {
+        return shotBy;
+    }
+
+
+    [PunRPC]
+    private void SetScore()
+    {
+        Debug.Log(shotBy +" shot "+ shotTo);
     }
 
 }
