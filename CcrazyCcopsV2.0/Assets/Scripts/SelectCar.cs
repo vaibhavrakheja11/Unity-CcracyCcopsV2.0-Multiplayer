@@ -49,8 +49,8 @@ public class SelectCar : MonoBehaviour
     public void SubCar()
     {
          currentCar--;
-            if(currentCar > cars.Length -1)
-                currentCar = 0;
+            if(currentCar < 0)
+                currentCar = cars.Length -1;
                 PlayerPrefs.SetInt("PlayerCar",currentCar);
 
         // Quaternion lookDIr = Quaternion.LookRotation(cars[currentCar].transform.position - this.transform.position);

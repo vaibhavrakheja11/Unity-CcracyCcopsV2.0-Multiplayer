@@ -45,6 +45,12 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public Sprite racingBackground;
 
     public Sprite deathRaceBackground;
+
+    public GameObject CarSelect;
+
+    public GameObject WeaponSelect;
+
+    public GameObject[] selectLeftRight;
     
 
 
@@ -365,5 +371,28 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         }
         return true;
     }
+
+
+    public void OnCarSelectClicked()
+    {
+        WeaponSelect.SetActive(false);
+        CarSelect.SetActive(true);
+        selectLeftRight[2].SetActive(false);
+        selectLeftRight[3].SetActive(false);
+        selectLeftRight[0].SetActive(true);
+        selectLeftRight[1].SetActive(true);
+    }
+
+    public void OnWeaponSelectClicked()
+    {
+        WeaponSelect.SetActive(true);
+        CarSelect.SetActive(false);
+        selectLeftRight[0].SetActive(false);
+        selectLeftRight[1].SetActive(false);
+        selectLeftRight[2].SetActive(true);
+        selectLeftRight[3].SetActive(true);
+    }
+
+
 
 }

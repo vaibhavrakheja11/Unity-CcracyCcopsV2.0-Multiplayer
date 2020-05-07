@@ -20,10 +20,14 @@ public class RocketScript : MonoBehaviourPunCallbacks
 
     private string shotTo;
 
+    private string type= "rocket";
+
+    public ParticleSystem Blast;
+
     
     void Start()
     {
-       
+       Blast.Stop();
         
     }
 
@@ -34,11 +38,13 @@ public class RocketScript : MonoBehaviourPunCallbacks
         var RocketTargetRotation = Quaternion.LookRotation(rocketTarget.position - transform.position);
 
         rocketRigidbody.MoveRotation(Quaternion.RotateTowards(transform.rotation, RocketTargetRotation, turn)); 
+        SendAlert(rocketTarget.gameObject);
     }
 
     public void SetTarget(GameObject target)
     {
         rocketTarget = target.transform;
+        
     }
 
     public void Initialize(float damage)
@@ -59,7 +65,7 @@ public class RocketScript : MonoBehaviourPunCallbacks
              {
                 if(shotBy!=shotTo)
                 {
-                collision.gameObject.GetComponent<PhotonView>().RPC("DoDamage", RpcTarget.AllBuffered, bulletDamage, shotTo, shotBy);
+                collision.gameObject.GetComponent<PhotonView>().RPC("DoDamage", RpcTarget.AllBuffered, bulletDamage, shotTo, shotBy,type);
                 
                 photonView.RPC("SetScore", RpcTarget.All, null);
                 }
@@ -88,6 +94,19 @@ public class RocketScript : MonoBehaviourPunCallbacks
     private void SetScore()
     {
         Debug.Log(shotBy +" shot "+ shotTo);
+    }
+
+    public void SendAlert(GameObject alertPlayer)
+    {
+        try{
+            TakeDamage td = alertPlayer.GetComponentInChildren<TakeDamage>();
+            td.GetComponent<PhotonView>().RPC("IsTarget", RpcTarget.AllBuffered, true);
+        }
+        catch
+        {
+
+        }
+        
     }
 
 }

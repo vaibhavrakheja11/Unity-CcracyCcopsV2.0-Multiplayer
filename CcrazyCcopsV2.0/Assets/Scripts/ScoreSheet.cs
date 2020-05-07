@@ -9,7 +9,7 @@ public class ScoreSheet : MonoBehaviourPunCallbacks
 {
     // Start is called before the first frame update
   
-    private GameObject localPlayer;
+    public GameObject localPlayer;
     private PlayerScore ps;
 
     //ublic Text LocalPlayerScore;

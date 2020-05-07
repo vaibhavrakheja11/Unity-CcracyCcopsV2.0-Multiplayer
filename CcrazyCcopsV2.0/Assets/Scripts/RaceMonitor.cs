@@ -21,8 +21,11 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
 
     public GameObject waitingText;
 
+    public GameObject[] DefaultWeapons;
+
 
     int playerCar;
+    int playerWeapon;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +37,7 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
         StartGame.SetActive(false);
         waitingText.SetActive(false);
         playerCar = PlayerPrefs.GetInt("PlayerCar");
+        playerWeapon = PlayerPrefs.GetInt("PlayerWep");
         int RandomSpw = Random.Range(0, spawnPoints.Length);
         Vector3 StartPos = spawnPoints[RandomSpw].position;
         Quaternion StartRot = spawnPoints[RandomSpw].rotation;
@@ -80,11 +84,20 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
 
             BeginGame();
         }
+        DefaultGunActivate dgs = pcar.GetComponentInChildren<DefaultGunActivate>();
+        dgs.ActivateWeapon(playerWeapon);
 
-        Debug.Log(pcar.name);
+
+        //Debug.Log(pcar.name);
         var vcam = Camera.GetComponentInChildren<CinemachineVirtualCamera>();
+       // vcam.Follow = pcar.transform;
+        //vcam.LookAt = pcar.GetComponentInChildren<DefaultGunBack>().GetGameObject().transform;
+         vcam.Follow = pcar.GetComponentInChildren<DefaultGunBack>().GetGameObject().transform;
         vcam.LookAt = pcar.transform;
-        vcam.Follow = pcar.transform;
+
+       
+        
+        
 
         
         playerCar = PlayerPrefs.GetInt("PlayerCar");

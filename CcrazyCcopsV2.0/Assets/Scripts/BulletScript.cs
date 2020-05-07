@@ -1,4 +1,4 @@
-﻿ using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Realtime;
@@ -13,6 +13,7 @@ public class BulletScript : MonoBehaviourPunCallbacks
     private string shotBy;
 
     private string shotTo;
+    private string type= "bullet";
 
     void Start()
     {
@@ -41,7 +42,7 @@ public class BulletScript : MonoBehaviourPunCallbacks
             {
                 if(shotBy!=shotTo)
                 {
-                    col.gameObject.GetComponent<PhotonView>().RPC("DoDamage", RpcTarget.AllBuffered, bulletDamage, shotTo, shotBy);
+                    col.gameObject.GetComponent<PhotonView>().RPC("DoDamage", RpcTarget.AllBuffered, bulletDamage, shotTo, shotBy,type);
                     photonView.RPC("SetScore", RpcTarget.All, null);
                 }
                 

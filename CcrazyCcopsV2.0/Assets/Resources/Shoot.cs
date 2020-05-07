@@ -32,6 +32,7 @@ public class Shoot : MonoBehaviourPunCallbacks
 
     public GameObject parentPlayer;
 
+    private float Fire;
 
 
     void Start()
@@ -62,11 +63,20 @@ public class Shoot : MonoBehaviourPunCallbacks
     void FixedUpdate()
     {
         
-        float Fire = CrossPlatformInputManager.GetAxis("Fire1");
-
+        Fire = CrossPlatformInputManager.GetAxis("Fire1");
         if(Fire > 0.004f && Ammo>0)
         {
-            
+        CheckShoot();
+        }
+
+    }
+
+
+    public void CheckShoot()
+    {
+        
+        if(Ammo>0)
+            {
             //Debug.Log("check for view");
             if(photonView.IsMine)
             {
@@ -85,7 +95,6 @@ public class Shoot : MonoBehaviourPunCallbacks
         {
             photonView.RPC("DeactivateWeapon", RpcTarget.All, null);
         }
-
     }
 
     void ShootFunc()
@@ -96,7 +105,7 @@ public class Shoot : MonoBehaviourPunCallbacks
     
         //GameObject bulletClone = Instantiate(bullet, gunFunnel.transform.position, gunFunnel.transform.rotation) as GameObject;
         GameObject bulletClone = PhotonNetwork.Instantiate(bullet.name, gunFunnel.transform.position, gunFunnel.transform.rotation) as GameObject;
-        Destroy(bulletClone.gameObject,destroyTime);
+        
         if(bullet.name.Equals("Bullet"))
         {
             bulletClone.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
