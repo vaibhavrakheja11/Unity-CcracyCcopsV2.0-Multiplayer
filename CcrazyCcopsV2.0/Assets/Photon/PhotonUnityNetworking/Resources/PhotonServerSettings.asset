@@ -37,6 +37,10 @@ MonoBehaviour:
   - DeactivateWeapon
   - FireMissile
   - DoDamage
+  - ShootFunc
+  - SetScore
+  - IsTarget
+  - ActivateWeapon
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
