@@ -16,6 +16,9 @@ TagManager:
   - ScoreManager
   - DefaultGun
   - HeavyMachineGun
+  - FxTemporaire
+  - MineWeapon
+  - Shield
   layers:
   - Default
   - TransparentFX

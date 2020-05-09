@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityStandardAssets.CrossPlatformInput;
 using Photon.Realtime;
 using Photon.Pun;
@@ -14,7 +15,9 @@ public class Shoot : MonoBehaviourPunCallbacks
     public GameObject gunFunnel;
     //public GameObject bullet;
     public GameObject bullet;
-    public int Ammo = 100000;
+    public int AmmoRegain;
+
+    private int Ammo;
 
     public GameObject GunPrefab;
 
@@ -34,11 +37,33 @@ public class Shoot : MonoBehaviourPunCallbacks
 
     private float Fire;
 
+    public string InputAxes;
+
+    //public ButtonHandler button;
+    public bool IsGuided = true;
+
+
+    
+
+
+
+ 
+   
+
+
+
+
+
 
     void Start()
     {
         enemyTarget = GetComponentInParent<LookAtEnemy>();
         Invoke("FindPlayer", 1f); 
+        Ammo=AmmoRegain;
+        
+
+        
+       
     }
 
     void FindPlayer()
@@ -58,12 +83,17 @@ public class Shoot : MonoBehaviourPunCallbacks
         {
             fireTimer += Time.deltaTime;
         }
+    
+        // if(Ammo < 100)
+        // AmmoText.text = Ammo.ToString();
+        // else
+        // AmmoText.text = "~";
     }
 
     void FixedUpdate()
     {
         
-        Fire = CrossPlatformInputManager.GetAxis("Fire1");
+        Fire = CrossPlatformInputManager.GetAxis(InputAxes);
         if(Fire > 0.004f && Ammo>0)
         {
         CheckShoot();
@@ -108,6 +138,8 @@ public class Shoot : MonoBehaviourPunCallbacks
         
         if(bullet.name.Equals("Bullet"))
         {
+
+           
             bulletClone.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
             bulletClone.GetComponent<BulletScript>().Initialize(Damage);
             bulletClone.GetComponent<BulletScript>().SetShotBy(PhotonNetwork.LocalPlayer.NickName);
@@ -115,11 +147,25 @@ public class Shoot : MonoBehaviourPunCallbacks
 
         if(bullet.name.Equals("Rocket"))
         {
-            //Debug.Log(PhotonNetwork.LocalPlayer.NickName);
-            //bulletClone.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
+            // Debug.Log(PhotonNetwork.LocalPlayer.NickName);
+           
+            if(enemyTarget.GetEnemyForMissile().name!="DefaultAim" && IsGuided)
             bulletClone.GetComponent<RocketScript>().SetTarget(enemyTarget.GetEnemyForMissile());
+            else 
+            bulletClone.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
             bulletClone.GetComponent<RocketScript>().Initialize(Damage);
             bulletClone.GetComponent<RocketScript>().SetShotBy(PhotonNetwork.LocalPlayer.NickName);
+            
+        }
+
+        if(bullet.name.Equals("Mine"))
+        {
+            Debug.Log(PhotonNetwork.LocalPlayer.NickName);
+            bulletClone.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
+            bulletClone.GetComponent<MineScript>().Initialize(Damage);
+            
+            
+            
         }
         
         Destroy(bulletClone.gameObject,destroyTime);
@@ -127,7 +173,7 @@ public class Shoot : MonoBehaviourPunCallbacks
 
     public override void OnEnable()
     {
-        Ammo = 100;
+        Ammo = AmmoRegain;
     }
 
     [PunRPC]
@@ -135,4 +181,12 @@ public class Shoot : MonoBehaviourPunCallbacks
     {
         GunPrefab.SetActive(false);
     }
+
+    public int GetAmmo()
+    {
+        return Ammo;
+    }
+
+    
+  
 }
