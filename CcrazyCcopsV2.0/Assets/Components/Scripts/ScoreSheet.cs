@@ -114,23 +114,22 @@ public class ScoreSheet : MonoBehaviourPunCallbacks
     public void SetButtonActive()
     {
         int i = 0;
-       foreach(GameObject wep in WeaponList)
-        {
-            if(wep.active)
-            {
-                FireButtons[i].SetActive(true);
-                weaponsActiveList[i] = true;
+    //    foreach(GameObject wep in WeaponList)
+    //     {
+    //         if(wep.active)
+    //         {
+    //             FireButtons[i].SetActive(true);
+    //             weaponsActiveList[i] = true;
                 
-            }
-            else if(FireButtons[i].name!="GunRotate")
-            {   
-                FireButtons[i].SetActive(false);
-                weaponsActiveList[i] = false;
-
-            }
-            i++;
+    //         }
+    //         else if(FireButtons[i].name!="GunRotate")
+    //         {   
+    //             FireButtons[i].SetActive(false);
+    //             weaponsActiveList[i] = false;
+    //         }
+    //         i++;
            
-        }
+    //     }
     }
 
 

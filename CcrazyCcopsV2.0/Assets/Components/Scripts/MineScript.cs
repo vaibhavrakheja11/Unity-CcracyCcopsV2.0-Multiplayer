@@ -20,6 +20,10 @@ public class MineScript : MonoBehaviourPunCallbacks
 
     public ParticleSystem Potty;
 
+    public AudioSource Blast;
+
+    public GameObject MineBody;
+
     
     void Start()
     {
@@ -48,43 +52,22 @@ public class MineScript : MonoBehaviourPunCallbacks
         if(collision.gameObject.CompareTag("Player"))
         {
             shotTo = collision.gameObject.GetComponent<PhotonView>().Owner.NickName;
-            //  if(!collision.gameObject.GetComponent<PhotonView>().IsMine)
-            //  {
-            //     if(shotBy!=shotTo)
-            //     {
-            //     collision.gameObject.GetComponent<PhotonView>().RPC("DoDamage", RpcTarget.AllBuffered, bulletDamage, shotTo, shotBy,type);
-                
-            //     photonView.RPC("SetScore", RpcTarget.All, null);
-            //    }
-            //  }
+            
             collision.gameObject.GetComponent<PhotonView>().RPC("DoDamage", RpcTarget.AllBuffered, bulletDamage, shotTo, shotBy,type);
                 
             photonView.RPC("SetScore", RpcTarget.All, null);
                 //Debug.Log("Dealth "+bulletDamage+" damage to "+ collision.gameObject.name); 
             
-            
-            Destroy(gameObject);
+            Blast.Play();
+            MineBody.SetActive(false);
+            //Destroy(gameObject);
+            StartCoroutine(DestroyBullet());
         }
 
         if(collision.gameObject.CompareTag("Shield"))
         {
-            // shotTo = collision.gameObject.GetComponent<PhotonView>().Owner.NickName;
-            //  if(!collision.gameObject.GetComponent<PhotonView>().IsMine)
-            //  {
-            //     if(shotBy!=shotTo)
-            //     {
-                // TrailAudio.Stop();
-                // Blast.Play();
-                // AudioBoom.Play();
-                // rocketBody.SetActive(false);
-                // StartCoroutine(DestroyBullet());
-                Destroy(gameObject);
-                //}
-                
-                //Debug.Log("Dealth "+bulletDamage+" damage to "+ collision.gameObject.name); 
-           // }
-            
-            
+
+            Destroy(gameObject);            
         }
 
         
@@ -108,6 +91,11 @@ public class MineScript : MonoBehaviourPunCallbacks
         Debug.Log(shotBy +" shot "+ shotTo);
     }
 
+    IEnumerator DestroyBullet(){
+     //play your sound
+     yield return new WaitForSeconds(2f); //waits 3 seconds
+     Destroy(gameObject); //this will work after 3 seconds.
+ }
     
 
 }
