@@ -251,13 +251,13 @@
  <HintPath>/Applications/Unity/Hub/Editor/2019.3.0f6/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="Photon3Unity3D">
- <HintPath>/Users/vaibhavrakheja/Documents/Unity Car Game/Unity-CcracyCcopsV2.0-Multiplayer/CcrazyCcopsV2.0/Assets/Photon/PhotonLibs/Photon3Unity3D.dll</HintPath>
+ <HintPath>/Users/vaibhavrakheja/Documents/CcrazyCcops/Unity-CcracyCcopsV2.0-Multiplayer/CcrazyCcopsV2.0/Assets/Photon/PhotonLibs/Photon3Unity3D.dll</HintPath>
  </Reference>
  <Reference Include="websocket-sharp">
- <HintPath>/Users/vaibhavrakheja/Documents/Unity Car Game/Unity-CcracyCcopsV2.0-Multiplayer/CcrazyCcopsV2.0/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
+ <HintPath>/Users/vaibhavrakheja/Documents/CcrazyCcops/Unity-CcracyCcopsV2.0-Multiplayer/CcrazyCcopsV2.0/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
- <HintPath>/Users/vaibhavrakheja/Documents/Unity Car Game/Unity-CcracyCcopsV2.0-Multiplayer/CcrazyCcopsV2.0/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
+ <HintPath>/Users/vaibhavrakheja/Documents/CcrazyCcops/Unity-CcracyCcopsV2.0-Multiplayer/CcrazyCcopsV2.0/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>/Applications/Unity/Hub/Editor/2019.3.0f6/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

@@ -18,6 +18,8 @@ namespace UnityStandardAssets.Vehicles.Car
         public GameObject particleGameObjectL;
         public GameObject particleGameObjectR;
 
+        public int BoostForce = 600;
+
         private void Awake()
         {
             // get the car controller
@@ -45,14 +47,19 @@ namespace UnityStandardAssets.Vehicles.Car
             float v = CrossPlatformInputManager.GetAxis("Vertical");
             float handbrake = CrossPlatformInputManager.GetAxis("Jump");
             float boost = CrossPlatformInputManager.GetAxis("Boost");
+
             
             if(boost > 0.001f)
             {
-                Debug.Log("Boost");
                 if(photonView.IsMine)
                 {
-                Nitrous();
-               }
+                    Nitrous();
+                }
+            }
+
+            if((h > .5f || h < -.5f) && v > 0.01f)
+            {
+                v = .7f;
             }
 
             
@@ -76,7 +83,7 @@ namespace UnityStandardAssets.Vehicles.Car
             if(isReady)
             {
             isReady = false;
-            this.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * 300, ForceMode.Acceleration);
+            this.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * BoostForce, ForceMode.Acceleration);
             particleGameObjectL.GetComponent<ParticleSystem>().Play();
             particleGameObjectR.GetComponent<ParticleSystem>().Play();
             StartCoroutine(Boost());

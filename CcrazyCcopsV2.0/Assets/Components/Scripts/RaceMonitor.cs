@@ -134,6 +134,11 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
         
     }
 
+    public GameObject GetCamera()
+    {
+        return Camera;
+    }
+
 
     IEnumerator playCountdown()
     {

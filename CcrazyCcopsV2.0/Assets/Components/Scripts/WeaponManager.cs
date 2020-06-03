@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Realtime;
+using Photon.Pun;
 
-public class WeaponManager : MonoBehaviour
+public class WeaponManager : MonoBehaviourPunCallbacks
 {
     // Start is called before the first frame update
 
     public GameObject[] Weapons;
+
+    public int healthPickupAmount = 45;
 
     public int[] WepAmmo;
     void Start()
@@ -23,7 +27,14 @@ public class WeaponManager : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         Debug.Log(other.gameObject.tag);
-        ActivateWeapon(other.gameObject.tag);
+        if(other.gameObject.CompareTag("Health"))
+        {
+            gameObject.GetComponentInParent<PhotonView>().RPC("IncreaseHealth", RpcTarget.AllBuffered, healthPickupAmount);
+        }
+        else{
+            ActivateWeapon(other.gameObject.tag);
+        }
+        
     }
 
 

@@ -15,6 +15,9 @@ public class BulletScript : MonoBehaviourPunCallbacks
     private string shotTo;
     private string type= "bullet";
 
+    public AudioSource hitAudio;
+
+    public GameObject BulletBody;
     void Start()
     {
        
@@ -37,6 +40,7 @@ public class BulletScript : MonoBehaviourPunCallbacks
         
         if(col.gameObject.CompareTag("Player"))
         {
+           
             shotTo = col.gameObject.GetComponent<PhotonView>().Owner.NickName;
             if(!col.gameObject.GetComponent<PhotonView>().IsMine)
             {
@@ -44,6 +48,10 @@ public class BulletScript : MonoBehaviourPunCallbacks
                 {
                     col.gameObject.GetComponent<PhotonView>().RPC("DoDamage", RpcTarget.AllBuffered, bulletDamage, shotTo, shotBy,type);
                     photonView.RPC("SetScore", RpcTarget.All, null);
+                    gameObject.GetComponentInChildren<GameObject>().SetActive(false);
+                    hitAudio.Play();
+                    //Destroy(gameObject);
+                    StartCoroutine(DestroyBullet());
                 }
                 
             }
@@ -60,8 +68,11 @@ public class BulletScript : MonoBehaviourPunCallbacks
                 //TrailAudio.Stop();
                 //Blast.Play();
                 //AudioBoom.Play();
-                //rocketBody.SetActive(false);
-                Destroy(gameObject);
+                hitAudio.Play();
+               BulletBody.SetActive(false);
+                
+                //Destroy(gameObject);
+                StartCoroutine(DestroyBullet());
                 //}
                 
                 //Debug.Log("Dealth "+bulletDamage+" damage to "+ collision.gameObject.name); 
@@ -87,5 +98,11 @@ public class BulletScript : MonoBehaviourPunCallbacks
     private void SetScore()
     {
         Debug.Log(shotBy +" shot "+ shotTo);
+    }
+
+    IEnumerator DestroyBullet(){
+     //play your sound
+     yield return new WaitForSeconds(.7f); //waits 3 seconds
+     Destroy(gameObject);
     }
 }

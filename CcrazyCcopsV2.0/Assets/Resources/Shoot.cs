@@ -43,6 +43,7 @@ public class Shoot : MonoBehaviourPunCallbacks
     public bool IsGuided = true;
 
 
+
     
 
 
@@ -58,12 +59,8 @@ public class Shoot : MonoBehaviourPunCallbacks
     void Start()
     {
         enemyTarget = GetComponentInParent<LookAtEnemy>();
-        Invoke("FindPlayer", 1f); 
-        Ammo=AmmoRegain;
-        
-
-        
-       
+        Invoke("FindPlayer", .4f); 
+        Ammo=AmmoRegain; 
     }
 
     void FindPlayer()
@@ -94,7 +91,8 @@ public class Shoot : MonoBehaviourPunCallbacks
     {
         
         Fire = CrossPlatformInputManager.GetAxis(InputAxes);
-        if(Fire > 0.004f && Ammo>0)
+        
+        if(Fire > .8f && Ammo>0)
         {
         CheckShoot();
         }
@@ -129,46 +127,51 @@ public class Shoot : MonoBehaviourPunCallbacks
 
     void ShootFunc()
     {
-        // Rigidbody BulletClone = Instantiate(bullet, gunFunnel.transform.position, this.transform.rotation);
-        // //Rigidbody BulletClone = PhotonNetwork.Instantiate(bullet.GameObject.name, gunFunnel.transform.position, this.transform.rotation);
-        // BulletClone.velocity = transform.TransformDirection(new Vector3(0,0, bulletSpeed));
-    
-        //GameObject bulletClone = Instantiate(bullet, gunFunnel.transform.position, gunFunnel.transform.rotation) as GameObject;
-        GameObject bulletClone = PhotonNetwork.Instantiate(bullet.name, gunFunnel.transform.position, gunFunnel.transform.rotation) as GameObject;
+        
         
         if(bullet.name.Equals("Bullet"))
         {
 
-           
+           GameObject bulletClone = PhotonNetwork.Instantiate(bullet.name, gunFunnel.transform.position, gunFunnel.transform.rotation) as GameObject;
             bulletClone.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
             bulletClone.GetComponent<BulletScript>().Initialize(Damage);
             bulletClone.GetComponent<BulletScript>().SetShotBy(PhotonNetwork.LocalPlayer.NickName);
+            Destroy(bulletClone.gameObject,destroyTime);
+        }
+
+        if(bullet.name.Equals("BGrenede"))
+        {
+
+           GameObject bulletClone = PhotonNetwork.Instantiate(bullet.name, gunFunnel.transform.position, gunFunnel.transform.rotation) as GameObject;
+            bulletClone.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
+            bulletClone.GetComponent<BouncingGrenedeScript>().Initialize(Damage);
+            bulletClone.GetComponent<BouncingGrenedeScript>().SetShotBy(PhotonNetwork.LocalPlayer.NickName);
+            Destroy(bulletClone.gameObject,destroyTime);
         }
 
         if(bullet.name.Equals("Rocket"))
         {
-            // Debug.Log(PhotonNetwork.LocalPlayer.NickName);
-           
+            
+            GameObject bulletClone = PhotonNetwork.Instantiate(bullet.name, gunFunnel.transform.position, gunFunnel.transform.rotation) as GameObject;
             if(enemyTarget.GetEnemyForMissile().name!="DefaultAim" && IsGuided)
             bulletClone.GetComponent<RocketScript>().SetTarget(enemyTarget.GetEnemyForMissile());
             else 
             bulletClone.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
             bulletClone.GetComponent<RocketScript>().Initialize(Damage);
             bulletClone.GetComponent<RocketScript>().SetShotBy(PhotonNetwork.LocalPlayer.NickName);
+            Destroy(bulletClone.gameObject,destroyTime);
             
         }
 
         if(bullet.name.Equals("Mine"))
         {
-            Debug.Log(PhotonNetwork.LocalPlayer.NickName);
+            GameObject bulletClone = PhotonNetwork.Instantiate(bullet.name, gunFunnel.transform.position, gunFunnel.transform.rotation) as GameObject;
             bulletClone.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
-            bulletClone.GetComponent<MineScript>().Initialize(Damage);
-            
-            
-            
+            bulletClone.GetComponent<MineScript>().Initialize(Damage);    
+            Destroy(bulletClone.gameObject,destroyTime);
         }
+ 
         
-        Destroy(bulletClone.gameObject,destroyTime);
     }
 
     public override void OnEnable()
