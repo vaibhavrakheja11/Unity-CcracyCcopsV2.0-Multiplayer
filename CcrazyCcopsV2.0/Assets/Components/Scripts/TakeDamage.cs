@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Cinemachine;
 using Photon.Realtime;
 using Photon.Pun;
 
@@ -16,6 +17,23 @@ public class TakeDamage : MonoBehaviourPunCallbacks
     public ParticleSystem[] particles; 
     public ParticleSystem[] HealthParticles; 
 
+    private bool respawn = true;
+
+    private RaceMonitor raceMonitor;
+
+    private GameObject Camera;
+
+    private CinemachineVirtualCamera vcam;
+    private CinemachineBasicMultiChannelPerlin vcamNoise;
+
+    public float ShakeDuration = 0.3f;
+    public float ShakeAmplitutde = 2.0f;
+    public float ShakeFrequency = 2.0f;
+
+    private float ShakeElapsedTime =0f;
+
+    
+
 
 
     public Image healthBar;
@@ -29,6 +47,15 @@ public class TakeDamage : MonoBehaviourPunCallbacks
 
         StopParticle(particles);
         StopParticle(HealthParticles);
+
+        raceMonitor = GameObject.FindObjectOfType<RaceMonitor>();
+        Camera = raceMonitor.GetCamera();
+        vcam = Camera.GetComponentInChildren<CinemachineVirtualCamera>();
+
+        if(vcam != null)
+        {
+            vcamNoise = Camera.GetComponentInChildren<Cinemachine.CinemachineBasicMultiChannelPerlin>();
+        }
         
         
         
@@ -38,10 +65,21 @@ public class TakeDamage : MonoBehaviourPunCallbacks
     void Update()
     {
         CheckHealth(health);
+        
+        
     }
+
+    void FixedUpdate()
+    {
+        CheckCamShake();
+    }
+
+
+
     [PunRPC]
     public void DoDamage(float _damage, string shotTo, string shotBy, string type)
     {
+        ShakeElapsedTime =  ShakeDuration;
         health -= _damage;
         //Debug.Log("PlayerHealth : "+ health);
 
@@ -61,11 +99,22 @@ public class TakeDamage : MonoBehaviourPunCallbacks
             PlayParticle(3);
             StartCoroutine(StopPlayingParticle(3));
         }
+        else if(type == "grenede")
+        {
+            PlayParticle(2);
+            StartCoroutine(StopPlayingParticle(2));
+        }
     }
 
 
     private void CheckHealth(float health)
     {
+        if(health>100)
+        {
+            health = 100;
+        }
+
+
         if (health<20){
             HealthParticles[0].Stop();
             HealthParticles[1].Stop();
@@ -95,6 +144,11 @@ public class TakeDamage : MonoBehaviourPunCallbacks
         PlayParticle(0);
         Debug.Log(shotTo+"just got fucked by "+ shotBy);
         scoreSheet.ShotKill(shotBy,shotTo);
+
+        if(respawn)
+        {
+            IncreaseHealth(100);
+        }
         
         
     }
@@ -124,6 +178,36 @@ public class TakeDamage : MonoBehaviourPunCallbacks
     public void IsTarget(bool isTaregt)
     {
         PlayParticle(1);
+        StartCoroutine(StopPlayingParticle(5));
+    }
+
+    [PunRPC]
+    public void IncreaseHealth(int amount)
+    {
+        
+        health += amount;
+        //Debug.Log("PlayerHealth : "+ health);
+        if(health>100)
+        {
+            health = 100;
+        }
+
+        healthBar.fillAmount = health/startHealth;
+    }
+
+    public void CheckCamShake()
+    {
+        if(ShakeElapsedTime > 0)
+        {
+            vcamNoise.m_AmplitudeGain = ShakeAmplitutde;
+            vcamNoise.m_FrequencyGain = ShakeFrequency;
+            ShakeElapsedTime -= Time.deltaTime;
+        }
+        else
+        {
+             vcamNoise.m_AmplitudeGain = 0f;
+             vcamNoise.m_FrequencyGain = 0f;
+        }
     }
 
     

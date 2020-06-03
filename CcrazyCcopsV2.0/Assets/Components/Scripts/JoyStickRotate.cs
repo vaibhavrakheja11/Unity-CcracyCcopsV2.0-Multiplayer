@@ -57,7 +57,7 @@ public class JoyStickRotate : MonoBehaviourPunCallbacks
         {
             shoot.CheckShoot();
         }
-        Debug.Log("h: "+ h + "v: "+ v);
+        //Debug.Log("h: "+ h + "v: "+ v);
         if(h == 0 || v ==0)
         {
             Quaternion targetRotation = Quaternion.Euler(0, 0, 0);
