@@ -121,7 +121,7 @@ public class Shoot : MonoBehaviourPunCallbacks
         }
         if(Ammo==0)
         {
-            photonView.RPC("DeactivateWeapon", RpcTarget.All, null);
+            photonView.RPC("DeactivateWeapon", RpcTarget.AllBuffered, null);
         }
     }
 

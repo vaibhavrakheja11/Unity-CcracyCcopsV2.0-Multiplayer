@@ -15,6 +15,7 @@ ScriptsOnlyBuild:
     - BulletScript
     - DefaultGunActivate
     - DefaultGunBack
+    - EmoteManager
     - JoyStickRotate
     - LookAtEnemy
     - MineScript
@@ -383,6 +384,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13584}
     - Class: 114
       Script: {instanceID: 13600}
+    - Class: 114
+      Script: {instanceID: 23606}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1668,8 +1671,14 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 4bfa6003706aadd9b16cbbe5e90d8343
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EmoteManager
   platform: 13
   scenePathNames:
   - Assets/Components/Scenes/LobbyScene.unity
   - Assets/Components/Scenes/SampleScene.unity
-  playerPath: /Users/vaibhavrakheja/Documents/CcrazyCcops/Unity-CcracyCcopsV2.0-Multiplayer/Build/Android/CcracyCopsApk0.1.60.apk
+  playerPath: /Users/vaibhavrakheja/Documents/CcrazyCcops/CCrazy Ccops V2 Builds/Build/Android/CcracyCopsApk0.1.63.apk

@@ -54,6 +54,7 @@
      <Compile Include="Assets\Components\Scripts\DefaultGunBack.cs" />
      <Compile Include="Assets\Components\Scripts\Drive.cs" />
      <Compile Include="Assets\Components\Scripts\Drive2.cs" />
+     <Compile Include="Assets\Components\Scripts\EmoteManager.cs" />
      <Compile Include="Assets\Components\Scripts\FindTextScript.cs" />
      <Compile Include="Assets\Components\Scripts\FlipCar.cs" />
      <Compile Include="Assets\Components\Scripts\GravityScript.cs" />

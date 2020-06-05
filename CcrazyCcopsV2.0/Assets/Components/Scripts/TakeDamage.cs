@@ -79,10 +79,10 @@ public class TakeDamage : MonoBehaviourPunCallbacks
     [PunRPC]
     public void DoDamage(float _damage, string shotTo, string shotBy, string type)
     {
+        
         ShakeElapsedTime =  ShakeDuration;
         health -= _damage;
         //Debug.Log("PlayerHealth : "+ health);
-
         healthBar.fillAmount = health/startHealth;
         scoreSheet.ShotScore(shotBy,shotTo);
         if(health <= 0f)
@@ -109,6 +109,7 @@ public class TakeDamage : MonoBehaviourPunCallbacks
 
     private void CheckHealth(float health)
     {
+
         if(health>100)
         {
             health = 100;
