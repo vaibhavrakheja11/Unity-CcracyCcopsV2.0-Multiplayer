@@ -55,6 +55,7 @@
      <Compile Include="Assets\Components\Scripts\Drive.cs" />
      <Compile Include="Assets\Components\Scripts\Drive2.cs" />
      <Compile Include="Assets\Components\Scripts\EmoteManager.cs" />
+     <Compile Include="Assets\Components\Scripts\FartScript.cs" />
      <Compile Include="Assets\Components\Scripts\FindTextScript.cs" />
      <Compile Include="Assets\Components\Scripts\FlipCar.cs" />
      <Compile Include="Assets\Components\Scripts\GravityScript.cs" />
@@ -84,6 +85,7 @@
      <Compile Include="Assets\Photon\PhotonRealtime\Demos\DemoLoadBalancing\ConnectAndJoinRandomLb.cs" />
      <Compile Include="Assets\Resources\NetworkedPlayer.cs" />
      <Compile Include="Assets\Resources\Shoot.cs" />
+     <Compile Include="Assets\ShieldScript.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\Photon\PhotonUnityNetworking\changelog.txt" />

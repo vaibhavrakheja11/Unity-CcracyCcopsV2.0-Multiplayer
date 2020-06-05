@@ -103,13 +103,15 @@ public class RocketScript : MonoBehaviourPunCallbacks
             //  {
             //     if(shotBy!=shotTo)
             //     {
+                 if(!photonView.IsMine)
+            {
                 TrailAudio.Stop();
                 Blast.Play();
                 AudioBoom.Play();
                 rocketBody.SetActive(false);
                 StartCoroutine(DestroyBullet());
                 //}
-                
+            }
                 //Debug.Log("Dealth "+bulletDamage+" damage to "+ collision.gameObject.name); 
            // }
             

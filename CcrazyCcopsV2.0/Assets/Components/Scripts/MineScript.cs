@@ -66,8 +66,10 @@ public class MineScript : MonoBehaviourPunCallbacks
 
         if(collision.gameObject.CompareTag("Shield"))
         {
-
-            Destroy(gameObject);            
+            if(!photonView.IsMine)
+            {
+                Destroy(gameObject);
+            }            
         }
 
         

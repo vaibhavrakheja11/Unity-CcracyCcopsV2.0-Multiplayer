@@ -16,6 +16,7 @@ ScriptsOnlyBuild:
     - DefaultGunActivate
     - DefaultGunBack
     - EmoteManager
+    - FartScript
     - JoyStickRotate
     - LookAtEnemy
     - MineScript
@@ -221,6 +222,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13602}
     - Class: 114
       Script: {instanceID: 15352}
+    - Class: 114
+      Script: {instanceID: 309044}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -283,6 +286,12 @@ ScriptsOnlyBuild:
     - Class: 83
       Script: {instanceID: 0}
     - Class: 89
+      Script: {instanceID: 0}
+    - Class: 90
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
       Script: {instanceID: 0}
     - Class: 96
       Script: {instanceID: 0}
@@ -386,6 +395,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13600}
     - Class: 114
       Script: {instanceID: 23606}
+    - Class: 114
+      Script: {instanceID: 309044}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1295,7 +1306,7 @@ ScriptsOnlyBuild:
     className: CinemachineTouchInputMapper
   - hash:
       serializedVersion: 2
-      Hash: ed7fb6e3f56d4903362cf6c3cfbde414
+      Hash: 6eeda4b0cea508968301ff3a609b1215
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: WeaponManager
@@ -1677,8 +1688,14 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EmoteManager
+  - hash:
+      serializedVersion: 2
+      Hash: dd864826018db07b9cb0172c9d5f7fb7
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FartScript
   platform: 13
   scenePathNames:
   - Assets/Components/Scenes/LobbyScene.unity
   - Assets/Components/Scenes/SampleScene.unity
-  playerPath: /Users/vaibhavrakheja/Documents/CcrazyCcops/CCrazy Ccops V2 Builds/Build/Android/CcracyCopsApk0.1.63.apk
+  playerPath: /Users/vaibhavrakheja/Documents/CcrazyCcops/CCrazy Ccops V2 Builds/Build/Android/CcracyCopsApk0.1.64.apk

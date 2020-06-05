@@ -104,6 +104,11 @@ public class TakeDamage : MonoBehaviourPunCallbacks
             PlayParticle(2);
             StartCoroutine(StopPlayingParticle(2));
         }
+        else if(type == "fart")
+        {
+            PlayParticle(4);
+            StartCoroutine(StopPlayingParticle(4));
+        }
     }
 
 

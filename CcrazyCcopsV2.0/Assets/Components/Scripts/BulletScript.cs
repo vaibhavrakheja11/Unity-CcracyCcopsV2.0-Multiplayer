@@ -68,11 +68,14 @@ public class BulletScript : MonoBehaviourPunCallbacks
                 //TrailAudio.Stop();
                 //Blast.Play();
                 //AudioBoom.Play();
-                hitAudio.Play();
-               BulletBody.SetActive(false);
-                
-                //Destroy(gameObject);
-                StartCoroutine(DestroyBullet());
+            if(!photonView.IsMine)
+                {
+                    hitAudio.Play();
+                    BulletBody.SetActive(false);
+                    
+                    //Destroy(gameObject);
+                    StartCoroutine(DestroyBullet());
+                }
                 //}
                 
                 //Debug.Log("Dealth "+bulletDamage+" damage to "+ collision.gameObject.name); 

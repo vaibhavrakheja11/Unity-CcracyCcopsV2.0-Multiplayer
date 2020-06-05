@@ -170,6 +170,14 @@ public class Shoot : MonoBehaviourPunCallbacks
             bulletClone.GetComponent<MineScript>().Initialize(Damage);    
             Destroy(bulletClone.gameObject,destroyTime);
         }
+
+        if(bullet.name.Equals("FartBomb"))
+        {
+            GameObject bulletClone = PhotonNetwork.Instantiate(bullet.name, gunFunnel.transform.position, gunFunnel.transform.rotation) as GameObject;
+            bulletClone.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
+            bulletClone.GetComponent<FartScript>().Initialize(Damage);    
+            Destroy(bulletClone.gameObject,destroyTime);
+        }
  
         
     }
