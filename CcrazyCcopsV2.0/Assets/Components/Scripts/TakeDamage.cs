@@ -22,6 +22,8 @@ public class TakeDamage : MonoBehaviourPunCallbacks
     private RaceMonitor raceMonitor;
 
     private GameObject Camera;
+    [SerializeField]
+    private GameObject MyCamera;
 
     private CinemachineVirtualCamera vcam;
     private CinemachineBasicMultiChannelPerlin vcamNoise;
@@ -32,6 +34,8 @@ public class TakeDamage : MonoBehaviourPunCallbacks
 
     private float ShakeElapsedTime =0f;
 
+    string Nickname;
+
     
 
 
@@ -40,6 +44,7 @@ public class TakeDamage : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     { 
+        Nickname = PhotonNetwork.LocalPlayer.NickName;
         health = startHealth;
         healthBar.fillAmount = health/ startHealth;
         GameObject scoreManager = GameObject.FindGameObjectWithTag("ScoreManager");
@@ -72,6 +77,11 @@ public class TakeDamage : MonoBehaviourPunCallbacks
     void FixedUpdate()
     {
         CheckCamShake();
+    }
+
+    public string GetNickName()
+    {
+        return Nickname;
     }
 
 
@@ -184,7 +194,7 @@ public class TakeDamage : MonoBehaviourPunCallbacks
     public void IsTarget(bool isTaregt)
     {
         PlayParticle(1);
-        StartCoroutine(StopPlayingParticle(5));
+        StartCoroutine(StopPlayingParticle(4));
     }
 
     [PunRPC]
@@ -223,7 +233,7 @@ public class TakeDamage : MonoBehaviourPunCallbacks
     IEnumerator StopPlayingParticle(int parNumber)
         {
             yield return new WaitForSeconds(4);
-           particles[parNumber].Stop();
+            particles[parNumber].Stop();
         }  
 
     

@@ -24,6 +24,8 @@ public class BouncingGrenedeScript : MonoBehaviourPunCallbacks
 
     public GameObject MineBody;
 
+    bool shieldHit = false;
+
     
     void Start()
     {
@@ -47,32 +49,47 @@ public class BouncingGrenedeScript : MonoBehaviourPunCallbacks
     private void OnTriggerEnter(Collider collision)
     {
 
-        Debug.Log(collision.name);
-
         if(collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("PlayerBody"))
         {
-            shotTo = collision.gameObject.GetComponentInParent<PhotonView>().Owner.NickName;
-            
-            collision.gameObject.GetComponentInParent<PhotonView>().RPC("DoDamage", RpcTarget.AllBuffered, bulletDamage, shotTo, shotBy,type);
-                
-            photonView.RPC("SetScore", RpcTarget.All, null);
-                //Debug.Log("Dealth "+bulletDamage+" damage to "+ collision.gameObject.name); 
-            
             Blast.Play();
+            shotTo = collision.gameObject.GetComponentInParent<PhotonView>().Owner.NickName;
+            collision.gameObject.GetComponentInParent<PhotonView>().RPC("DoDamage", RpcTarget.AllBuffered, bulletDamage, shotTo, shotBy,type);
+            photonView.RPC("SetScore", RpcTarget.All, null);
             MineBody.SetActive(false);
-            //Destroy(gameObject);
-            StartCoroutine(DestroyBullet());
+            Destroy(gameObject); 
         }
 
         if(collision.gameObject.CompareTag("Shield"))
         {
-            if(!photonView.IsMine)
-            {
-                Destroy(gameObject); 
-            }           
+                try{
+                        if(collision.gameObject.GetComponentInParent<TakeDamage>().gameObject.GetComponent<PhotonView>().IsMine)
+                        {
+                            Debug.Log("SelfShield");
+                        }
+                        else
+                        {
+                            gameObject.GetComponent<CapsuleCollider>().enabled = false;
+                            shieldHit = true;
+                            ShieldDestroy();
+                        }
+                        }catch{
+                            gameObject.GetComponent<CapsuleCollider>().enabled = false;
+                            shieldHit = true;
+                            ShieldDestroy();
+                        }
         }
 
         
+    }
+
+    public void ShieldDestroy()
+    {
+       // Debug.Log("BulletScript: CompareTagShield :: Photon View is mine is false");
+        
+        //Blast.Play();
+        Blast.Play();
+        StartCoroutine(DestroyBullet());
+
     }
 
 

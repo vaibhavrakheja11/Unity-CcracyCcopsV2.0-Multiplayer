@@ -20,6 +20,8 @@ public class EmoteManager : MonoBehaviourPunCallbacks
 
     [SerializeField]
     Text Nickname;
+
+    string playerNickname;
     
 
 
@@ -30,7 +32,6 @@ public class EmoteManager : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void start()
     {
-        
         
     }
 
@@ -52,16 +53,16 @@ public class EmoteManager : MonoBehaviourPunCallbacks
     public void CheckEmojiSource(string emoji)
     {
        
-            photonView.RPC("ShowEmojiImage", RpcTarget.AllBuffered, emoji);
+            photonView.RPC("ShowEmojiImage", RpcTarget.AllBuffered, emoji , PhotonNetwork.LocalPlayer.NickName);
             
     }
 
     [PunRPC]
-    void ShowEmojiImage(string emoji)
+    void ShowEmojiImage(string emoji, string nickname)
     {
-           
+                Debug.Log(nickname);
                 GameObject emojiImage = EmotesImages.Find(obj=>obj.name==emoji);
-                Nickname.text = PhotonNetwork.LocalPlayer.NickName;
+                Nickname.text = nickname;
                 emojiImage.SetActive(true);
                 EmotesPanel.SetActive(false);
                 StartCoroutine(HideEmojiImage(emojiImage));

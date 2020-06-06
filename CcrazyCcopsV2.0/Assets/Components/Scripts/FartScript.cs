@@ -29,6 +29,8 @@ public class FartScript : MonoBehaviourPunCallbacks
 
     bool damage = false;
 
+    bool shieldHit = false;
+
     
     void Start()
     {
@@ -54,16 +56,37 @@ public class FartScript : MonoBehaviourPunCallbacks
     {
 
         Debug.Log(collision.name);
-
         if(collision.gameObject.CompareTag("Shield"))
         {
-             if(!photonView.IsMine)
-            {
-                Destroy(gameObject);
-            }            
-        }
+                try{
+                        if(collision.gameObject.GetComponentInParent<TakeDamage>().gameObject.GetComponent<PhotonView>().IsMine)
+                        {
+                            Debug.Log("SelfShield");
+                        }
+                        else
+                        {
+                            gameObject.GetComponent<CapsuleCollider>().enabled = false;
+                            shieldHit = true;
+                            ShieldDestroy();
+                        }
+                        }catch{
+                            gameObject.GetComponent<CapsuleCollider>().enabled = false;
+                            shieldHit = true;
+                            ShieldDestroy();
+                        }
 
         
+        }
+    }
+
+    public void ShieldDestroy()
+    {
+        //Debug.Log("FartScript: ShieldDestroy :: Photon View is mine is false");
+        
+        Blast.Play();
+        
+        StartCoroutine(DestroyBullet());
+
     }
 
     private void OnTriggerStay(Collider collision)

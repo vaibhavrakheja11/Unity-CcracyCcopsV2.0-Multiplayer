@@ -23,7 +23,7 @@ public class DefaultGunActivate : MonoBehaviourPunCallbacks
     [PunRPC]
     public void ActivateWeapon(int WeaponNumber)
     {
-        Debug.Log("----------------------8888sdjfksbfskjf" + WeaponNumber);
+        
         DefualtWeapons[WeaponNumber].SetActive(true);
     }
 }

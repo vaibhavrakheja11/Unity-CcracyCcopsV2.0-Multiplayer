@@ -24,6 +24,10 @@ public class MineScript : MonoBehaviourPunCallbacks
 
     public GameObject MineBody;
 
+    bool shieldHit = false;
+
+    
+
     
     void Start()
     {
@@ -66,13 +70,36 @@ public class MineScript : MonoBehaviourPunCallbacks
 
         if(collision.gameObject.CompareTag("Shield"))
         {
-            if(!photonView.IsMine)
-            {
-                Destroy(gameObject);
-            }            
+                try{
+                        if(collision.gameObject.GetComponentInParent<TakeDamage>().gameObject.GetComponent<PhotonView>().IsMine)
+                        {
+                            Debug.Log("SelfShield");
+                        }
+                        else
+                        {
+                            gameObject.GetComponent<CapsuleCollider>().enabled = false;
+                            shieldHit = true;
+                            ShieldDestroy();
+                        }
+                        }catch{
+                            gameObject.GetComponent<CapsuleCollider>().enabled = false;
+                            shieldHit = true;
+                            ShieldDestroy();
+                        }
         }
 
         
+    }
+
+
+    public void ShieldDestroy()
+    {
+        
+        
+        Blast.Play();
+        
+        StartCoroutine(DestroyBullet());
+
     }
 
 
