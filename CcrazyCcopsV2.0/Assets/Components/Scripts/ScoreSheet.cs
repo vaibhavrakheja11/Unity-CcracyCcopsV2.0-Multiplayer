@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using Photon.Realtime;
 using Photon.Pun;
 
+
 public class ScoreSheet : MonoBehaviourPunCallbacks
 {
     // Start is called before the first frame update
@@ -66,14 +67,23 @@ public class ScoreSheet : MonoBehaviourPunCallbacks
     public void GetPlayers()
     {
         foreach(GameObject cur in GameObject.FindGameObjectsWithTag("Player")) {
-        Debug.Log("Sss-->"+ PhotonNetwork.LocalPlayer.NickName);
            if(cur.GetComponent<PhotonView>().Owner.NickName == PhotonNetwork.LocalPlayer.NickName)
            {
-               Debug.Log("-3-3-3-3-3-3-3-3-3-3-3-3------>");
                localPlayer = cur;
                connected= true;
            }
         }
+    }
+
+
+    public GameObject GetLocalPlayer()
+    {
+        return localPlayer;
+    }
+
+    public string GetLocalPlayerNickname()
+    {
+        return PhotonNetwork.LocalPlayer.NickName;
     }
 
     public void ShotScore(string ShotBy, string ShotTo)
@@ -135,3 +145,4 @@ public class ScoreSheet : MonoBehaviourPunCallbacks
 
 
 }
+

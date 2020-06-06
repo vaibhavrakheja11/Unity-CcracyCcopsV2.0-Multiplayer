@@ -26,3 +26,4 @@ Clone the repository in a new folder. Make sure you have the suitable versions o
 
 - Vaibhav Rakheja : vaibhavrakheja11@gmail.com  -- Lead Game Developer and Programmer
 - Kevin Kain : kevinkainrksr@gmail.com -- Lead 3D Artist and Game Designer
+

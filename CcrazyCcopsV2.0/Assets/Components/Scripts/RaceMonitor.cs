@@ -95,17 +95,8 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
         vcam.Follow = pcar.GetComponentInChildren<DefaultGunBack>().GetGameObject().transform;
         vcam.LookAt = pcar.transform;
 
-       
-        
-        
-
         
         playerCar = PlayerPrefs.GetInt("PlayerCar");
-        
-
-         
-        
-        
 
     }
 
@@ -136,7 +127,7 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
 
     public GameObject GetCamera()
     {
-        return Camera;
+            return Camera;
     }
 
 

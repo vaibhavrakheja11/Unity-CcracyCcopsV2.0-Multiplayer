@@ -22,6 +22,8 @@ public class TakeDamage : MonoBehaviourPunCallbacks
     private RaceMonitor raceMonitor;
 
     private GameObject Camera;
+    [SerializeField]
+    private GameObject MyCamera;
 
     private CinemachineVirtualCamera vcam;
     private CinemachineBasicMultiChannelPerlin vcamNoise;
@@ -32,6 +34,8 @@ public class TakeDamage : MonoBehaviourPunCallbacks
 
     private float ShakeElapsedTime =0f;
 
+    string Nickname;
+
     
 
 
@@ -40,6 +44,7 @@ public class TakeDamage : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     { 
+        Nickname = PhotonNetwork.LocalPlayer.NickName;
         health = startHealth;
         healthBar.fillAmount = health/ startHealth;
         GameObject scoreManager = GameObject.FindGameObjectWithTag("ScoreManager");
@@ -74,15 +79,20 @@ public class TakeDamage : MonoBehaviourPunCallbacks
         CheckCamShake();
     }
 
+    public string GetNickName()
+    {
+        return Nickname;
+    }
+
 
 
     [PunRPC]
     public void DoDamage(float _damage, string shotTo, string shotBy, string type)
     {
+        
         ShakeElapsedTime =  ShakeDuration;
         health -= _damage;
         //Debug.Log("PlayerHealth : "+ health);
-
         healthBar.fillAmount = health/startHealth;
         scoreSheet.ShotScore(shotBy,shotTo);
         if(health <= 0f)
@@ -104,11 +114,17 @@ public class TakeDamage : MonoBehaviourPunCallbacks
             PlayParticle(2);
             StartCoroutine(StopPlayingParticle(2));
         }
+        else if(type == "fart")
+        {
+            PlayParticle(4);
+            StartCoroutine(StopPlayingParticle(4));
+        }
     }
 
 
     private void CheckHealth(float health)
     {
+
         if(health>100)
         {
             health = 100;
@@ -178,7 +194,7 @@ public class TakeDamage : MonoBehaviourPunCallbacks
     public void IsTarget(bool isTaregt)
     {
         PlayParticle(1);
-        StartCoroutine(StopPlayingParticle(5));
+        StartCoroutine(StopPlayingParticle(4));
     }
 
     [PunRPC]
@@ -217,7 +233,7 @@ public class TakeDamage : MonoBehaviourPunCallbacks
     IEnumerator StopPlayingParticle(int parNumber)
         {
             yield return new WaitForSeconds(4);
-           particles[parNumber].Stop();
+            particles[parNumber].Stop();
         }  
 
     

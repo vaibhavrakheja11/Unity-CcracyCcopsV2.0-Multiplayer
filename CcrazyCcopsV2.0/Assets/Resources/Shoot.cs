@@ -121,7 +121,7 @@ public class Shoot : MonoBehaviourPunCallbacks
         }
         if(Ammo==0)
         {
-            photonView.RPC("DeactivateWeapon", RpcTarget.All, null);
+            photonView.RPC("DeactivateWeapon", RpcTarget.AllBuffered, null);
         }
     }
 
@@ -168,6 +168,14 @@ public class Shoot : MonoBehaviourPunCallbacks
             GameObject bulletClone = PhotonNetwork.Instantiate(bullet.name, gunFunnel.transform.position, gunFunnel.transform.rotation) as GameObject;
             bulletClone.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
             bulletClone.GetComponent<MineScript>().Initialize(Damage);    
+            Destroy(bulletClone.gameObject,destroyTime);
+        }
+
+        if(bullet.name.Equals("FartBomb"))
+        {
+            GameObject bulletClone = PhotonNetwork.Instantiate(bullet.name, gunFunnel.transform.position, gunFunnel.transform.rotation) as GameObject;
+            bulletClone.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
+            bulletClone.GetComponent<FartScript>().Initialize(Damage);    
             Destroy(bulletClone.gameObject,destroyTime);
         }
  

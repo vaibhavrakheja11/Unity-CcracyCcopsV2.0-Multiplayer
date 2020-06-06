@@ -39442,6 +39442,7 @@ MonoBehaviour:
   - {fileID: 4259498547279919394}
   - {fileID: 5244966242186688389}
   - {fileID: 1426948054713701177}
+  WeaponsT: []
   healthPickupAmount: 45
   WepAmmo: 
 --- !u!65 &7040952409352693594
@@ -64892,7 +64893,6 @@ GameObject:
   - component: {fileID: 6692997354945948491}
   - component: {fileID: 6692997354945948490}
   - component: {fileID: 6692997354945948489}
-  - component: {fileID: 6692997354945948488}
   - component: {fileID: 6692997354945948487}
   - component: {fileID: 6692997354945948506}
   - component: {fileID: 6692997354945948485}
@@ -65031,23 +65031,6 @@ MonoBehaviour:
   maxRolloffDistance: 500
   dopplerLevel: 1
   useDoppler: 1
---- !u!114 &6692997354945948488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6692997354945948486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37f9761a8bd354e4ea58544b8b976c43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lights:
-  - {fileID: 6692997354778687069}
-  - {fileID: 6692997356393595714}
-  keyboard: 274
-  keyboard2: 32
 --- !u!114 &6692997354945948487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65138,6 +65121,7 @@ MonoBehaviour:
   - {fileID: 1620705016544311222}
   - {fileID: 4527745026021518081}
   - {fileID: 1378378789412511091}
+  MyCamera: {fileID: 0}
   ShakeDuration: 0.3
   ShakeAmplitutde: 2
   ShakeFrequency: 2

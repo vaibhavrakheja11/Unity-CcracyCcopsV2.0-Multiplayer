@@ -196,9 +196,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8300163342176114650}
   - component: {fileID: 6259345326757899543}
+  - component: {fileID: 8223827958435542854}
   - component: {fileID: 1849161574030790473}
   - component: {fileID: 830554794544341278}
-  - component: {fileID: 8223827958435542854}
   - component: {fileID: 467990087143576039}
   - component: {fileID: 3307611971063436183}
   - component: {fileID: 2345282235514788062}
@@ -237,6 +237,22 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.06929283
   m_Center: {x: 0.08295026, y: -0.033781704, z: 0}
+--- !u!114 &8223827958435542854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8300163342176114630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13fdb5109d72840a9925a15c282e6a53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GrenedeParticle: {fileID: 198168632713017960, guid: 95175aeab20f4d041860eca89a4ddded,
+    type: 3}
+  Blast: {fileID: 467990087143576039}
+  MineBody: {fileID: 5753879474381072377}
 --- !u!114 &1849161574030790473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,22 +290,6 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
---- !u!114 &8223827958435542854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8300163342176114630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13fdb5109d72840a9925a15c282e6a53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GrenedeParticle: {fileID: 198168632713017960, guid: 95175aeab20f4d041860eca89a4ddded,
-    type: 3}
-  Blast: {fileID: 467990087143576039}
-  MineBody: {fileID: 5753879474381072377}
 --- !u!82 &467990087143576039
 AudioSource:
   m_ObjectHideFlags: 0
