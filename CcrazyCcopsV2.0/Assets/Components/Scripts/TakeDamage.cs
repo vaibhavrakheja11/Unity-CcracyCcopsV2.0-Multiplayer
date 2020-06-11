@@ -36,6 +36,8 @@ public class TakeDamage : MonoBehaviourPunCallbacks
 
     string Nickname;
 
+    public Text NickName;
+
     
 
 
@@ -45,6 +47,7 @@ public class TakeDamage : MonoBehaviourPunCallbacks
     void Start()
     { 
         Nickname = PhotonNetwork.LocalPlayer.NickName;
+        NickName.text = Nickname;
         health = startHealth;
         healthBar.fillAmount = health/ startHealth;
         GameObject scoreManager = GameObject.FindGameObjectWithTag("ScoreManager");
