@@ -213,6 +213,7 @@ public class TakeDamage : MonoBehaviourPunCallbacks
 
     public void CheckCamShake()
     {
+        //Debug.Log("CheckCam PhotonView :"+FindObjectOfType<RaceMonitor>().gameObject.GetComponentInParent<PhotonView>().IsMine);
         if(ShakeElapsedTime > 0)
         {
             vcamNoise.m_AmplitudeGain = ShakeAmplitutde;

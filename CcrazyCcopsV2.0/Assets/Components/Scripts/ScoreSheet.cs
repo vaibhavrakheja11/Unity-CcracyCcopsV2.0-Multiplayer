@@ -26,6 +26,11 @@ public class ScoreSheet : MonoBehaviourPunCallbacks
 
     public bool[] weaponsActiveList;
 
+    
+    WeaponButtonManager weaponButtonManager;
+    [SerializeField]
+    GameObject WeaponButtons;
+
 
 
     
@@ -35,6 +40,8 @@ public class ScoreSheet : MonoBehaviourPunCallbacks
     
     void Start()
     { 
+        
+        weaponButtonManager = WeaponButtons.GetComponent<WeaponButtonManager>();
         Invoke("GetPlayers", 2f);
     
          
@@ -70,6 +77,7 @@ public class ScoreSheet : MonoBehaviourPunCallbacks
            if(cur.GetComponent<PhotonView>().Owner.NickName == PhotonNetwork.LocalPlayer.NickName)
            {
                localPlayer = cur;
+               weaponButtonManager.SetLocalPlayer(cur);
                connected= true;
            }
         }

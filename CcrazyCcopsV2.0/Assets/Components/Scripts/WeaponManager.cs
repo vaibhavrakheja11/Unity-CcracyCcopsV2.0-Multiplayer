@@ -12,6 +12,8 @@ public class WeaponManager : MonoBehaviourPunCallbacks
 
     public List<GameObject> WeaponsT;
 
+    
+
     public int healthPickupAmount = 45;
 
     public int[] WepAmmo;
@@ -46,6 +48,19 @@ public class WeaponManager : MonoBehaviourPunCallbacks
         
     }
 
+    public bool IsWeaponActive(GameObject weapon)
+    {
+        GameObject emojiImage = WeaponsT.Find(obj=>obj.name==weapon.name);
+        if(emojiImage.activeSelf)
+        {
+            return true;
+        }
+        else
+        {
+        return false;
+        }
+    }
+
 
     public void ActivateWeapon(string weaponName)
     {
@@ -65,6 +80,11 @@ public class WeaponManager : MonoBehaviourPunCallbacks
     public GameObject[] GetWeaponList()
     {
         return Weapons;
+    }
+
+     public List<GameObject> GetWeaponListT()
+    {
+        return WeaponsT;
     }
 
 
