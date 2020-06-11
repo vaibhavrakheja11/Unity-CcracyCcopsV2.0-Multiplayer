@@ -15,10 +15,6 @@ public class EmoteManager : MonoBehaviourPunCallbacks
     List<GameObject> EmotesImages;
 
     [SerializeField]
-    GameObject emotesTrigger;
-
-
-    [SerializeField]
     Text Nickname;
 
     string playerNickname;

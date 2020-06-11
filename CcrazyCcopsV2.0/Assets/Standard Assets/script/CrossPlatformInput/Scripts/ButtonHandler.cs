@@ -10,7 +10,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         void OnEnable()
         {
-
+            CrossPlatformInputManager.SetAxisZero(Name);
         }
 
         public void SetDownState()

@@ -36,6 +36,8 @@ public class TakeDamage : MonoBehaviourPunCallbacks
 
     string Nickname;
 
+    public Text NickName;
+
     
 
 
@@ -45,6 +47,7 @@ public class TakeDamage : MonoBehaviourPunCallbacks
     void Start()
     { 
         Nickname = PhotonNetwork.LocalPlayer.NickName;
+        NickName.text = Nickname;
         health = startHealth;
         healthBar.fillAmount = health/ startHealth;
         GameObject scoreManager = GameObject.FindGameObjectWithTag("ScoreManager");
@@ -213,6 +216,7 @@ public class TakeDamage : MonoBehaviourPunCallbacks
 
     public void CheckCamShake()
     {
+        //Debug.Log("CheckCam PhotonView :"+FindObjectOfType<RaceMonitor>().gameObject.GetComponentInParent<PhotonView>().IsMine);
         if(ShakeElapsedTime > 0)
         {
             vcamNoise.m_AmplitudeGain = ShakeAmplitutde;
