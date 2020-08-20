@@ -43,6 +43,12 @@ public class Shoot : MonoBehaviourPunCallbacks
     public bool IsGuided = true;
 
 
+    public ParticleSystem muzzleFlash; 
+
+    [SerializeField]
+    AudioSource FireSound = null;
+
+
 
     
 
@@ -132,11 +138,12 @@ public class Shoot : MonoBehaviourPunCallbacks
         if(bullet.name.Equals("Bullet"))
         {
 
-           GameObject bulletClone = PhotonNetwork.Instantiate(bullet.name, gunFunnel.transform.position, gunFunnel.transform.rotation) as GameObject;
+            GameObject bulletClone = PhotonNetwork.Instantiate(bullet.name, gunFunnel.transform.position, gunFunnel.transform.rotation) as GameObject;
             bulletClone.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
             bulletClone.GetComponent<BulletScript>().Initialize(Damage);
             bulletClone.GetComponent<BulletScript>().SetShotBy(PhotonNetwork.LocalPlayer.NickName);
             Destroy(bulletClone.gameObject,destroyTime);
+            muzzleFlash.Play();
         }
 
         if(bullet.name.Equals("BGrenede"))
@@ -146,6 +153,11 @@ public class Shoot : MonoBehaviourPunCallbacks
             bulletClone.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
             bulletClone.GetComponent<BouncingGrenedeScript>().Initialize(Damage);
             bulletClone.GetComponent<BouncingGrenedeScript>().SetShotBy(PhotonNetwork.LocalPlayer.NickName);
+            if(FireSound != null)
+            {
+                FireSound.Play();
+            }
+            muzzleFlash.Play();
             Destroy(bulletClone.gameObject,destroyTime);
         }
 
@@ -160,6 +172,7 @@ public class Shoot : MonoBehaviourPunCallbacks
             bulletClone.GetComponent<RocketScript>().Initialize(Damage);
             bulletClone.GetComponent<RocketScript>().SetShotBy(PhotonNetwork.LocalPlayer.NickName);
             Destroy(bulletClone.gameObject,destroyTime);
+            muzzleFlash.Play();
             
         }
 
@@ -175,7 +188,8 @@ public class Shoot : MonoBehaviourPunCallbacks
         {
             GameObject bulletClone = PhotonNetwork.Instantiate(bullet.name, gunFunnel.transform.position, gunFunnel.transform.rotation) as GameObject;
             bulletClone.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
-            bulletClone.GetComponent<FartScript>().Initialize(Damage);    
+            bulletClone.GetComponent<FartScript>().Initialize(Damage); 
+            bulletClone.GetComponent<FartScript>().SetDestroyTime(destroyTime);   
             Destroy(bulletClone.gameObject,destroyTime);
         }
  

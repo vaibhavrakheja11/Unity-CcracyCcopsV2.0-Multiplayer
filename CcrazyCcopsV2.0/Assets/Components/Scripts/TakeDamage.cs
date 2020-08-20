@@ -58,13 +58,27 @@ public class TakeDamage : MonoBehaviourPunCallbacks
 
         raceMonitor = GameObject.FindObjectOfType<RaceMonitor>();
         Camera = raceMonitor.GetCamera();
-        vcam = Camera.GetComponentInChildren<CinemachineVirtualCamera>();
 
-        if(vcam != null)
-        {
-            vcamNoise = Camera.GetComponentInChildren<Cinemachine.CinemachineBasicMultiChannelPerlin>();
-        }
+        //Camera = GameObject.FindWithTag("MainCamera");
+
+        // if(Camera.GetComponent<PhotonView>().IsMine)
+        // {
+        //     Debug.Log("TakeDamage : Start: PhotonViewCameraFound")
+        //         vcam = Camera.GetComponentInChildren<CinemachineVirtualCamera>();
+
+        //     if(vcam != null)
+        //     {
+        //         vcamNoise = Camera.GetComponentInChildren<Cinemachine.CinemachineBasicMultiChannelPerlin>();
+        //     }
+        // }
+
         
+         vcam = Camera.GetComponentInChildren<CinemachineVirtualCamera>();
+
+            if(vcam != null)
+            {
+                vcamNoise = Camera.GetComponentInChildren<Cinemachine.CinemachineBasicMultiChannelPerlin>();
+            }
         
         
     }

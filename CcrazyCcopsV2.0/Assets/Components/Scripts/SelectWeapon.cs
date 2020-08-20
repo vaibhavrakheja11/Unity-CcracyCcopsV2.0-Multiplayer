@@ -37,6 +37,7 @@ public class SelectWeapon : MonoBehaviour
     public void PlusWep()
     {
          currentWep++;
+         Debug.Log("SelectWeapon.cs :: Plus weapon"+ currentWep);
             if(currentWep > DefaultWeapons.Length -1)
                 currentWep = 0;
 
@@ -49,6 +50,7 @@ public class SelectWeapon : MonoBehaviour
     public void SubWep()
     {
          currentWep--;
+          Debug.Log("SelectWeapon.cs :: Sub weapon"+ currentWep);
             if(currentWep < 0)
                 currentWep = DefaultWeapons.Length -1;
                 PlayerPrefs.SetInt("PlayerWep",currentWep);

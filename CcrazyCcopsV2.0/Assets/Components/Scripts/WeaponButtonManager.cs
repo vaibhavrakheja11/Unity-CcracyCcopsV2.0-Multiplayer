@@ -30,7 +30,7 @@ public class WeaponButtonManager : MonoBehaviour
         {
             foreach(GameObject i in WeaponsT)
             {
-                Debug.Log("WeaponButtonManager.cs :: Update() :: I name = "+ i.name);
+                //Debug.Log("WeaponButtonManager.cs :: Update() :: I name = "+ i.name);
                 if(weaponManager.IsWeaponActive(i))
                 {
                     GameObject button = WeaponButton.Find(obj=>obj.name==i.name);

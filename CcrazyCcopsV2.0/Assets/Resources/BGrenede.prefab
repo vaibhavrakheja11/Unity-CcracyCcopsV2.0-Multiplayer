@@ -253,6 +253,7 @@ MonoBehaviour:
     type: 3}
   Blast: {fileID: 467990087143576039}
   MineBody: {fileID: 5753879474381072377}
+  diffuseblast: {fileID: 0}
 --- !u!114 &1849161574030790473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,7 +312,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 50
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -346,7 +347,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

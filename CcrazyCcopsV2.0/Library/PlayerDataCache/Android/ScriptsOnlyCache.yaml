@@ -33,6 +33,7 @@ ScriptsOnlyBuild:
     - Shoot
     - Spin
     - TakeDamage
+    - WeaponButtonManager
     - WeaponManager
     Cinemachine.dll:
     - Cinemachine.CinemachineBasicMultiChannelPerlin
@@ -43,6 +44,8 @@ ScriptsOnlyBuild:
     - Cinemachine.CinemachineTransposer
     - Cinemachine.CinemachineVirtualCamera
     - Cinemachine.NoiseSettings
+    PhotonUnityNetworking.Editor.dll:
+    - Photon.Pun.PunSceneSettings
     PhotonUnityNetworking.Utilities.dll:
     - Photon.Pun.UtilityScripts.PhotonLagSimulationGui
     - Photon.Pun.UtilityScripts.TextButtonTransition
@@ -172,61 +175,61 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12292}
     - Class: 114
-      Script: {instanceID: 12358}
+      Script: {instanceID: 12360}
     - Class: 114
-      Script: {instanceID: 12370}
+      Script: {instanceID: 12372}
     - Class: 114
-      Script: {instanceID: 12434}
+      Script: {instanceID: 12436}
     - Class: 114
-      Script: {instanceID: 12516}
+      Script: {instanceID: 12518}
     - Class: 114
-      Script: {instanceID: 12540}
+      Script: {instanceID: 12542}
     - Class: 114
-      Script: {instanceID: 12582}
+      Script: {instanceID: 12584}
     - Class: 114
-      Script: {instanceID: 12624}
+      Script: {instanceID: 12626}
     - Class: 114
-      Script: {instanceID: 12638}
+      Script: {instanceID: 12640}
     - Class: 114
-      Script: {instanceID: 12648}
+      Script: {instanceID: 12650}
     - Class: 114
-      Script: {instanceID: 12720}
+      Script: {instanceID: 12722}
     - Class: 114
-      Script: {instanceID: 12770}
+      Script: {instanceID: 12772}
     - Class: 114
-      Script: {instanceID: 12800}
+      Script: {instanceID: 12802}
     - Class: 114
-      Script: {instanceID: 12804}
+      Script: {instanceID: 12806}
     - Class: 114
-      Script: {instanceID: 12820}
+      Script: {instanceID: 12822}
     - Class: 114
-      Script: {instanceID: 12834}
+      Script: {instanceID: 12836}
     - Class: 114
-      Script: {instanceID: 12856}
+      Script: {instanceID: 12858}
     - Class: 114
-      Script: {instanceID: 12866}
+      Script: {instanceID: 12868}
     - Class: 114
-      Script: {instanceID: 13080}
+      Script: {instanceID: 13082}
     - Class: 114
-      Script: {instanceID: 13084}
+      Script: {instanceID: 13086}
     - Class: 114
-      Script: {instanceID: 13158}
+      Script: {instanceID: 13160}
     - Class: 114
-      Script: {instanceID: 13340}
+      Script: {instanceID: 13342}
     - Class: 114
-      Script: {instanceID: 13354}
+      Script: {instanceID: 13356}
     - Class: 114
-      Script: {instanceID: 13500}
+      Script: {instanceID: 13502}
     - Class: 114
-      Script: {instanceID: 13514}
+      Script: {instanceID: 13516}
     - Class: 114
-      Script: {instanceID: 13588}
+      Script: {instanceID: 13590}
     - Class: 114
-      Script: {instanceID: 13606}
+      Script: {instanceID: 13608}
     - Class: 114
-      Script: {instanceID: 15370}
+      Script: {instanceID: 15318}
     - Class: 114
-      Script: {instanceID: 18110}
+      Script: {instanceID: 19054}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -349,59 +352,61 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12292}
     - Class: 114
-      Script: {instanceID: 12358}
+      Script: {instanceID: 12342}
     - Class: 114
-      Script: {instanceID: 12370}
+      Script: {instanceID: 12360}
     - Class: 114
-      Script: {instanceID: 12382}
+      Script: {instanceID: 12372}
     - Class: 114
-      Script: {instanceID: 12386}
+      Script: {instanceID: 12384}
     - Class: 114
-      Script: {instanceID: 12434}
+      Script: {instanceID: 12388}
     - Class: 114
-      Script: {instanceID: 12516}
+      Script: {instanceID: 12436}
     - Class: 114
-      Script: {instanceID: 12638}
+      Script: {instanceID: 12518}
     - Class: 114
-      Script: {instanceID: 12660}
+      Script: {instanceID: 12640}
     - Class: 114
-      Script: {instanceID: 12720}
+      Script: {instanceID: 12662}
     - Class: 114
-      Script: {instanceID: 12804}
+      Script: {instanceID: 12722}
     - Class: 114
-      Script: {instanceID: 12834}
+      Script: {instanceID: 12806}
     - Class: 114
-      Script: {instanceID: 12856}
+      Script: {instanceID: 12836}
     - Class: 114
-      Script: {instanceID: 12866}
+      Script: {instanceID: 12858}
     - Class: 114
-      Script: {instanceID: 12892}
+      Script: {instanceID: 12868}
     - Class: 114
-      Script: {instanceID: 12940}
+      Script: {instanceID: 12894}
     - Class: 114
-      Script: {instanceID: 13012}
+      Script: {instanceID: 12942}
     - Class: 114
-      Script: {instanceID: 13080}
+      Script: {instanceID: 13014}
     - Class: 114
-      Script: {instanceID: 13084}
+      Script: {instanceID: 13082}
     - Class: 114
-      Script: {instanceID: 13144}
+      Script: {instanceID: 13086}
     - Class: 114
-      Script: {instanceID: 13158}
+      Script: {instanceID: 13146}
     - Class: 114
-      Script: {instanceID: 13354}
+      Script: {instanceID: 13160}
     - Class: 114
-      Script: {instanceID: 13500}
+      Script: {instanceID: 13356}
     - Class: 114
-      Script: {instanceID: 13514}
+      Script: {instanceID: 13502}
     - Class: 114
-      Script: {instanceID: 13534}
+      Script: {instanceID: 13516}
     - Class: 114
-      Script: {instanceID: 13556}
+      Script: {instanceID: 13536}
     - Class: 114
-      Script: {instanceID: 13588}
+      Script: {instanceID: 13558}
     - Class: 114
-      Script: {instanceID: 13604}
+      Script: {instanceID: 13590}
+    - Class: 114
+      Script: {instanceID: 13606}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -435,7 +440,7 @@ ScriptsOnlyBuild:
   scriptHashData:
   - hash:
       serializedVersion: 2
-      Hash: 9716e3f578c43d5b2adebfd107f57e06
+      Hash: e96d20037d34b592ed0a2418c7a01d44
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BouncingGrenedeScript
@@ -795,7 +800,7 @@ ScriptsOnlyBuild:
     className: CinemachineFreeLook
   - hash:
       serializedVersion: 2
-      Hash: 4bfa6003706aadd9b16cbbe5e90d8343
+      Hash: 18c6e8062c1eae2196b3d3d037b91dd4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EmoteManager
@@ -945,7 +950,7 @@ ScriptsOnlyBuild:
     className: CameraSwitch
   - hash:
       serializedVersion: 2
-      Hash: f8b1cb22ee2eedddca58e40ab0a3439e
+      Hash: 91dd4069390a0666c2b81cd304a6333e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ScoreSheet
@@ -1065,6 +1070,12 @@ ScriptsOnlyBuild:
     className: PlayerController
   - hash:
       serializedVersion: 2
+      Hash: 0dffda41b98be0a0c5c7b8360291d14b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: WeaponButtonManager
+  - hash:
+      serializedVersion: 2
       Hash: 204ea02909ea3f738dafe3ff633d2a93
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
@@ -1077,7 +1088,7 @@ ScriptsOnlyBuild:
     className: PhotonTransformView
   - hash:
       serializedVersion: 2
-      Hash: ccff881f46136c6a4d4dc8638a9aee48
+      Hash: 76f469b162b3d6988d847d39a57416d1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Shoot
@@ -1311,7 +1322,7 @@ ScriptsOnlyBuild:
     className: DefaultGunActivate
   - hash:
       serializedVersion: 2
-      Hash: a2698e931dbb817fb83adbe3ca633e2f
+      Hash: 1254735c2fb29d4034d78324c301253c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MineScript
@@ -1581,7 +1592,7 @@ ScriptsOnlyBuild:
     className: Outline
   - hash:
       serializedVersion: 2
-      Hash: d226195b998800d1327d5cb9e24e1168
+      Hash: 8bf50168a29434c510b235eb1a2f6102
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TakeDamage
@@ -1703,4 +1714,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Components/Scenes/LobbyScene.unity
   - Assets/Components/Scenes/SampleScene.unity
-  playerPath: /Users/vaibhavrakheja/Documents/CcrazyCcops/CCrazy Ccops V2 Builds/Build/Android/CcracyCopsApk0.1.69.apk
+  playerPath: /Users/vaibhavrakheja/Documents/CcrazyCcops/CCrazy Ccops V2 Builds/Build/Android/CcracyCopsApk0.1.72.apk
