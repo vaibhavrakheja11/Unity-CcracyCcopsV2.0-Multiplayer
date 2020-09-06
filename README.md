@@ -1,6 +1,6 @@
 # Unity CcrazyCcops-V2.0 Multiplayer
 
-### Trello Board - https://trello.com/b/UlE1tmIQ/ccrazy-ccops-v2
+### Trello Task Board - https://trello.com/b/UlE1tmIQ/ccrazy-ccops-v2
 
 #### Android Playstore Link: *Coming soon*
 
@@ -16,11 +16,11 @@ Clone the repository in a new folder. Make sure you have the suitable versions o
 - Version 2019.2.19f1: Supports the entire game with animation rigging using Inverse Kinematics (IKs).
 
 #### Project Completions
-- Multiplayer Networking : 75%
+- Multiplayer Networking : 100%
 - Asset Management : 50%
-- Game Mode Creation : 60%
-- Game Asset Creation : 20%
-- Game Optimisation : 0%
+- Game Mode Creation : 80%
+- Game Asset Creation : 60%
+- Game Optimisation : 20%
 
 #### Contributers: 
 
