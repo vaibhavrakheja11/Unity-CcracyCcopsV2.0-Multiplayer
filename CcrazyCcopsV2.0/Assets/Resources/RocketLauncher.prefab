@@ -4771,7 +4771,7 @@ MonoBehaviour:
   bulletSpeed: 20
   gunFunnel: {fileID: 2393078117604886343}
   bullet: {fileID: 2788260910088124279, guid: 695e4d9afb0f44f62877d68e94600512, type: 3}
-  Ammo: 4
+  AmmoRegain: 0
   GunPrefab: {fileID: 7243568336650910072}
   DeathRacePlayerProperties: {fileID: 0}
   fireRate: 2
@@ -4781,6 +4781,9 @@ MonoBehaviour:
   Damage: 40
   parentPlayer: {fileID: 0}
   InputAxes: Rocket
+  IsGuided: 1
+  muzzleFlash: {fileID: 0}
+  FireSound: {fileID: 0}
 --- !u!114 &5815751642154506723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9683,7 +9686,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5970940632847272811
 Transform:
   m_ObjectHideFlags: 0
@@ -9761,7 +9764,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 44dcad713ada84b07b9522407c79bbac, type: 3}
+  - {fileID: 2100000, guid: e7fae66db6ec37f4e8a65124e09177d6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

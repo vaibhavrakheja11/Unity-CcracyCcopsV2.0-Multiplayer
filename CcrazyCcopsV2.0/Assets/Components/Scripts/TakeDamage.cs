@@ -23,7 +23,7 @@ public class TakeDamage : MonoBehaviourPunCallbacks
 
     private GameObject Camera;
     [SerializeField]
-    private GameObject MyCamera;
+    public GameObject MyCamera;
 
     private CinemachineVirtualCamera vcam;
     private CinemachineBasicMultiChannelPerlin vcamNoise;
@@ -37,10 +37,6 @@ public class TakeDamage : MonoBehaviourPunCallbacks
     string Nickname;
 
     public Text NickName;
-
-    
-
-
 
     public Image healthBar;
     // Start is called before the first frame update
@@ -57,7 +53,6 @@ public class TakeDamage : MonoBehaviourPunCallbacks
         StopParticle(HealthParticles);
 
         raceMonitor = GameObject.FindObjectOfType<RaceMonitor>();
-        Camera = raceMonitor.GetCamera();
 
         //Camera = GameObject.FindWithTag("MainCamera");
 
@@ -73,11 +68,11 @@ public class TakeDamage : MonoBehaviourPunCallbacks
         // }
 
         
-         vcam = Camera.GetComponentInChildren<CinemachineVirtualCamera>();
+         vcam = MyCamera.GetComponentInChildren<CinemachineVirtualCamera>();
 
             if(vcam != null)
             {
-                vcamNoise = Camera.GetComponentInChildren<Cinemachine.CinemachineBasicMultiChannelPerlin>();
+                vcamNoise = MyCamera.GetComponentInChildren<Cinemachine.CinemachineBasicMultiChannelPerlin>();
             }
         
         
@@ -107,7 +102,10 @@ public class TakeDamage : MonoBehaviourPunCallbacks
     public void DoDamage(float _damage, string shotTo, string shotBy, string type)
     {
         
-        ShakeElapsedTime =  ShakeDuration;
+        if(MyCamera !=null)
+        {
+            ShakeElapsedTime =  ShakeDuration;
+        }
         health -= _damage;
         //Debug.Log("PlayerHealth : "+ health);
         healthBar.fillAmount = health/startHealth;
@@ -178,8 +176,10 @@ public class TakeDamage : MonoBehaviourPunCallbacks
         Debug.Log(shotTo+"just got fucked by "+ shotBy);
         scoreSheet.ShotKill(shotBy,shotTo);
 
+
         if(respawn)
         {
+            raceMonitor.RespawnTargetCar(this.gameObject);
             IncreaseHealth(100);
         }
         
@@ -231,22 +231,18 @@ public class TakeDamage : MonoBehaviourPunCallbacks
     public void CheckCamShake()
     {
         //Debug.Log("CheckCam PhotonView :"+FindObjectOfType<RaceMonitor>().gameObject.GetComponentInParent<PhotonView>().IsMine);
-        if(ShakeElapsedTime > 0)
+        if(ShakeElapsedTime > 0 && vcamNoise != null)
         {
             vcamNoise.m_AmplitudeGain = ShakeAmplitutde;
             vcamNoise.m_FrequencyGain = ShakeFrequency;
             ShakeElapsedTime -= Time.deltaTime;
         }
-        else
+        else if( vcamNoise != null)
         {
              vcamNoise.m_AmplitudeGain = 0f;
              vcamNoise.m_FrequencyGain = 0f;
         }
     }
-
-    
-        
-   
 
     IEnumerator StopPlayingParticle(int parNumber)
         {

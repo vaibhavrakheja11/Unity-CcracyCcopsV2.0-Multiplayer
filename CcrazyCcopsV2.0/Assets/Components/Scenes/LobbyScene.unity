@@ -6410,24 +6410,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1766451913}
     m_Modifications:
-    - target: {fileID: 5425049066957360889, guid: 64913a161de384c2781aba64917dbd90,
-        type: 3}
-      propertyPath: cars.Array.data[0]
-      value: 
-      objectReference: {fileID: 158634285459177711, guid: b512de4c3597c484085605cf9d7e1d92,
-        type: 3}
-    - target: {fileID: 5425049066957360889, guid: 64913a161de384c2781aba64917dbd90,
-        type: 3}
-      propertyPath: cars.Array.data[1]
-      value: 
-      objectReference: {fileID: 6414100122304401808, guid: 2afa3a841a8954894a1a2a4fba87f5fc,
-        type: 3}
-    - target: {fileID: 5425049066957360889, guid: 64913a161de384c2781aba64917dbd90,
-        type: 3}
-      propertyPath: cars.Array.data[2]
-      value: 
-      objectReference: {fileID: 8788309538568863242, guid: 3eb811708db1c4df482b55abf14df82e,
-        type: 3}
     - target: {fileID: 5425049066957360890, guid: 64913a161de384c2781aba64917dbd90,
         type: 3}
       propertyPath: m_LocalPosition.x

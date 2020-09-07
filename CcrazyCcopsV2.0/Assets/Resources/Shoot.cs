@@ -10,7 +10,7 @@ public class Shoot : MonoBehaviourPunCallbacks
 {
     // Start is called before the first frame update
 
-    public float bulletSpeed = 1000f;
+    public float bulletSpeed = 500000f;
 
     public GameObject gunFunnel;
     //public GameObject bullet;
@@ -47,18 +47,6 @@ public class Shoot : MonoBehaviourPunCallbacks
 
     [SerializeField]
     AudioSource FireSound = null;
-
-
-
-    
-
-
-
- 
-   
-
-
-
 
 
 
@@ -143,7 +131,11 @@ public class Shoot : MonoBehaviourPunCallbacks
             bulletClone.GetComponent<BulletScript>().Initialize(Damage);
             bulletClone.GetComponent<BulletScript>().SetShotBy(PhotonNetwork.LocalPlayer.NickName);
             Destroy(bulletClone.gameObject,destroyTime);
-            muzzleFlash.Play();
+            if(muzzleFlash!=null)
+            {
+                muzzleFlash.Play();
+            }
+            
         }
 
         if(bullet.name.Equals("BGrenede"))
@@ -157,7 +149,11 @@ public class Shoot : MonoBehaviourPunCallbacks
             {
                 FireSound.Play();
             }
-            muzzleFlash.Play();
+            if(muzzleFlash!=null)
+            {
+                muzzleFlash.Play();
+            }
+            
             Destroy(bulletClone.gameObject,destroyTime);
         }
 
@@ -172,7 +168,11 @@ public class Shoot : MonoBehaviourPunCallbacks
             bulletClone.GetComponent<RocketScript>().Initialize(Damage);
             bulletClone.GetComponent<RocketScript>().SetShotBy(PhotonNetwork.LocalPlayer.NickName);
             Destroy(bulletClone.gameObject,destroyTime);
-            muzzleFlash.Play();
+            if(muzzleFlash!=null)
+            {
+                muzzleFlash.Play();
+            }
+            
             
         }
 

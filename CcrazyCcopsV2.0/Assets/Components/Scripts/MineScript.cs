@@ -79,59 +79,25 @@ public class MineScript : MonoBehaviourPunCallbacks
         //                 }
         // }
         // else
-         if(collision.gameObject.CompareTag("Player") && !shieldHit)
+         if(collision.gameObject.CompareTag("Player"))
         {
-                    shotTo = collision.gameObject.GetComponent<PhotonView>().Owner.NickName;
-                    
-                    collision.gameObject.GetComponent<PhotonView>().RPC("DoDamage", RpcTarget.AllBuffered, bulletDamage, shotTo, shotBy,type);
-                        
-                    photonView.RPC("SetScore", RpcTarget.All, null);
-                        //Debug.Log("Dealth "+bulletDamage+" damage to "+ collision.gameObject.name); 
-                    
-                    Blast.Play();
+                shotTo = collision.gameObject.GetComponent<PhotonView>().Owner.NickName;
+                if(!collision.gameObject.GetComponent<PhotonView>().IsMine)
+                {
                     MineBody.SetActive(false);
-                    //Destroy(gameObject);
-                    StartCoroutine(DestroyBullet());
+                    if(shotBy!=shotTo)
+                    {
+                    Blast.Play();
+                    collision.gameObject.GetComponent<PhotonView>().RPC("DoDamage", RpcTarget.AllBuffered, bulletDamage, shotTo, shotBy,type);
+                    
+                    photonView.RPC("SetScore", RpcTarget.All, null);
+                }
+                StartCoroutine(DestroyBullet());
+                //Debug.Log("Dealth "+bulletDamage+" damage to "+ collision.gameObject.name); 
+            }
         }
 
         
-    }
-
-    private void OnTriggerStay(Collider collision)
-    {
-        if(collision.gameObject.CompareTag("Shield"))
-        {
-                try{
-                        if(collision.gameObject.GetComponentInParent<TakeDamage>().gameObject.GetComponent<PhotonView>().IsMine)
-                        {
-                            Debug.Log("SelfShield");
-                            shieldHit = true;
-                        }
-                        else
-                        {
-                            gameObject.GetComponent<CapsuleCollider>().enabled = false;
-                            shieldHit = true;
-                            ShieldDestroy();
-                        }
-                        }catch{
-                            //gameObject.GetComponent<CapsuleCollider>().enabled = false;
-                            shieldHit = true;
-                            ShieldDestroy();
-                        }
-        }
-    }
-
-    private void OnTriggerExit(Collider collision)
-    {
-        shieldHit = false;
-    }
-
-
-    public void ShieldDestroy()
-    {
-        diffuseblast.Play();
-        StartCoroutine(DestroyBullet());
-
     }
 
 
