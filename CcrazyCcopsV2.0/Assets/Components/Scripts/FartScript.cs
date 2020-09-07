@@ -31,11 +31,14 @@ public class FartScript : MonoBehaviourPunCallbacks
 
     bool shieldHit = false;
 
+    float destroyTime = 25f;
+
     
     void Start()
     {
        Potty.Stop();
        FartParticle.Play();
+       StartCoroutine(DestroyBullet(destroyTime));
        StartCoroutine(OriginalDamage());
     }
 
@@ -45,6 +48,11 @@ public class FartScript : MonoBehaviourPunCallbacks
         
     }
 
+    public void SetDestroyTime(float time)
+    {
+        destroyTime = time;
+    }
+
     
 
     public void Initialize(float damage)
@@ -52,40 +60,39 @@ public class FartScript : MonoBehaviourPunCallbacks
         bulletDamage = damage;
     }
 
-    private void OnTriggerEnter(Collider collision)
-    {
+    // private void OnTriggerEnter(Collider collision)
+    // {
 
-        Debug.Log(collision.name);
-        if(collision.gameObject.CompareTag("Shield"))
-        {
-                try{
-                        if(collision.gameObject.GetComponentInParent<TakeDamage>().gameObject.GetComponent<PhotonView>().IsMine)
-                        {
-                            Debug.Log("SelfShield");
-                        }
-                        else
-                        {
-                            gameObject.GetComponent<CapsuleCollider>().enabled = false;
-                            shieldHit = true;
-                            ShieldDestroy();
-                        }
-                        }catch{
-                            gameObject.GetComponent<CapsuleCollider>().enabled = false;
-                            shieldHit = true;
-                            ShieldDestroy();
-                        }
+    //     Debug.Log(collision.name);
+    //     if(collision.gameObject.CompareTag("Shield") && !shieldHit)
+    //     {
+    //             try{
+    //                     if(collision.gameObject.GetComponentInParent<TakeDamage>().gameObject.GetComponent<PhotonView>().IsMine)
+    //                     {
+    //                         Debug.Log("SelfShield");
+    //                     }
+    //                     else
+    //                     {
+    //                         gameObject.GetComponent<CapsuleCollider>().enabled = false;
+    //                         shieldHit = true;
+    //                         DestroyFromShield();
+    //                     }
+    //                     }catch{
+    //                         gameObject.GetComponent<CapsuleCollider>().enabled = false;
+    //                         shieldHit = true;
+    //                         DestroyFromShield();
+    //                     }
 
         
-        }
-    }
+    //     }
+    // }
 
-    public void ShieldDestroy()
+    public void DestroyFromShield()
     {
         //Debug.Log("FartScript: ShieldDestroy :: Photon View is mine is false");
         
-        Blast.Play();
         
-        StartCoroutine(DestroyBullet());
+        
 
     }
 
@@ -93,7 +100,29 @@ public class FartScript : MonoBehaviourPunCallbacks
     {
         Debug.Log(collision.name);
 
-        if(collision.gameObject.CompareTag("Player") && damage)
+        if(collision.gameObject.CompareTag("Shield"))
+        {
+                try{
+                        if(collision.gameObject.GetComponentInParent<TakeDamage>().gameObject.GetComponent<PhotonView>().IsMine)
+                        {
+                            Debug.Log("SelfShield");
+                            shieldHit = true;
+                        }
+                        else
+                        {
+                            gameObject.GetComponent<CapsuleCollider>().enabled = false;
+                            shieldHit = true;
+                            DestroyFromShield();
+                        }
+                        }catch{
+                            gameObject.GetComponent<CapsuleCollider>().enabled = false;
+                            shieldHit = true;
+                            DestroyFromShield();
+                        }
+
+        
+        }
+        else if(collision.gameObject.CompareTag("Player") && damage && !shieldHit)
         {
            
             shotTo = collision.gameObject.GetComponent<PhotonView>().Owner.NickName;
@@ -116,6 +145,13 @@ public class FartScript : MonoBehaviourPunCallbacks
             StartCoroutine(OriginalDamage());
        // }
         }
+
+        
+    }
+
+    private void OnTriggerExit(Collider collision)
+    {
+        StartCoroutine(EnableHit());
     }
     
 
@@ -137,9 +173,9 @@ public class FartScript : MonoBehaviourPunCallbacks
         Debug.Log(shotBy +" shot "+ shotTo);
     }
 
-    IEnumerator DestroyBullet(){
+    IEnumerator DestroyBullet(float time){
      //play your sound
-     yield return new WaitForSeconds(2f); //waits 3 seconds
+     yield return new WaitForSeconds(time); //waits 3 seconds
      Destroy(gameObject); //this will work after 3 seconds.
  }
 
@@ -147,6 +183,12 @@ public class FartScript : MonoBehaviourPunCallbacks
      //play your sound
      yield return new WaitForSeconds(1f); //waits 1 seconds
      damage = true; //this will work after 3 seconds.
+ }
+
+ IEnumerator EnableHit(){
+     //play your sound
+     yield return new WaitForSeconds(1f); //waits 1 seconds
+     shieldHit = false; //this will work after 3 seconds.
  }
     
 

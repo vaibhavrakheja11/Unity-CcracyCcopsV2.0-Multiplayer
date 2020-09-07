@@ -27,9 +27,18 @@ public class BouncingGrenedeScript : MonoBehaviourPunCallbacks
     bool shieldHit = false;
 
     
+    [SerializeField]
+    ParticleSystem diffuseblast;
+
+    
     void Start()
     {
        GrenedeParticle.Stop();
+       if(diffuseblast!=null)
+       {
+           diffuseblast.Stop();
+       }
+       
         
     }
 
@@ -49,16 +58,7 @@ public class BouncingGrenedeScript : MonoBehaviourPunCallbacks
     private void OnTriggerEnter(Collider collision)
     {
 
-        if(collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("PlayerBody"))
-        {
-            Blast.Play();
-            shotTo = collision.gameObject.GetComponentInParent<PhotonView>().Owner.NickName;
-            collision.gameObject.GetComponentInParent<PhotonView>().RPC("DoDamage", RpcTarget.AllBuffered, bulletDamage, shotTo, shotBy,type);
-            photonView.RPC("SetScore", RpcTarget.All, null);
-            MineBody.SetActive(false);
-            Destroy(gameObject); 
-        }
-
+        
         if(collision.gameObject.CompareTag("Shield"))
         {
                 try{
@@ -76,8 +76,19 @@ public class BouncingGrenedeScript : MonoBehaviourPunCallbacks
                             gameObject.GetComponent<CapsuleCollider>().enabled = false;
                             shieldHit = true;
                             ShieldDestroy();
-                        }
+                    }
+        } else if((collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("PlayerBody")) && !shieldHit)
+        {
+            
+            shotTo = collision.gameObject.GetComponentInParent<PhotonView>().Owner.NickName;
+            collision.gameObject.GetComponentInParent<PhotonView>().RPC("DoDamage", RpcTarget.AllBuffered, bulletDamage, shotTo, shotBy,type);
+            photonView.RPC("SetScore", RpcTarget.All, null);
+            MineBody.SetActive(false);
+            Blast.Play();
+            Destroy(gameObject); 
         }
+
+        
 
         
     }
@@ -87,7 +98,11 @@ public class BouncingGrenedeScript : MonoBehaviourPunCallbacks
        // Debug.Log("BulletScript: CompareTagShield :: Photon View is mine is false");
         
         //Blast.Play();
-        Blast.Play();
+        if(diffuseblast!=null)
+        {
+            diffuseblast.Play();
+        }
+        
         StartCoroutine(DestroyBullet());
 
     }
@@ -115,6 +130,11 @@ public class BouncingGrenedeScript : MonoBehaviourPunCallbacks
     IEnumerator DestroyBullet(){
      //play your sound
      yield return new WaitForSeconds(2f); //waits 3 seconds
+     
+      if(diffuseblast!=null)
+        {
+            diffuseblast.Stop();
+        }
      Destroy(gameObject); //this will work after 3 seconds.
  }
     

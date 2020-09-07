@@ -60,16 +60,19 @@ public class LookAtEnemy : MonoBehaviourPunCallbacks
        
         RotateGun();
 
-
-        float dist = Vector3.Distance(GetClosestEnemy(EnemyArray).gameObject.transform.position, fovStartPoint.transform.position);
-        if(dist < MaxDist)
+        if(EnemyArray!=null)
         {
-            enemy = GetClosestEnemy(EnemyArray).gameObject;
+            float dist = Vector3.Distance(GetClosestEnemy(EnemyArray).gameObject.transform.position, fovStartPoint.transform.position);
+            if(dist < MaxDist)
+            {
+                enemy = GetClosestEnemy(EnemyArray).gameObject;
+            }
+            else
+            {
+                enemy = DefaultAim;
+            }
         }
-        else
-        {
-            enemy = DefaultAim;
-        }
+        
         
     }
 

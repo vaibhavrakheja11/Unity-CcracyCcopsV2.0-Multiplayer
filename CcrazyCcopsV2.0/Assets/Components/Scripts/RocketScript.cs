@@ -90,7 +90,6 @@ public class RocketScript : MonoBehaviourPunCallbacks
                     if(shotBy!=shotTo)
                     {
                     AudioBoom.Play();
-                    Debug.Log("Do Damage called by vaibhav stupid code");
                     collision.gameObject.GetComponent<PhotonView>().RPC("DoDamage", RpcTarget.AllBuffered, bulletDamage, shotTo, shotBy,type);
                     
                     photonView.RPC("SetScore", RpcTarget.All, null);
@@ -125,6 +124,36 @@ public class RocketScript : MonoBehaviourPunCallbacks
         
 
         
+    }
+
+     private void OnTriggerStay(Collider collision)
+    {
+        if(collision.gameObject.CompareTag("Shield"))
+        {
+                try{
+                        if(collision.gameObject.GetComponentInParent<TakeDamage>().gameObject.GetComponent<PhotonView>().IsMine)
+                        {
+                            Debug.Log("SelfShield");
+                            shieldHit = true;
+                        }
+                        else
+                        {
+                            gameObject.GetComponent<CapsuleCollider>().enabled = false;
+                            shieldHit = true;
+                            ShieldDestroy();
+                        }
+                        }catch{
+                            //gameObject.GetComponent<CapsuleCollider>().enabled = false;
+                            shieldHit = true;
+                            ShieldDestroy();
+                        }
+        }
+    }
+
+
+    private void OnTriggerExit(Collider collision)
+    {
+        shieldHit = false;
     }
 
     public void ShieldDestroy()

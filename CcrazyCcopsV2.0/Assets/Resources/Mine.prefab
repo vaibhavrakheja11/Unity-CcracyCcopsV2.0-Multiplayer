@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 42d321cdfa64a4032a56c026aebbc666, type: 3}
+  - {fileID: 2100000, guid: 8c01b57a98fab4ab39d95a30f14851cd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -175,6 +175,7 @@ MonoBehaviour:
   Potty: {fileID: 2950590408266612284, guid: f2f06a2e60d174d8fb286c857075cf0c, type: 3}
   Blast: {fileID: 6047413946811062641}
   MineBody: {fileID: 4353713142168884295}
+  diffuseblast: {fileID: 0}
 --- !u!114 &6720563812012861131
 MonoBehaviour:
   m_ObjectHideFlags: 0

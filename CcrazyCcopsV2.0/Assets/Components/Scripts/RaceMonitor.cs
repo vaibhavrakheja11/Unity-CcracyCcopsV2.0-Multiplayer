@@ -23,7 +23,7 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
 
     public GameObject[] DefaultWeapons;
 
-
+    GameObject pcar = null;
     int playerCar;
     int playerWeapon;
     // Start is called before the first frame update
@@ -41,7 +41,7 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
         int RandomSpw = Random.Range(0, spawnPoints.Length);
         Vector3 StartPos = spawnPoints[RandomSpw].position;
         Quaternion StartRot = spawnPoints[RandomSpw].rotation;
-        GameObject pcar = null;
+        
 
         if(PhotonNetwork.IsConnected)
         {
@@ -90,10 +90,12 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
 
         //Debug.Log(pcar.name);
         var vcam = Camera.GetComponentInChildren<CinemachineVirtualCamera>();
-       // vcam.Follow = pcar.transform;
+        // vcam.Follow = pcar.transform;
         //vcam.LookAt = pcar.GetComponentInChildren<DefaultGunBack>().GetGameObject().transform;
         vcam.Follow = pcar.GetComponentInChildren<DefaultGunBack>().GetGameObject().transform;
         vcam.LookAt = pcar.transform;
+
+        pcar.gameObject.GetComponent<TakeDamage>().MyCamera = Camera;
 
         
         playerCar = PlayerPrefs.GetInt("PlayerCar");
@@ -142,4 +144,24 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
         }
         GameOn = true;
     }
-}
+
+    public void  RespawnTargetCar(GameObject car)
+    {
+        int RandomSpw = Random.Range(0, spawnPoints.Length);
+        Vector3 StartPos = spawnPoints[RandomSpw].position;
+        Quaternion StartRot = spawnPoints[RandomSpw].rotation;
+
+        car.transform.position = StartPos;
+        car.transform.rotation = StartRot;
+    }
+
+    public void ResetCar()
+    {
+        int RandomSpw = Random.Range(0, spawnPoints.Length);
+        Vector3 StartPos = spawnPoints[RandomSpw].position;
+        Quaternion StartRot = spawnPoints[RandomSpw].rotation;
+
+        pcar.transform.position = StartPos;
+        pcar.transform.rotation = StartRot;
+    }
+}   

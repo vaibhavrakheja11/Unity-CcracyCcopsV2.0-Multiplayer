@@ -2,8 +2,6 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
-    <CscToolPath>/Applications/Unity/Hub/Editor/2019.3.0f6/Unity.app/Contents/Tools/RoslynScripts</CscToolPath>
-    <CscToolExe>unity_csc.sh</CscToolExe>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -11,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{6234D0B7-99BC-173C-0163-090BEAF431FF}</ProjectGuid>
+    <ProjectGuid>{b7d03462-bc99-3c17-0163-090beaf431ff}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor-firstpass</AssemblyName>
@@ -47,53 +45,9 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="UnityEngine">
-      <HintPath>/Applications/Unity/Hub/Editor/2019.3.0f6/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor">
-      <HintPath>/Applications/Unity/Hub/Editor/2019.3.0f6/Unity.app/Contents/Managed/UnityEditor.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
      <Compile Include="Assets\Standard Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
- <Reference Include="UnityEditor.TestRunner">
- <HintPath>/Users/vaibhavrakheja/Documents/CcrazyCcops/Unity-CcracyCcopsV2.0-Multiplayer/CcrazyCcopsV2.0/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.TestRunner">
- <HintPath>/Users/vaibhavrakheja/Documents/CcrazyCcops/Unity-CcracyCcopsV2.0-Multiplayer/CcrazyCcopsV2.0/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Timeline.Editor">
- <HintPath>/Users/vaibhavrakheja/Documents/CcrazyCcops/Unity-CcracyCcopsV2.0-Multiplayer/CcrazyCcopsV2.0/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Cinemachine">
- <HintPath>/Users/vaibhavrakheja/Documents/CcrazyCcops/Unity-CcracyCcopsV2.0-Multiplayer/CcrazyCcopsV2.0/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
- </Reference>
- <Reference Include="Unity.VSCode.Editor">
- <HintPath>/Users/vaibhavrakheja/Documents/CcrazyCcops/Unity-CcracyCcopsV2.0-Multiplayer/CcrazyCcopsV2.0/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>/Users/vaibhavrakheja/Documents/CcrazyCcops/Unity-CcracyCcopsV2.0-Multiplayer/CcrazyCcopsV2.0/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.UI">
- <HintPath>/Users/vaibhavrakheja/Documents/CcrazyCcops/Unity-CcracyCcopsV2.0-Multiplayer/CcrazyCcopsV2.0/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Timeline">
- <HintPath>/Users/vaibhavrakheja/Documents/CcrazyCcops/Unity-CcracyCcopsV2.0-Multiplayer/CcrazyCcopsV2.0/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
- </Reference>
- <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>/Users/vaibhavrakheja/Documents/CcrazyCcops/Unity-CcracyCcopsV2.0-Multiplayer/CcrazyCcopsV2.0/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Rider.Editor">
- <HintPath>/Users/vaibhavrakheja/Documents/CcrazyCcops/Unity-CcracyCcopsV2.0-Multiplayer/CcrazyCcopsV2.0/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
- </Reference>
- <Reference Include="com.unity.cinemachine.editor">
- <HintPath>/Users/vaibhavrakheja/Documents/CcrazyCcops/Unity-CcracyCcopsV2.0-Multiplayer/CcrazyCcopsV2.0/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.TextMeshPro">
- <HintPath>/Users/vaibhavrakheja/Documents/CcrazyCcops/Unity-CcracyCcopsV2.0-Multiplayer/CcrazyCcopsV2.0/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.UI">
- <HintPath>/Users/vaibhavrakheja/Documents/CcrazyCcops/Unity-CcracyCcopsV2.0-Multiplayer/CcrazyCcopsV2.0/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <Reference Include="UnityEngine">
+ <HintPath>/Applications/Unity/Hub/Editor/2019.3.0f6/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>/Applications/Unity/Hub/Editor/2019.3.0f6/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -271,6 +225,9 @@
  </Reference>
  <Reference Include="UnityEngine.XRModule">
  <HintPath>/Applications/Unity/Hub/Editor/2019.3.0f6/Unity.app/Contents/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor">
+ <HintPath>/Applications/Unity/Hub/Editor/2019.3.0f6/Unity.app/Contents/Managed/UnityEditor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.VR">
  <HintPath>/Applications/Unity/Hub/Editor/2019.3.0f6/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll</HintPath>
@@ -656,44 +613,96 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{150E44F8-F216-0617-6E7F-15F49DE9D999}</Project>
+      <Project>{f8440e15-16f2-1706-6e7f-15f49de9d999}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
+    <ProjectReference Include="UnityEditor.TestRunner.csproj">
+      <Project>{8e44dff2-2293-c377-85d0-2e84636aaa48}</Project>
+      <Name>UnityEditor.TestRunner</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEngine.TestRunner.csproj">
+      <Project>{afecc824-013d-ba03-a4c5-9663de5a5de2}</Project>
+      <Name>UnityEngine.TestRunner</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Timeline.Editor.csproj">
+      <Project>{0c6b14bf-51af-056a-c2b9-cc6054e1dc26}</Project>
+      <Name>Unity.Timeline.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Cinemachine.csproj">
+      <Project>{4b4f6d27-264f-6edf-66a6-30458766d194}</Project>
+      <Name>Cinemachine</Name>
+    </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Utilities.PhotonPlayer.Editor.csproj">
-      <Project>{B57CE66D-5B6F-CF22-4021-7DC853A658FD}</Project>
+      <Project>{6de67cb5-6f5b-22cf-4021-7dc853a658fd}</Project>
       <Name>PhotonUnityNetworking.Utilities.PhotonPlayer.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.VSCode.Editor.csproj">
+      <Project>{574b5da8-bd23-1bde-e0ca-648b5ce42ce5}</Project>
+      <Name>Unity.VSCode.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Utilities.csproj">
-      <Project>{8D61086C-9BC0-56FC-FF28-D491EC133895}</Project>
+      <Project>{6c08618d-c09b-fc56-ff28-d491ec133895}</Project>
       <Name>PhotonUnityNetworking.Utilities</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.TextMeshPro.Editor.csproj">
+      <Project>{bec4aaad-e188-041f-4b1f-16812afe532c}</Project>
+      <Name>Unity.TextMeshPro.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEngine.UI.csproj">
+      <Project>{63305a40-9d31-6ab5-a21a-18db06f12f88}</Project>
+      <Name>UnityEngine.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Timeline.csproj">
+      <Project>{ed5c568e-e5e7-8686-f608-1b26253bd6bc}</Project>
+      <Name>Unity.Timeline</Name>
+    </ProjectReference>
     <ProjectReference Include="PhotonWebSocket.csproj">
-      <Project>{EC3A3A58-05A4-543A-178B-6B1C6F894FA6}</Project>
+      <Project>{583a3aec-a405-3a54-178b-6b1c6f894fa6}</Project>
       <Name>PhotonWebSocket</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.CollabProxy.Editor.csproj">
+      <Project>{050a7389-a40f-2926-25ec-539b6adf5215}</Project>
+      <Name>Unity.CollabProxy.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="PhotonRealtime.csproj">
-      <Project>{12E5F74E-8312-1716-3B82-F8A7B511F38A}</Project>
+      <Project>{4ef7e512-1283-1617-3b82-f8a7b511f38a}</Project>
       <Name>PhotonRealtime</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.Rider.Editor.csproj">
+      <Project>{b744af11-bf7a-2f0b-5cc7-ce665843f82a}</Project>
+      <Name>Unity.Rider.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.csproj">
-      <Project>{F3740CB7-C7FE-91EE-580C-4B08FFB5B02A}</Project>
+      <Project>{b70c74f3-fec7-ee91-580c-4b08ffb5b02a}</Project>
       <Name>PhotonUnityNetworking</Name>
     </ProjectReference>
+    <ProjectReference Include="com.unity.cinemachine.editor.csproj">
+      <Project>{988050c3-ae04-3fab-de98-f82e1207627f}</Project>
+      <Name>com.unity.cinemachine.editor</Name>
+    </ProjectReference>
     <ProjectReference Include="PhotonChat.csproj">
-      <Project>{A042D96E-A449-76BD-576E-A4302CC05DB8}</Project>
+      <Project>{6ed942a0-49a4-bd76-576e-a4302cc05db8}</Project>
       <Name>PhotonChat</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.TextMeshPro.csproj">
+      <Project>{0c5f99a4-ad55-9796-5b19-807a3c6c49ff}</Project>
+      <Name>Unity.TextMeshPro</Name>
+    </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Utilities.Culling.Editor.csproj">
-      <Project>{EB0AB54A-BBF9-9A02-1011-1773C59ACC4C}</Project>
+      <Project>{4ab50aeb-f9bb-029a-1011-1773c59acc4c}</Project>
       <Name>PhotonUnityNetworking.Utilities.Culling.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Editor.csproj">
-      <Project>{C44C5725-0C58-0EDD-6630-0A1C1FCF289A}</Project>
+      <Project>{25574cc4-580c-dd0e-6630-0a1c1fcf289a}</Project>
       <Name>PhotonUnityNetworking.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEditor.UI.csproj">
+      <Project>{655cc2a4-934a-5262-7372-576d88a980ed}</Project>
+      <Name>UnityEditor.UI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>

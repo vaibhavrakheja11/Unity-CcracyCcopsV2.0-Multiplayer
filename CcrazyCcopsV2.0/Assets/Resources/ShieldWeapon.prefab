@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShieldDuration: 25
+  Nickname: Scene
 --- !u!114 &1233480630335496318
 MonoBehaviour:
   m_ObjectHideFlags: 0
