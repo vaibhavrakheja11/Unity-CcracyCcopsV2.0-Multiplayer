@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - MiniGun
+  - MachineGun
+  - RocketLauncher
+  - LaserGun
+  - Shooter
+  - Target
+  - Missile
+  - PlayerBody
+  - ScoreManager
+  - DefaultGun
+  - HeavyMachineGun
+  - FxTemporaire
+  - MineWeapon
+  - Shield
+  - Health
+  - MoveableObject
+  - Map
+  - GrenadeLauncherWeapon
+  - FartWeapon
+  - ShieldWeapon
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - CineMachineCollider
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
