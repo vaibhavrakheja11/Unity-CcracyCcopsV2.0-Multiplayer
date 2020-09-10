@@ -29,6 +29,9 @@ public class MineScript : MonoBehaviourPunCallbacks
     [SerializeField]
     ParticleSystem diffuseblast;
 
+
+    public float destroyTime = 20f;
+
     
 
     
@@ -36,6 +39,8 @@ public class MineScript : MonoBehaviourPunCallbacks
     {
        Potty.Stop();
        diffuseblast.Stop();
+
+       Destroy(this.gameObject, destroyTime);
         
     }
 

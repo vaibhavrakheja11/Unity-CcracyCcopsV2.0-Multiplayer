@@ -254,6 +254,7 @@ MonoBehaviour:
   Blast: {fileID: 467990087143576039}
   MineBody: {fileID: 5753879474381072377}
   diffuseblast: {fileID: 0}
+  destroyTime: 15
 --- !u!114 &1849161574030790473
 MonoBehaviour:
   m_ObjectHideFlags: 0

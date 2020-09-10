@@ -20,6 +20,10 @@ namespace UnityStandardAssets.Vehicles.Car
 
         public int BoostForce = 600;
 
+
+
+        public bool enableCarsMovement = true;
+
         private void Awake()
         {
             // get the car controller
@@ -27,13 +31,27 @@ namespace UnityStandardAssets.Vehicles.Car
             isReady = true;
         }
 
+        
+
         public void Update()
         {
             if(isReady)
             {
                 particleGameObjectL.GetComponent<ParticleSystem>().Stop();
                 particleGameObjectR.GetComponent<ParticleSystem>().Stop();
+
             }
+
+            if(!enableCarsMovement)
+            {
+                FreezeCar();
+            }
+            else
+            {
+                UnfreezeCar();
+            }
+
+            
             // if(Input.GetKeyDown(KeyCode.LeftShift) && isReady){
             //      Nitrous();
             // }
@@ -86,6 +104,7 @@ namespace UnityStandardAssets.Vehicles.Car
             this.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * BoostForce, ForceMode.Acceleration);
             particleGameObjectL.GetComponent<ParticleSystem>().Play();
             particleGameObjectR.GetComponent<ParticleSystem>().Play();
+
             StartCoroutine(Boost());
             }
             
@@ -93,10 +112,30 @@ namespace UnityStandardAssets.Vehicles.Car
      
         }
 
+
+        public void FreezeCar()
+        {
+            Rigidbody carRigidbody = this.gameObject.GetComponent<Rigidbody>();
+            carRigidbody.constraints = RigidbodyConstraints.FreezePosition;
+        }
+
+        public void UnfreezeCar()
+        {
+            Rigidbody carRigidbody = this.gameObject.GetComponent<Rigidbody>();
+            carRigidbody.constraints = RigidbodyConstraints.None;
+        }
+
+
+
         IEnumerator Boost()
             {
                 yield return new WaitForSeconds(4.0f);
                 isReady = true;
+        }
+
+        public void SetCarEnableBool(bool isEnable)
+        {
+            enableCarsMovement = isEnable;
         }
 
     }

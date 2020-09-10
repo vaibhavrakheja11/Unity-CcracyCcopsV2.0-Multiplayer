@@ -36,13 +36,15 @@ public class RocketScript : MonoBehaviourPunCallbacks
      
     
 
-   
+   public float destroyTime = 10f;
     
 
     
     void Start()
     {
        Blast.Stop();
+
+       Destroy(this.gameObject, destroyTime);
         
     }
 

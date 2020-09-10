@@ -105,6 +105,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitAudio: {fileID: 1311846161165944130}
   BulletBody: {fileID: 6478795872561462368}
+  bulletDestroyTime: 4
+  destroyTime: 4
 --- !u!136 &429155416713955447
 CapsuleCollider:
   m_ObjectHideFlags: 0

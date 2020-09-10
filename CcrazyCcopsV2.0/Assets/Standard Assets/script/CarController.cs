@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-
 namespace UnityStandardAssets.Vehicles.Car
 {
     internal enum CarDriveType
@@ -226,11 +225,13 @@ namespace UnityStandardAssets.Vehicles.Car
                 if (CurrentSpeed > 5 && Vector3.Angle(transform.forward, m_Rigidbody.velocity) < 50f)
                 {
                     m_WheelColliders[i].brakeTorque = m_BrakeTorque*footbrake;
+                    
                 }
                 else if (footbrake > 0)
                 {
                     m_WheelColliders[i].brakeTorque = 0f;
                     m_WheelColliders[i].motorTorque = -m_ReverseTorque*footbrake;
+                    
                 }
             }
         }

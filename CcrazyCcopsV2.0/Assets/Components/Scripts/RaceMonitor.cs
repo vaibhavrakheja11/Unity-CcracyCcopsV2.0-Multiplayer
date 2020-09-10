@@ -9,6 +9,8 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
 {
     public GameObject[] coutdownItems;
 
+    public GameObject[] LapTriggers;
+
     public static bool GameOn = false;
 
     public GameObject[] players;
@@ -23,16 +25,54 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
 
     public GameObject[] DefaultWeapons;
 
+    public GameObject FinishPanel;
+
     GameObject pcar = null;
     int playerCar;
     int playerWeapon;
     // Start is called before the first frame update
+
+    public bool IsRaceMode = false;
+
+    public static RaceMonitor instance = null;
+
+    public GameObject[] finishOrderText;
+
+   public GameObject orderImage;
+
+    public void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else if(instance != this)
+        {
+            Destroy(gameObject);
+        }
+
+    }
+
     void Start()
     {
         foreach(GameObject g in coutdownItems)
         {
             g.SetActive(false);
         }
+
+        if(finishOrderText!=null)
+        {
+            foreach(GameObject g in finishOrderText)
+            {
+                g.SetActive(false);
+            }
+        }
+        
+        if(FinishPanel!=null)
+        {
+            FinishPanel.SetActive(false);
+        }
+        
 
         StartGame.SetActive(false);
         waitingText.SetActive(false);
@@ -100,12 +140,12 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
         
         playerCar = PlayerPrefs.GetInt("PlayerCar");
 
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public void BeginGame()
@@ -114,8 +154,6 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
         {
             photonView.RPC("StartMatch", RpcTarget.All, null);
         }
-       
-        
     }
 
     [PunRPC]
@@ -145,14 +183,22 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
         GameOn = true;
     }
 
-    public void  RespawnTargetCar(GameObject car)
+    public void  RespawnTargetCar(GameObject car, GameObject lastRespawnCheckpoint = null)
     {
-        int RandomSpw = Random.Range(0, spawnPoints.Length);
-        Vector3 StartPos = spawnPoints[RandomSpw].position;
-        Quaternion StartRot = spawnPoints[RandomSpw].rotation;
-
-        car.transform.position = StartPos;
-        car.transform.rotation = StartRot;
+        if(IsRaceMode == false)
+        {
+            Debug.Log("Racemonitor---------------x>x>X> death figth mode");
+            ResetCar();
+        }
+        else if(IsRaceMode == true)
+        {
+            Debug.Log("Racemonitor---------------x>x>X> race mode");
+            if(lastRespawnCheckpoint!=null)
+            {
+                car.transform.position = lastRespawnCheckpoint.transform.position;
+            }
+        }
+            
     }
 
     public void ResetCar()

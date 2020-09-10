@@ -102,15 +102,15 @@ public class Shoot : MonoBehaviourPunCallbacks
             //Debug.Log("check for view");
             if(photonView.IsMine)
             {
-            if(fireTimer > fireRate)
-            {
-            //photonView.RPC("ShootFunc", RpcTarget.All, null);
-            ShootFunc();
-            Ammo--;
-            fireTimer = 0.0f;
+                if(fireTimer > fireRate)
+                {
+                //photonView.RPC("ShootFunc", RpcTarget.All, null);
+                ShootFunc();
+                Ammo--;
+                fireTimer = 0.0f;
 
-            //Debug.Log(string.Format("Info: {0} {1} ", info.photonView.gameObject.name, info.timestamp));
-            }
+                //Debug.Log(string.Format("Info: {0} {1} ", info.photonView.gameObject.name, info.timestamp));
+                }
             }
         }
         if(Ammo==0)

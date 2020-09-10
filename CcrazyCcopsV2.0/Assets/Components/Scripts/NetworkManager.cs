@@ -335,7 +335,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             if(PhotonNetwork.CurrentRoom.CustomProperties.ContainsValue("rc"))
             {
                 //racingBackground Game Mode
-                PhotonNetwork.LoadLevel("SampleScene");
+                PhotonNetwork.LoadLevel("RaceScene-1");
             }
             else if(PhotonNetwork.CurrentRoom.CustomProperties.ContainsValue("dr"))
             {

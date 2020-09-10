@@ -30,6 +30,8 @@ public class BouncingGrenedeScript : MonoBehaviourPunCallbacks
     [SerializeField]
     ParticleSystem diffuseblast;
 
+    public float destroyTime = 15f;
+
     
     void Start()
     {
@@ -38,6 +40,8 @@ public class BouncingGrenedeScript : MonoBehaviourPunCallbacks
        {
            diffuseblast.Stop();
        }
+
+       Destroy(this.gameObject, destroyTime);
        
         
     }
