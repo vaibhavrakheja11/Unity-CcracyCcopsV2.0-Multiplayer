@@ -48,9 +48,7 @@ ScriptsOnlyBuild:
     - Cinemachine.CinemachineVirtualCamera
     - Cinemachine.NoiseSettings
     PhotonUnityNetworking.Editor.dll:
-    - Photon.Pun.PhotonRigidbodyViewEditor
-    - Photon.Pun.PhotonTransformViewEditor
-    - Photon.Pun.PhotonViewInspector
+    - Photon.Pun.PunSceneSettings
     PhotonUnityNetworking.Utilities.dll:
     - Photon.Pun.UtilityScripts.PhotonLagSimulationGui
     - Photon.Pun.UtilityScripts.TextButtonTransition
