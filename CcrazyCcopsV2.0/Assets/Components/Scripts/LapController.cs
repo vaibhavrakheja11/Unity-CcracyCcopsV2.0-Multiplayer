@@ -119,31 +119,19 @@ public class LapController : MonoBehaviourPun
             GameObject orderImage = RaceMonitor.instance.orderImage;
             GameObject[] CountdownItems = RaceMonitor.instance.coutdownItems;
             GameObject backgroundPanel = RaceMonitor.instance.FinishPanel;
-            if(!backgroundPanel.activeSelf)
-            {
-                backgroundPanel.SetActive(true);
-            }
-            orderUIGameObject.SetActive(true);
+            
             
 
-            if(viewId == photonView.ViewID)
+            if(photonView.IsMine)
             {
                 orderUIGameObject.GetComponent<Text>().text = finishOrder + "      ............     " + nickNameofFinishPlayer  + " ....................  (You)";
                 orderUIGameObject.GetComponent<Text>().color = Color.red;
 
-                switch(finishOrder)
+                if(!backgroundPanel.activeSelf)
                 {
-                    case 1:
-                    orderImage.GetComponent<Image>().sprite = CountdownItems[2].GetComponent<Image>().sprite;
-                    break;
-                    case 2:
-                    orderImage.GetComponent<Image>().sprite = CountdownItems[1].GetComponent<Image>().sprite;
-                    break;
-                    case 3:
-                    orderImage.GetComponent<Image>().sprite = CountdownItems[0].GetComponent<Image>().sprite;
-                    break;
-
+                    backgroundPanel.SetActive(true);
                 }
+                orderUIGameObject.SetActive(true);
                 
             }
             else

@@ -1230,9 +1230,13 @@ MonoBehaviour:
   StartGame: {fileID: 997154361}
   waitingText: {fileID: 486006397}
   DefaultWeapons: []
-  FinishPanel: {fileID: 0}
+  FinishPanel: {fileID: 4655259167183306995}
   IsRaceMode: 0
-  finishOrderText: []
+  finishOrderText:
+  - {fileID: 4655259167183306994}
+  - {fileID: 4655259167183306993}
+  - {fileID: 4655259167183306992}
+  - {fileID: 4655259167183306991}
   orderImage: {fileID: 0}
 --- !u!4 &949325181
 Transform:
@@ -2327,6 +2331,36 @@ PrefabInstance:
       objectReference: {fileID: 949325180}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c040345e32918427a9cc8ee8894bd49c, type: 3}
+--- !u!1 &4655259167183306991 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1341994497931949833, guid: c040345e32918427a9cc8ee8894bd49c,
+    type: 3}
+  m_PrefabInstance: {fileID: 4655259167183306990}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4655259167183306992 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7485706313144260602, guid: c040345e32918427a9cc8ee8894bd49c,
+    type: 3}
+  m_PrefabInstance: {fileID: 4655259167183306990}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4655259167183306993 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8722085344145280751, guid: c040345e32918427a9cc8ee8894bd49c,
+    type: 3}
+  m_PrefabInstance: {fileID: 4655259167183306990}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4655259167183306994 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7633018485838859651, guid: c040345e32918427a9cc8ee8894bd49c,
+    type: 3}
+  m_PrefabInstance: {fileID: 4655259167183306990}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4655259167183306995 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9152193031901480863, guid: c040345e32918427a9cc8ee8894bd49c,
+    type: 3}
+  m_PrefabInstance: {fileID: 4655259167183306990}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4957186749072369938
 PrefabInstance:
   m_ObjectHideFlags: 0
