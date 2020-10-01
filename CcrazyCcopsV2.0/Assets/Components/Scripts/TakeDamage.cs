@@ -28,6 +28,8 @@ public class TakeDamage : MonoBehaviourPunCallbacks
     private CinemachineVirtualCamera vcam;
     private CinemachineBasicMultiChannelPerlin vcamNoise;
 
+  
+
     public float ShakeDuration = 0.3f;
     public float ShakeAmplitutde = 2.0f;
     public float ShakeFrequency = 2.0f;
@@ -179,11 +181,20 @@ public class TakeDamage : MonoBehaviourPunCallbacks
 
         if(respawn)
         {
-            raceMonitor.RespawnTargetCar(this.gameObject);
+            GameObject lastCheckpoint = gameObject.GetComponentInParent<LapController>().GetLastRespawnTarget();
+            if(lastCheckpoint!=null)
+            {
+                Debug.Log("---------------x>x>X>  race mode");
+                raceMonitor.RespawnTargetCar(this.gameObject, lastCheckpoint);
+            }
+            else
+            {
+                Debug.Log("---------------x>x>X> death figth mode");
+                raceMonitor.RespawnTargetCar(this.gameObject);
+            }
+            
             IncreaseHealth(100);
         }
-        
-        
     }
 
     public void PlayParticle(int number)

@@ -31,7 +31,7 @@ public class FartScript : MonoBehaviourPunCallbacks
 
     bool shieldHit = false;
 
-    float destroyTime = 25f;
+    float destroyTime = 15f;
 
     
     void Start()

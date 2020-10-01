@@ -45,6 +45,19 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\ArtDelivery\UI\Scripts\CJFinc\BitmapFont.cs" />
+     <Compile Include="Assets\ArtDelivery\UI\Scripts\CJFinc\BitmapText.cs" />
+     <Compile Include="Assets\ArtDelivery\UI\Scripts\CJFinc\BitmapTextEditor.cs" />
+     <Compile Include="Assets\ArtDelivery\UI\Scripts\CurvedText.cs" />
+     <Compile Include="Assets\ArtDelivery\UI\Scripts\FireflyController.cs" />
+     <Compile Include="Assets\ArtDelivery\UI\Scripts\FireflySpawner.cs" />
+     <Compile Include="Assets\ArtDelivery\UI\Scripts\InvertedMaskImage.cs" />
+     <Compile Include="Assets\ArtDelivery\UI\Scripts\PopulateGrid.cs" />
+     <Compile Include="Assets\ArtDelivery\UI\Scripts\SpriteRenderer.cs" />
+     <Compile Include="Assets\ArtDelivery\UI\Scripts\ToggleController.cs" />
+     <Compile Include="Assets\ArtDelivery\UI\Scripts\textwarp.cs" />
+     <Compile Include="Assets\ArtDelivery\UI\Scripts\warp.cs" />
+     <Compile Include="Assets\ArtDelivery\UI\Scripts\warptest.cs" />
      <Compile Include="Assets\Components\Scripts\AgentAIController.cs" />
      <Compile Include="Assets\Components\Scripts\AgentController.cs" />
      <Compile Include="Assets\Components\Scripts\BouncingGrenedeScript.cs" />
@@ -60,6 +73,7 @@
      <Compile Include="Assets\Components\Scripts\FlipCar.cs" />
      <Compile Include="Assets\Components\Scripts\GravityScript.cs" />
      <Compile Include="Assets\Components\Scripts\JoyStickRotate.cs" />
+     <Compile Include="Assets\Components\Scripts\LapController.cs" />
      <Compile Include="Assets\Components\Scripts\LaunchManager.cs" />
      <Compile Include="Assets\Components\Scripts\LookAtEnemy.cs" />
      <Compile Include="Assets\Components\Scripts\MineScript.cs" />
@@ -69,6 +83,7 @@
      <Compile Include="Assets\Components\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Components\Scripts\PlayerListEntryInitializer.cs" />
      <Compile Include="Assets\Components\Scripts\PlayerScore.cs" />
+     <Compile Include="Assets\Components\Scripts\RaceMapWeaponSpawnner.cs" />
      <Compile Include="Assets\Components\Scripts\RaceMonitor.cs" />
      <Compile Include="Assets\Components\Scripts\RacingPlayer.cs" />
      <Compile Include="Assets\Components\Scripts\RocketScript.cs" />
@@ -82,35 +97,58 @@
      <Compile Include="Assets\Components\Scripts\WeaponManager.cs" />
      <Compile Include="Assets\Components\Scripts\WheelSkid.cs" />
      <Compile Include="Assets\Components\Scripts\on_off_light.cs" />
+     <Compile Include="Assets\Components\Water (Basic)\Scripts\WaterBasic.cs" />
      <Compile Include="Assets\Photon\PhotonRealtime\Demos\DemoLoadBalancing\ConnectAndJoinRandomLb.cs" />
      <Compile Include="Assets\Resources\NetworkedPlayer.cs" />
      <Compile Include="Assets\Resources\Shoot.cs" />
      <Compile Include="Assets\ShieldScript.cs" />
+     <None Include="Assets\ArtDelivery\UI\Scripts\com.coffee.ui-effect-4.0.0-preview.9\package\Resources\UIShiny.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\Photon\PhotonUnityNetworking\changelog.txt" />
+     <None Include="Assets\ArtDelivery\UI\Fonts\BitmapFonts\text-fireflypurchase-header03\text-fireflypurchase-header03.fnt" />
+     <None Include="Assets\ArtDelivery\UI\Scripts\com.coffee.ui-effect-4.0.0-preview.9\package\Resources\UIDissolve.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
-     <None Include="Assets\BOXOPHOBIC\Skybox Cubemap Extended\Core\Shaders\Skybox Cubemap Extended.shader" />
+     <None Include="Assets\Skybox\Skybox Cubemap Extended\Core\Shaders\Skybox Cubemap Extended.shader" />
+     <None Include="Assets\ArtDelivery\UI\Fonts\BitmapFonts\text-firefly-purchase-header\firefly-purchase-header.fnt" />
+     <None Include="Assets\ArtDelivery\UI\Fonts\BitmapFonts\text-fireflypurchase-header05\text-fireflypurchase-header05.fnt" />
+     <None Include="Assets\ArtDelivery\UI\Scripts\com.coffee.ui-effect-4.0.0-preview.9\package\Resources\UIEffect.cginc" />
+     <None Include="Assets\ArtDelivery\UI\Scripts\CJFinc\README.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
+     <None Include="Assets\ArtDelivery\UI\Scripts\com.coffee.ui-effect-4.0.0-preview.9\package\Resources\UITtransition.shader" />
+     <None Include="Assets\ArtDelivery\UI\Shaders\FrostedGlass.shader" />
      <None Include="Assets\Components\Effects\Skidmarks.shader" />
+     <None Include="Assets\ArtDelivery\UI\Fonts\BitmapFonts\text-fireflypurchase-header06\text-fireflypurchase-header06.fnt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
      <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
+     <None Include="Assets\ArtDelivery\UI\Scripts\com.coffee.ui-effect-4.0.0-preview.9\package\Resources\UIEffect.shader" />
      <None Include="Assets\Photon\PhotonLibs\changes-library.txt" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
+     <None Include="Assets\ArtDelivery\UI\Shaders\UIMask.shader" />
+     <None Include="Assets\ArtDelivery\UI\Fonts\BitmapFonts\text-fireflypurchase-header01\text-fireflypurchase-header01.fnt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
      <None Include="Assets\Photon\PhotonUnityNetworking\readme.txt" />
+     <None Include="Assets\ArtDelivery\UI\Shaders\dynamicblur.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+     <None Include="Assets\ArtDelivery\UI\Fonts\BitmapFonts\text-fireflypurchase-header04\text-fireflypurchase-header04.fnt" />
      <None Include="Assets\Components\Shaders\GradientBackgroundShader.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
+     <None Include="Assets\ArtDelivery\UI\Fonts\BitmapFonts\text-fireflypurchase-header02\text-fireflypurchase-header02.fnt" />
      <None Include="Assets\Photon\PhotonLibs\Photon3Unity3D.xml" />
+     <None Include="Assets\Components\Water (Basic)\Shaders\FXWaterBasic.shader" />
+     <None Include="Assets\ArtDelivery\UI\Fonts\BitmapFonts\firefly-purchase-header03\firefly-purchase-header03.fnt" />
+     <None Include="Assets\ArtDelivery\UI\Scripts\com.coffee.ui-effect-4.0.0-preview.9\package\Resources\UIEffectSprite.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
      <None Include="Assets\Photon\PhotonUnityNetworking\link.xml" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
+     <None Include="Assets\ArtDelivery\UI\Shaders\UIMasked.shader" />
+     <None Include="Assets\ArtDelivery\UI\Scripts\com.coffee.ui-effect-4.0.0-preview.9\package\Resources\UIHsvModifier.shader" />
+     <None Include="Assets\ArtDelivery\UI\Fonts\BitmapFonts\text-firefly-purchase-header02\firefly-purchase-header02.fnt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
  <Reference Include="UnityEngine">
  <HintPath>/Applications/Unity/Hub/Editor/2019.3.0f6/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -730,6 +768,10 @@
     <ProjectReference Include="UnityEditor.UI.csproj">
       <Project>{655cc2a4-934a-5262-7372-576d88a980ed}</Project>
       <Name>UnityEditor.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="UIEffect.csproj">
+      <Project>{10de6a7d-4e44-8338-7241-5c23a2acc79a}</Project>
+      <Name>UIEffect</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -25,6 +25,7 @@ TagManager:
   - GrenadeLauncherWeapon
   - FartWeapon
   - ShieldWeapon
+  - ResetCollider
   layers:
   - Default
   - TransparentFX

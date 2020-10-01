@@ -26,8 +26,9 @@ public class MineScript : MonoBehaviourPunCallbacks
 
     bool shieldHit = false;
 
-    [SerializeField]
-    ParticleSystem diffuseblast;
+
+
+    public float destroyTime = 20f;
 
     
 
@@ -35,7 +36,7 @@ public class MineScript : MonoBehaviourPunCallbacks
     void Start()
     {
        Potty.Stop();
-       diffuseblast.Stop();
+       Destroy(this.gameObject, destroyTime);
         
     }
 
@@ -121,7 +122,7 @@ public class MineScript : MonoBehaviourPunCallbacks
     IEnumerator DestroyBullet(){
      //play your sound
      yield return new WaitForSeconds(1f);
-     diffuseblast.Stop(); //waits 3 seconds
+     
      Destroy(gameObject); //this will work after 3 seconds.
  }
     

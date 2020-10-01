@@ -19,10 +19,14 @@ public class BulletScript : MonoBehaviourPunCallbacks
 
     public GameObject BulletBody;
 
+    public float bulletDestroyTime;
+
     bool shieldHit = false;
+
+    public float destroyTime = 4f;
     void Start()
     {
-       
+       Destroy(this.gameObject, destroyTime);
     }
 
     // Update is called once per frame

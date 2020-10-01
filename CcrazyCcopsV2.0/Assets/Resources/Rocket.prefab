@@ -168,6 +168,7 @@ MonoBehaviour:
   rocketBody: {fileID: 8023876058632380327}
   AudioBoom: {fileID: 8257355253405441181}
   TrailAudio: {fileID: 5981913220119027397}
+  destroyTime: 10
 --- !u!114 &1415144264924602610
 MonoBehaviour:
   m_ObjectHideFlags: 0
