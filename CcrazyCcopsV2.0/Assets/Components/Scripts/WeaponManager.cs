@@ -10,9 +10,16 @@ public class WeaponManager : MonoBehaviourPunCallbacks
 
     public GameObject[] Weapons;
 
+    public List<GameObject> WeaponsT;
+
+    
+
     public int healthPickupAmount = 45;
 
     public int[] WepAmmo;
+
+
+    
     void Start()
     {
         
@@ -32,16 +39,33 @@ public class WeaponManager : MonoBehaviourPunCallbacks
             gameObject.GetComponentInParent<PhotonView>().RPC("IncreaseHealth", RpcTarget.AllBuffered, healthPickupAmount);
         }
         else{
-            ActivateWeapon(other.gameObject.tag);
+            if(SelectOneFromTwo(other.gameObject.tag))
+            {
+                ActivateWeapon(other.gameObject.tag);
+            }
+            
         }
         
+    }
+
+    public bool IsWeaponActive(GameObject weapon)
+    {
+        GameObject emojiImage = WeaponsT.Find(obj=>obj.name==weapon.name);
+        if(emojiImage.activeSelf)
+        {
+            return true;
+        }
+        else
+        {
+        return false;
+        }
     }
 
 
     public void ActivateWeapon(string weaponName)
     {
        
-        foreach(GameObject weapon in Weapons)
+        foreach(GameObject weapon in WeaponsT)
         {
             //weapon.SetActive(weapon.name.Equals(weaponName));
             if(weapon.name.Equals(weaponName))
@@ -49,6 +73,7 @@ public class WeaponManager : MonoBehaviourPunCallbacks
                 weapon.SetActive(true);
             }
         }
+        
     }
 
 
@@ -56,4 +81,41 @@ public class WeaponManager : MonoBehaviourPunCallbacks
     {
         return Weapons;
     }
+
+     public List<GameObject> GetWeaponListT()
+    {
+        return WeaponsT;
+    }
+
+
+    bool SelectOneFromTwo(string weaponName)
+    {
+        GameObject weaponOne;
+        switch(weaponName)
+        {
+            case "FartWeapon":
+                    weaponOne = WeaponsT.Find(obj=>obj.name=="MineWeapon");
+                    if(weaponOne.activeSelf)
+                    {
+                        return false;
+                    }
+                    else 
+                    return true;
+            case "MineWeapon":
+                    weaponOne = WeaponsT.Find(obj=>obj.name=="FartWeapon");
+                    if(weaponOne.activeSelf)
+                    {
+                        return false;
+                    }
+                    else 
+                    return true;
+            default :
+            return true;
+
+        }
+        
+        
+    }
+
+
 }

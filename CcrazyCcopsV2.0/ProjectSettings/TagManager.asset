@@ -23,6 +23,9 @@ TagManager:
   - MoveableObject
   - Map
   - GrenadeLauncherWeapon
+  - FartWeapon
+  - ShieldWeapon
+  - ResetCollider
   layers:
   - Default
   - TransparentFX

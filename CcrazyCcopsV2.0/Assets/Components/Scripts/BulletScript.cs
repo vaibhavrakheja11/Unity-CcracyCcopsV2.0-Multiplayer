@@ -18,9 +18,15 @@ public class BulletScript : MonoBehaviourPunCallbacks
     public AudioSource hitAudio;
 
     public GameObject BulletBody;
+
+    public float bulletDestroyTime;
+
+    bool shieldHit = false;
+
+    public float destroyTime = 4f;
     void Start()
     {
-       
+       Destroy(this.gameObject, destroyTime);
     }
 
     // Update is called once per frame
@@ -38,7 +44,7 @@ public class BulletScript : MonoBehaviourPunCallbacks
     private void OnTriggerEnter(Collider col)
     {
         
-        if(col.gameObject.CompareTag("Player"))
+        if(col.gameObject.CompareTag("Player") && !shieldHit)
         {
            
             shotTo = col.gameObject.GetComponent<PhotonView>().Owner.NickName;
@@ -60,27 +66,34 @@ public class BulletScript : MonoBehaviourPunCallbacks
 
         if(col.gameObject.CompareTag("Shield"))
         {
-            // shotTo = collision.gameObject.GetComponent<PhotonView>().Owner.NickName;
-            //  if(!collision.gameObject.GetComponent<PhotonView>().IsMine)
-            //  {
-            //     if(shotBy!=shotTo)
-            //     {
-                //TrailAudio.Stop();
-                //Blast.Play();
-                //AudioBoom.Play();
-                hitAudio.Play();
-               BulletBody.SetActive(false);
-                
-                //Destroy(gameObject);
-                StartCoroutine(DestroyBullet());
-                //}
-                
-                //Debug.Log("Dealth "+bulletDamage+" damage to "+ collision.gameObject.name); 
-           // }
-            
-            
+                try{
+                        if(col.gameObject.GetComponentInParent<TakeDamage>().gameObject.GetComponent<PhotonView>().IsMine)
+                        {
+                            Debug.Log("SelfShield");
+                        }
+                        else
+                        {
+                            gameObject.GetComponent<CapsuleCollider>().enabled = false;
+                            shieldHit = true;
+                            ShieldDestroy();
+                        }
+                        }catch{
+                            gameObject.GetComponent<CapsuleCollider>().enabled = false;
+                            shieldHit = true;
+                            ShieldDestroy();
+                        }
         }
-        //photonView.RPC("SetScore", RpcTarget.All, null);
+        
+    }
+
+    public void ShieldDestroy()
+    {
+       // Debug.Log("BulletScript: CompareTagShield :: Photon View is mine is false");
+        
+        //Blast.Play();
+        hitAudio.Play();
+        StartCoroutine(DestroyBullet());
+
     }
 
     public void SetShotBy(string ShotBy)

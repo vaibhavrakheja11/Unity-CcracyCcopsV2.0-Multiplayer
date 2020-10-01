@@ -30,22 +30,26 @@ public class RocketScript : MonoBehaviourPunCallbacks
 
     public AudioSource TrailAudio;
 
+    bool shieldHit = false;
+
 
      
     
 
-   
+   public float destroyTime = 10f;
     
 
     
     void Start()
     {
        Blast.Stop();
+
+       Destroy(this.gameObject, destroyTime);
         
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void LateUpdate()
     {
         if(rocketTarget.name!="RocketDefaultAim")
         {
@@ -53,7 +57,9 @@ public class RocketScript : MonoBehaviourPunCallbacks
             var RocketTargetRotation = Quaternion.LookRotation(rocketTarget.position - transform.position);
 
             rocketRigidbody.MoveRotation(Quaternion.RotateTowards(transform.rotation, RocketTargetRotation, turn)); 
-            SendAlert(rocketTarget.gameObject);
+            
+            try{SendAlert(rocketTarget.gameObject);}
+            catch{}
         }
         
     }
@@ -76,18 +82,19 @@ public class RocketScript : MonoBehaviourPunCallbacks
         
 
         
-        if(collision.gameObject.CompareTag("Player"))
+        if(collision.gameObject.CompareTag("Player") && !shieldHit)
         {
-            TrailAudio.Stop();
-            shotTo = collision.gameObject.GetComponent<PhotonView>().Owner.NickName;
-             if(!collision.gameObject.GetComponent<PhotonView>().IsMine)
-             {
-                if(shotBy!=shotTo)
+                TrailAudio.Stop();
+                shotTo = collision.gameObject.GetComponent<PhotonView>().Owner.NickName;
+                if(!collision.gameObject.GetComponent<PhotonView>().IsMine)
                 {
-                AudioBoom.Play();
-                collision.gameObject.GetComponent<PhotonView>().RPC("DoDamage", RpcTarget.AllBuffered, bulletDamage, shotTo, shotBy,type);
-                
-                photonView.RPC("SetScore", RpcTarget.All, null);
+                    rocketBody.SetActive(false);
+                    if(shotBy!=shotTo)
+                    {
+                    AudioBoom.Play();
+                    collision.gameObject.GetComponent<PhotonView>().RPC("DoDamage", RpcTarget.AllBuffered, bulletDamage, shotTo, shotBy,type);
+                    
+                    photonView.RPC("SetScore", RpcTarget.All, null);
                 }
                 StartCoroutine(DestroyBullet());
                 //Debug.Log("Dealth "+bulletDamage+" damage to "+ collision.gameObject.name); 
@@ -98,27 +105,67 @@ public class RocketScript : MonoBehaviourPunCallbacks
 
         if(collision.gameObject.CompareTag("Shield"))
         {
-            // shotTo = collision.gameObject.GetComponent<PhotonView>().Owner.NickName;
-            //  if(!collision.gameObject.GetComponent<PhotonView>().IsMine)
-            //  {
-            //     if(shotBy!=shotTo)
-            //     {
-                TrailAudio.Stop();
-                Blast.Play();
-                AudioBoom.Play();
-                rocketBody.SetActive(false);
-                StartCoroutine(DestroyBullet());
-                //}
-                
-                //Debug.Log("Dealth "+bulletDamage+" damage to "+ collision.gameObject.name); 
-           // }
-            
-            
+                try{
+                        if(collision.gameObject.GetComponentInParent<TakeDamage>().gameObject.GetComponent<PhotonView>().IsMine)
+                        {
+                            Debug.Log("SelfShield");
+                        }
+                        else
+                        {
+                            gameObject.GetComponent<CapsuleCollider>().enabled = false;
+                            shieldHit = true;
+                            ShieldDestroy();
+                        }
+                        }catch{
+                            gameObject.GetComponent<CapsuleCollider>().enabled = false;
+                            shieldHit = true;
+                            ShieldDestroy();
+                        }
         }
 
         
 
         
+    }
+
+     private void OnTriggerStay(Collider collision)
+    {
+        if(collision.gameObject.CompareTag("Shield"))
+        {
+                try{
+                        if(collision.gameObject.GetComponentInParent<TakeDamage>().gameObject.GetComponent<PhotonView>().IsMine)
+                        {
+                            Debug.Log("SelfShield");
+                            shieldHit = true;
+                        }
+                        else
+                        {
+                            gameObject.GetComponent<CapsuleCollider>().enabled = false;
+                            shieldHit = true;
+                            ShieldDestroy();
+                        }
+                        }catch{
+                            //gameObject.GetComponent<CapsuleCollider>().enabled = false;
+                            shieldHit = true;
+                            ShieldDestroy();
+                        }
+        }
+    }
+
+
+    private void OnTriggerExit(Collider collision)
+    {
+        shieldHit = false;
+    }
+
+    public void ShieldDestroy()
+    {
+        Debug.Log("RocketScript: CompareTagShield :: Photon View is mine is false");
+        TrailAudio.Stop();
+        Blast.Play();
+        AudioBoom.Play();
+        StartCoroutine(DestroyBullet());
+
     }
 
 
@@ -143,7 +190,7 @@ public class RocketScript : MonoBehaviourPunCallbacks
     {
         try{
             TakeDamage td = alertPlayer.GetComponentInChildren<TakeDamage>();
-            td.GetComponent<PhotonView>().RPC("IsTarget", RpcTarget.AllBuffered, true);
+            td.gameObject.GetComponent<PhotonView>().RPC("IsTarget", RpcTarget.AllBuffered, true);
         }
         catch
         {

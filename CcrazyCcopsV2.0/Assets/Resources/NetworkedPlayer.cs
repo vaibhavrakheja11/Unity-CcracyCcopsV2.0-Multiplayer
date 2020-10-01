@@ -16,12 +16,12 @@ public class NetworkedPlayer : MonoBehaviourPunCallbacks
     {
         if(photonView.IsMine)
         {
-            Debug.Log("Photon view.ismine is true");
+            //Debug.Log("Photon view.ismine is true");
             LocalPlayerInstance = gameObject;
         }
         else    
         {
-            Debug.Log("Another player just connected");
+            //Debug.Log("Another player just connected");
         }
     }
     

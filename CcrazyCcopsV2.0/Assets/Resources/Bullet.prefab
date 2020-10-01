@@ -105,6 +105,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitAudio: {fileID: 1311846161165944130}
   BulletBody: {fileID: 6478795872561462368}
+  bulletDestroyTime: 4
+  destroyTime: 4
 --- !u!136 &429155416713955447
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -431,7 +433,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 6
+  m_Time: 2
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -439,8 +441,8 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.0058288574
-        value: 0.12974885
+        time: 0
+        value: 0.052829295
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -448,23 +450,14 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.821477
-        value: 0.10835658
-        inSlope: 0.42416614
-        outSlope: 0.42416614
+        time: 0.5178336
+        value: 0.0122015625
+        inSlope: -0.25250417
+        outSlope: -0.25250417
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.19106568
+        inWeight: 0.6536687
         outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.966092
-        value: 0
-        inSlope: -0.9624077
-        outSlope: -0.9624077
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.10868608
-        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4

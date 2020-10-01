@@ -24,10 +24,19 @@ public class MineScript : MonoBehaviourPunCallbacks
 
     public GameObject MineBody;
 
+    bool shieldHit = false;
+
+
+
+    public float destroyTime = 20f;
+
+    
+
     
     void Start()
     {
        Potty.Stop();
+       Destroy(this.gameObject, destroyTime);
         
     }
 
@@ -49,25 +58,44 @@ public class MineScript : MonoBehaviourPunCallbacks
 
         Debug.Log(collision.name);
 
-        if(collision.gameObject.CompareTag("Player"))
+        
+
+        // if(collision.gameObject.CompareTag("Shield"))
+        // {
+        //         try{
+        //                 if(collision.gameObject.GetComponentInParent<TakeDamage>().gameObject.GetComponent<PhotonView>().IsMine)
+        //                 {
+        //                     Debug.Log("SelfShield");
+        //                 }
+        //                 else
+        //                 {
+        //                     gameObject.GetComponent<CapsuleCollider>().enabled = false;
+        //                     shieldHit = true;
+        //                     ShieldDestroy();
+        //                 }
+        //                 }catch{
+        //                     gameObject.GetComponent<CapsuleCollider>().enabled = false;
+        //                     shieldHit = true;
+        //                     ShieldDestroy();
+        //                 }
+        // }
+        // else
+         if(collision.gameObject.CompareTag("Player"))
         {
-            shotTo = collision.gameObject.GetComponent<PhotonView>().Owner.NickName;
-            
-            collision.gameObject.GetComponent<PhotonView>().RPC("DoDamage", RpcTarget.AllBuffered, bulletDamage, shotTo, shotBy,type);
-                
-            photonView.RPC("SetScore", RpcTarget.All, null);
+                shotTo = collision.gameObject.GetComponent<PhotonView>().Owner.NickName;
+                if(!collision.gameObject.GetComponent<PhotonView>().IsMine)
+                {
+                    MineBody.SetActive(false);
+                    if(shotBy!=shotTo)
+                    {
+                    Blast.Play();
+                    collision.gameObject.GetComponent<PhotonView>().RPC("DoDamage", RpcTarget.AllBuffered, bulletDamage, shotTo, shotBy,type);
+                    
+                    photonView.RPC("SetScore", RpcTarget.All, null);
+                }
+                StartCoroutine(DestroyBullet());
                 //Debug.Log("Dealth "+bulletDamage+" damage to "+ collision.gameObject.name); 
-            
-            Blast.Play();
-            MineBody.SetActive(false);
-            //Destroy(gameObject);
-            StartCoroutine(DestroyBullet());
-        }
-
-        if(collision.gameObject.CompareTag("Shield"))
-        {
-
-            Destroy(gameObject);            
+            }
         }
 
         
@@ -93,7 +121,8 @@ public class MineScript : MonoBehaviourPunCallbacks
 
     IEnumerator DestroyBullet(){
      //play your sound
-     yield return new WaitForSeconds(2f); //waits 3 seconds
+     yield return new WaitForSeconds(1f);
+     
      Destroy(gameObject); //this will work after 3 seconds.
  }
     
