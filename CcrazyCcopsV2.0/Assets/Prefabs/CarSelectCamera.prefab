@@ -88,6 +88,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cars:
-  - {fileID: 158634285459177711, guid: b512de4c3597c484085605cf9d7e1d92, type: 3}
+  - {fileID: 8788309538568863242, guid: 3eb811708db1c4df482b55abf14df82e, type: 3}
   - {fileID: 6414100122304401808, guid: 2afa3a841a8954894a1a2a4fba87f5fc, type: 3}
   - {fileID: 8788309538568863242, guid: 3eb811708db1c4df482b55abf14df82e, type: 3}
