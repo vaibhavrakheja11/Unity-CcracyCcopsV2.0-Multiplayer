@@ -7,7 +7,6 @@ using Photon.Pun;
 public class DefaultGunActivate : MonoBehaviourPunCallbacks
 {
     // Start is called before the first frame update
-
     public GameObject[] DefualtWeapons;
     void Start()
     {
