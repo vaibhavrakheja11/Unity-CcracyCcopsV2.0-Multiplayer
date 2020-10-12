@@ -10,7 +10,6 @@ ScriptsOnlyBuild:
     - UnityStandardAssets.Vehicles.Car.SkidTrail
     - UnityStandardAssets.Vehicles.Car.WheelEffects
     Assembly-CSharp.dll:
-    - AnimateDirectionalTexture
     - BouncingGrenedeScript
     - BulletScript
     - DefaultGunActivate
@@ -48,8 +47,6 @@ ScriptsOnlyBuild:
     - Cinemachine.CinemachineTransposer
     - Cinemachine.CinemachineVirtualCamera
     - Cinemachine.NoiseSettings
-    PhotonUnityNetworking.Editor.dll:
-    - Photon.Pun.PunSceneSettings
     PhotonUnityNetworking.Utilities.dll:
     - Photon.Pun.UtilityScripts.PhotonLagSimulationGui
     - Photon.Pun.UtilityScripts.TextButtonTransition
@@ -1108,12 +1105,6 @@ ScriptsOnlyBuild:
     className: CullArea
   - hash:
       serializedVersion: 2
-      Hash: 7c1f49e453b4775d566cb999e7549fa7
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: AnimateDirectionalTexture
-  - hash:
-      serializedVersion: 2
       Hash: 24f79094aff162c9aa69c31d64d777d3
     assemblyName: PhotonUnityNetworking.Utilities.dll
     namespaceName: Photon.Pun.UtilityScripts
@@ -1678,7 +1669,7 @@ ScriptsOnlyBuild:
     className: PunTurnManager
   - hash:
       serializedVersion: 2
-      Hash: 7d736a8e3da0a14a6daf07e5a7b87650
+      Hash: b00d06dca18df1e29b0538f062349375
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: RaceMonitor
@@ -2077,4 +2068,4 @@ ScriptsOnlyBuild:
   - Assets/Components/Scenes/LobbyScene.unity
   - Assets/Components/Scenes/SampleScene.unity
   - Assets/Components/Scenes/RaceScene-1.unity
-  playerPath: /Users/vaibhavrakheja/Documents/CcrazyCcopsV2/Game/Builds/CCv2_Prod_0.1.2.apk
+  playerPath: /Users/vaibhavrakheja/Documents/CcrazyCcopsV2/Game/Builds/CCv2_Prod_0.1.2.aab

@@ -70,7 +70,6 @@
 		<type fullname="UnityStandardAssets.Vehicles.Car.WheelEffects" preserve="nothing"/>
 	</assembly>
 	<assembly fullname="Assembly-CSharp">
-		<type fullname="AnimateDirectionalTexture" preserve="nothing"/>
 		<type fullname="BouncingGrenedeScript" preserve="nothing"/>
 		<type fullname="BulletScript" preserve="nothing"/>
 		<type fullname="DefaultGunActivate" preserve="nothing"/>

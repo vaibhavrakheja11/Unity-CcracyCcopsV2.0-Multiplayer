@@ -12719,7 +12719,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: tropical habitat
+  m_text: Race Results
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 64712f47f3efefa438fa1c1bcb6d29c9, type: 2}
   m_sharedMaterial: {fileID: 21718910498622426, guid: 64712f47f3efefa438fa1c1bcb6d29c9,
@@ -12789,7 +12789,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 8898479999251243769}
-    characterCount: 16
+    characterCount: 12
     spriteCount: 0
     spaceCount: 1
     wordCount: 2

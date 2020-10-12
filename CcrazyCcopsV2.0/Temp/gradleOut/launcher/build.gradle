@@ -31,6 +31,15 @@ android {
         ignoreAssetsPattern = "!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~"
     }
 
+    signingConfigs {
+        release {
+            storeFile file('/Users/vaibhavrakheja/Documents/CcrazyCcopsV2/Game/CcrazyCcopsV2.0/Keystore/user.keystore')
+            storePassword 'Godisgreat@11'
+            keyAlias 'macbookname'
+            keyPassword 'Godisgreat@11'
+        }
+    }
+
     lintOptions {
         abortOnError false
     }
@@ -40,14 +49,14 @@ android {
             minifyEnabled false
             useProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt')
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
             jniDebuggable true
         }
         release {
             minifyEnabled false
             useProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt')
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
         }
     }
 
