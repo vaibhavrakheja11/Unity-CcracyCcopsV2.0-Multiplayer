@@ -529,7 +529,6 @@ UnityEngine.Material::SetFloatImpl
 UnityEngine.Material::SetMatrixImpl_Injected
 UnityEngine.Material::SetShaderKeywords
 UnityEngine.Material::SetTextureImpl
-UnityEngine.Material::SetTextureOffsetImpl_Injected
 UnityEngine.Material::set_renderQueue
 UnityEngine.Material::set_shader
 UnityEngine.Material::get_shader

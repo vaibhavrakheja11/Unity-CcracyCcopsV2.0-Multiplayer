@@ -7,8 +7,8 @@ dependencies {
     }
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion '28.0.3'
+    compileSdkVersion 30
+    buildToolsVersion '30.0.2'
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -17,18 +17,27 @@ android {
 
     defaultConfig {
         minSdkVersion 27
-        targetSdkVersion 28
-        applicationId 'com.FlukeGames.CcrazyCcops'
+        targetSdkVersion 30
+        applicationId 'com.FlukeGames.CrazyCops'
         ndk {
             abiFilters 'armeabi-v7a', 'arm64-v8a'
         }
         versionCode 1
-        versionName '0.1'
+        versionName '0.1.1'
     }
 
     aaptOptions {
         noCompress = ['.unity3d', '.ress', '.resource', '.obb']
         ignoreAssetsPattern = "!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file('/Users/vaibhavrakheja/Documents/CcrazyCcopsV2/Game/CcrazyCcopsV2.0/Keystore/user.keystore')
+            storePassword 'Godisgreat@11'
+            keyAlias 'macbookname'
+            keyPassword 'Godisgreat@11'
+        }
     }
 
     lintOptions {
@@ -40,14 +49,14 @@ android {
             minifyEnabled false
             useProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt')
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
             jniDebuggable true
         }
         release {
             minifyEnabled false
             useProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt')
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
         }
     }
 
