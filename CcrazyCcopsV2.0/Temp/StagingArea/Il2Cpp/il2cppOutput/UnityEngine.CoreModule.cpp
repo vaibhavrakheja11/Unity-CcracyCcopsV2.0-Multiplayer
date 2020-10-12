@@ -1031,6 +1031,7 @@ IL2CPP_EXTERN_C const uint32_t Material__ctor_m0171C6D4D3FD04D58C70808F255DBA67D
 IL2CPP_EXTERN_C const uint32_t Material__ctor_m02F4232D67F46B1EE84441089306E867B1788924_MetadataUsageId;
 IL2CPP_EXTERN_C const uint32_t Material__ctor_m81E76B5C1316004F25D4FE9CEC0E78A7428DABA8_MetadataUsageId;
 IL2CPP_EXTERN_C const uint32_t Material_get_mainTexture_mE85CF647728AD145D7E03A172EFD5930773E514E_MetadataUsageId;
+IL2CPP_EXTERN_C const uint32_t Material_set_mainTextureOffset_m8602C6F3E7FC358C5F8B9C3709325F676B1ACF5E_MetadataUsageId;
 IL2CPP_EXTERN_C const uint32_t Mathf_Abs_mC7DD2FB3789B5409055836D0E7D8227AD2099FDC_MetadataUsageId;
 IL2CPP_EXTERN_C const uint32_t Mathf_Abs_mD852D98E3D4846B45F57D0AD4A8C6E00EF272662_MetadataUsageId;
 IL2CPP_EXTERN_C const uint32_t Mathf_Acos_mF3B88F0C8A5AE43F4C4A42676C8D3DE67B3EAF82_MetadataUsageId;
@@ -11309,6 +11310,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Material_CreateWithMaterial_mD3140BCB57E
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Material_CreateWithString_mCF4047522DD7D38087CF9AF121766E0D69B9BB55 (Material_tF7DB3BF0C24DEC2FE0CB51E5DF5053D5223C8598 * ___self0, const RuntimeMethod* method);
 // UnityEngine.Texture UnityEngine.Material::GetTexture(System.String)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Texture_t387FE83BB848001FD06B14707AEA6D5A0F6A95F4 * Material_GetTexture_mCD6B822EA19773B8D39368FF1A285E7B69043896 (Material_tF7DB3BF0C24DEC2FE0CB51E5DF5053D5223C8598 * __this, String_t* ___name0, const RuntimeMethod* method);
+// System.Void UnityEngine.Material::SetTextureOffset(System.String,UnityEngine.Vector2)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Material_SetTextureOffset_mAF1B6A6AD9E952262F7AE80B17B31D8FF720ADE7 (Material_tF7DB3BF0C24DEC2FE0CB51E5DF5053D5223C8598 * __this, String_t* ___name0, Vector2_tA85D2DD88578276CA8A8796756458277E72D073D  ___value1, const RuntimeMethod* method);
 // System.Int32 UnityEngine.Shader::PropertyToID(System.String)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Shader_PropertyToID_m831E5B48743620DB9E3E3DD15A8DEA483981DD45 (String_t* ___name0, const RuntimeMethod* method);
 // System.Boolean UnityEngine.Material::HasProperty(System.Int32)
@@ -11323,6 +11326,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Material_SetColorImpl_Injected_mEE762DBD
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Material_SetMatrixImpl_Injected_mD2486E408D7547B08CC36A2DE70520F97A68529C (Material_tF7DB3BF0C24DEC2FE0CB51E5DF5053D5223C8598 * __this, int32_t ___name0, Matrix4x4_t6BF60F70C9169DF14C9D2577672A44224B236ECA * ___value1, const RuntimeMethod* method);
 // System.Void UnityEngine.Material::GetColorImpl_Injected(System.Int32,UnityEngine.Color&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Material_GetColorImpl_Injected_m22325A32C4B5AAEA791AED50195F66CDBAE93C82 (Material_tF7DB3BF0C24DEC2FE0CB51E5DF5053D5223C8598 * __this, int32_t ___name0, Color_t119BCA590009762C7223FDD3AF9706653AC84ED2 * ___ret1, const RuntimeMethod* method);
+// System.Void UnityEngine.Material::SetTextureOffsetImpl_Injected(System.Int32,UnityEngine.Vector2&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Material_SetTextureOffsetImpl_Injected_m85850F975A45BBB3AEA145C52309FC7CB82CDF64 (Material_tF7DB3BF0C24DEC2FE0CB51E5DF5053D5223C8598 * __this, int32_t ___name0, Vector2_tA85D2DD88578276CA8A8796756458277E72D073D * ___offset1, const RuntimeMethod* method);
 // System.Void UnityEngine.Material::SetFloatImpl(System.Int32,System.Single)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Material_SetFloatImpl_mFD6022220F625E704EC4F27691F496166E590094 (Material_tF7DB3BF0C24DEC2FE0CB51E5DF5053D5223C8598 * __this, int32_t ___name0, float ___value1, const RuntimeMethod* method);
 // System.Void UnityEngine.Material::SetColorImpl(System.Int32,UnityEngine.Color)
@@ -11341,6 +11346,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float Material_GetFloatImpl_m7F4A1A6FE5D9EA1F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Color_t119BCA590009762C7223FDD3AF9706653AC84ED2  Material_GetColorImpl_m46381ED49C354AEB9FEFCE5BF410A1909E867E76 (Material_tF7DB3BF0C24DEC2FE0CB51E5DF5053D5223C8598 * __this, int32_t ___name0, const RuntimeMethod* method);
 // UnityEngine.Texture UnityEngine.Material::GetTextureImpl(System.Int32)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Texture_t387FE83BB848001FD06B14707AEA6D5A0F6A95F4 * Material_GetTextureImpl_m19D8CE6C5701AC4B69A6D5354E08240DF6C036D2 (Material_tF7DB3BF0C24DEC2FE0CB51E5DF5053D5223C8598 * __this, int32_t ___name0, const RuntimeMethod* method);
+// System.Void UnityEngine.Material::SetTextureOffsetImpl(System.Int32,UnityEngine.Vector2)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Material_SetTextureOffsetImpl_mFA6B03949317E27AA65014030ABE8CA79350FE45 (Material_tF7DB3BF0C24DEC2FE0CB51E5DF5053D5223C8598 * __this, int32_t ___name0, Vector2_tA85D2DD88578276CA8A8796756458277E72D073D  ___offset1, const RuntimeMethod* method);
 // System.Double System.Math::Pow(System.Double,System.Double)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR double Math_Pow_m9CD842663B1A2FA4C66EEFFC6F0D705B40BE46F1 (double ___x0, double ___y1, const RuntimeMethod* method);
 // System.Double System.Math::Log(System.Double,System.Double)
@@ -28739,6 +28746,21 @@ IL_000f:
 		return L_1;
 	}
 }
+// System.Void UnityEngine.Material::set_mainTextureOffset(UnityEngine.Vector2)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Material_set_mainTextureOffset_m8602C6F3E7FC358C5F8B9C3709325F676B1ACF5E (Material_tF7DB3BF0C24DEC2FE0CB51E5DF5053D5223C8598 * __this, Vector2_tA85D2DD88578276CA8A8796756458277E72D073D  ___value0, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_method (Material_set_mainTextureOffset_m8602C6F3E7FC358C5F8B9C3709325F676B1ACF5E_MetadataUsageId);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		Vector2_tA85D2DD88578276CA8A8796756458277E72D073D  L_0 = ___value0;
+		Material_SetTextureOffset_mAF1B6A6AD9E952262F7AE80B17B31D8FF720ADE7(__this, _stringLiteralC510EA100EEE1C261FE63B56E1F3390BFB85F481, L_0, /*hidden argument*/NULL);
+		return;
+	}
+}
 // System.Boolean UnityEngine.Material::HasProperty(System.Int32)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Material_HasProperty_m901DE6C516A0D2C986B849C7B44F679AE21B8927 (Material_tF7DB3BF0C24DEC2FE0CB51E5DF5053D5223C8598 * __this, int32_t ___nameID0, const RuntimeMethod* method)
 {
@@ -28953,6 +28975,15 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Texture_t387FE83BB848001FD06B14707AEA6D5A0F6A
 	_il2cpp_icall_func = (Material_GetTextureImpl_m19D8CE6C5701AC4B69A6D5354E08240DF6C036D2_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Material::GetTextureImpl(System.Int32)");
 	Texture_t387FE83BB848001FD06B14707AEA6D5A0F6A95F4 * retVal = _il2cpp_icall_func(__this, ___name0);
 	return retVal;
+}
+// System.Void UnityEngine.Material::SetTextureOffsetImpl(System.Int32,UnityEngine.Vector2)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Material_SetTextureOffsetImpl_mFA6B03949317E27AA65014030ABE8CA79350FE45 (Material_tF7DB3BF0C24DEC2FE0CB51E5DF5053D5223C8598 * __this, int32_t ___name0, Vector2_tA85D2DD88578276CA8A8796756458277E72D073D  ___offset1, const RuntimeMethod* method)
+{
+	{
+		int32_t L_0 = ___name0;
+		Material_SetTextureOffsetImpl_Injected_m85850F975A45BBB3AEA145C52309FC7CB82CDF64(__this, L_0, (Vector2_tA85D2DD88578276CA8A8796756458277E72D073D *)(&___offset1), /*hidden argument*/NULL);
+		return;
+	}
 }
 // System.Void UnityEngine.Material::SetFloat(System.String,System.Single)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Material_SetFloat_m4B7D3FAA00D20BCB3C487E72B7E4B2691D5ECAD2 (Material_tF7DB3BF0C24DEC2FE0CB51E5DF5053D5223C8598 * __this, String_t* ___name0, float ___value1, const RuntimeMethod* method)
@@ -29218,6 +29249,17 @@ IL_000b:
 		return L_2;
 	}
 }
+// System.Void UnityEngine.Material::SetTextureOffset(System.String,UnityEngine.Vector2)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Material_SetTextureOffset_mAF1B6A6AD9E952262F7AE80B17B31D8FF720ADE7 (Material_tF7DB3BF0C24DEC2FE0CB51E5DF5053D5223C8598 * __this, String_t* ___name0, Vector2_tA85D2DD88578276CA8A8796756458277E72D073D  ___value1, const RuntimeMethod* method)
+{
+	{
+		String_t* L_0 = ___name0;
+		int32_t L_1 = Shader_PropertyToID_m831E5B48743620DB9E3E3DD15A8DEA483981DD45(L_0, /*hidden argument*/NULL);
+		Vector2_tA85D2DD88578276CA8A8796756458277E72D073D  L_2 = ___value1;
+		Material_SetTextureOffsetImpl_mFA6B03949317E27AA65014030ABE8CA79350FE45(__this, L_1, L_2, /*hidden argument*/NULL);
+		return;
+	}
+}
 // System.Void UnityEngine.Material::SetColorImpl_Injected(System.Int32,UnityEngine.Color&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Material_SetColorImpl_Injected_mEE762DBD0B37ACA313061179B3CB767B59E4B0FB (Material_tF7DB3BF0C24DEC2FE0CB51E5DF5053D5223C8598 * __this, int32_t ___name0, Color_t119BCA590009762C7223FDD3AF9706653AC84ED2 * ___value1, const RuntimeMethod* method)
 {
@@ -29244,6 +29286,15 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Material_GetColorImpl_Injected_m22325A32
 	if (!_il2cpp_icall_func)
 	_il2cpp_icall_func = (Material_GetColorImpl_Injected_m22325A32C4B5AAEA791AED50195F66CDBAE93C82_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Material::GetColorImpl_Injected(System.Int32,UnityEngine.Color&)");
 	_il2cpp_icall_func(__this, ___name0, ___ret1);
+}
+// System.Void UnityEngine.Material::SetTextureOffsetImpl_Injected(System.Int32,UnityEngine.Vector2&)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Material_SetTextureOffsetImpl_Injected_m85850F975A45BBB3AEA145C52309FC7CB82CDF64 (Material_tF7DB3BF0C24DEC2FE0CB51E5DF5053D5223C8598 * __this, int32_t ___name0, Vector2_tA85D2DD88578276CA8A8796756458277E72D073D * ___offset1, const RuntimeMethod* method)
+{
+	typedef void (*Material_SetTextureOffsetImpl_Injected_m85850F975A45BBB3AEA145C52309FC7CB82CDF64_ftn) (Material_tF7DB3BF0C24DEC2FE0CB51E5DF5053D5223C8598 *, int32_t, Vector2_tA85D2DD88578276CA8A8796756458277E72D073D *);
+	static Material_SetTextureOffsetImpl_Injected_m85850F975A45BBB3AEA145C52309FC7CB82CDF64_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (Material_SetTextureOffsetImpl_Injected_m85850F975A45BBB3AEA145C52309FC7CB82CDF64_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Material::SetTextureOffsetImpl_Injected(System.Int32,UnityEngine.Vector2&)");
+	_il2cpp_icall_func(__this, ___name0, ___offset1);
 }
 #ifdef __clang__
 #pragma clang diagnostic pop

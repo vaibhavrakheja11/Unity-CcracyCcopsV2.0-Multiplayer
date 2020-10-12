@@ -9,7 +9,7 @@ INJECTED from /Users/vaibhavrakheja/Documents/CcrazyCcopsV2/Game/CcrazyCcopsV2.0
 INJECTED from /Users/vaibhavrakheja/Documents/CcrazyCcopsV2/Game/CcrazyCcopsV2.0/Temp/gradleOut/launcher/src/main/AndroidManifest.xml:3:1-6:12
 INJECTED from /Users/vaibhavrakheja/Documents/CcrazyCcopsV2/Game/CcrazyCcopsV2.0/Temp/gradleOut/launcher/src/main/AndroidManifest.xml:3:1-6:12
 	package
-		ADDED from /Users/vaibhavrakheja/Documents/CcrazyCcopsV2/Game/CcrazyCcopsV2.0/Temp/gradleOut/launcher/src/main/AndroidManifest.xml:3:70-104
+		ADDED from /Users/vaibhavrakheja/Documents/CcrazyCcopsV2/Game/CcrazyCcopsV2.0/Temp/gradleOut/launcher/src/main/AndroidManifest.xml:3:70-106
 		INJECTED from /Users/vaibhavrakheja/Documents/CcrazyCcopsV2/Game/CcrazyCcopsV2.0/Temp/gradleOut/launcher/src/main/AndroidManifest.xml
 		INJECTED from /Users/vaibhavrakheja/Documents/CcrazyCcopsV2/Game/CcrazyCcopsV2.0/Temp/gradleOut/launcher/src/main/AndroidManifest.xml
 	android:versionName
@@ -17,7 +17,7 @@ INJECTED from /Users/vaibhavrakheja/Documents/CcrazyCcopsV2/Game/CcrazyCcopsV2.0
 		ADDED from /Users/vaibhavrakheja/Documents/CcrazyCcopsV2/Game/CcrazyCcopsV2.0/Temp/gradleOut/launcher/src/main/AndroidManifest.xml:3:1-6:12
 		INJECTED from /Users/vaibhavrakheja/Documents/CcrazyCcopsV2/Game/CcrazyCcopsV2.0/Temp/gradleOut/launcher/src/main/AndroidManifest.xml
 	xmlns:tools
-		ADDED from /Users/vaibhavrakheja/Documents/CcrazyCcopsV2/Game/CcrazyCcopsV2.0/Temp/gradleOut/launcher/src/main/AndroidManifest.xml:3:105-151
+		ADDED from /Users/vaibhavrakheja/Documents/CcrazyCcopsV2/Game/CcrazyCcopsV2.0/Temp/gradleOut/launcher/src/main/AndroidManifest.xml:3:107-153
 	android:versionCode
 		INJECTED from /Users/vaibhavrakheja/Documents/CcrazyCcopsV2/Game/CcrazyCcopsV2.0/Temp/gradleOut/launcher/src/main/AndroidManifest.xml
 		ADDED from /Users/vaibhavrakheja/Documents/CcrazyCcopsV2/Game/CcrazyCcopsV2.0/Temp/gradleOut/launcher/src/main/AndroidManifest.xml:3:1-6:12
@@ -25,7 +25,7 @@ INJECTED from /Users/vaibhavrakheja/Documents/CcrazyCcopsV2/Game/CcrazyCcopsV2.0
 	xmlns:android
 		ADDED from /Users/vaibhavrakheja/Documents/CcrazyCcopsV2/Game/CcrazyCcopsV2.0/Temp/gradleOut/launcher/src/main/AndroidManifest.xml:3:11-69
 	android:installLocation
-		ADDED from /Users/vaibhavrakheja/Documents/CcrazyCcopsV2/Game/CcrazyCcopsV2.0/Temp/gradleOut/launcher/src/main/AndroidManifest.xml:3:152-192
+		ADDED from /Users/vaibhavrakheja/Documents/CcrazyCcopsV2/Game/CcrazyCcopsV2.0/Temp/gradleOut/launcher/src/main/AndroidManifest.xml:3:154-194
 supports-screens
 ADDED from /Users/vaibhavrakheja/Documents/CcrazyCcopsV2/Game/CcrazyCcopsV2.0/Temp/gradleOut/launcher/src/main/AndroidManifest.xml:4:3-163
 	android:largeScreens

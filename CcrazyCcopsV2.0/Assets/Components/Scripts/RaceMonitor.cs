@@ -4,7 +4,6 @@ using UnityEngine;
 using Cinemachine;
 using Photon.Realtime;
 using Photon.Pun;
-using UnityEngine.SceneManagement;
 
 public class RaceMonitor : MonoBehaviourPunCallbacks
 {
@@ -40,8 +39,6 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
     public GameObject[] finishOrderText;
 
    public GameObject orderImage;
-
-   public GameObject MobileRigController;
 
     public void Awake()
     {
@@ -212,18 +209,5 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
 
         pcar.transform.position = StartPos;
         pcar.transform.rotation = StartRot;
-    }
-
-
-
-
-    public void ReturnLobbyScene()
-    {
-         PhotonNetwork.LeaveRoom();
-    }
-
-    public override void OnLeftRoom()
-    {
-         SceneManager.LoadScene("LobbyScene");
     }
 }   
