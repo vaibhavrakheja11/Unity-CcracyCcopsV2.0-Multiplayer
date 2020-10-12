@@ -215,7 +215,14 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
     }
 
 
+
+
     public void ReturnLobbyScene()
+    {
+         PhotonNetwork.LeaveRoom();
+    }
+
+    public override void OnLeftRoom()
     {
          SceneManager.LoadScene("LobbyScene");
     }
