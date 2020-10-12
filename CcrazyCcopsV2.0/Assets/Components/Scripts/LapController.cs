@@ -23,6 +23,10 @@ public class LapController : MonoBehaviourPun
 
     GameObject LastCheckPoint;
 
+    GameObject backgroundPanel;
+
+    string nickNameofFinishPlayer;
+
     
 
 
@@ -93,7 +97,14 @@ public class LapController : MonoBehaviourPun
         SendOptions sendOptions = new SendOptions {
             Reliability = false
         };
-       PhotonNetwork.RaiseEvent((byte)RaiseEventCodes.WhoFinishedEventCode, data, raiseEventOptions, sendOptions);
+
+        backgroundPanel = RaceMonitor.instance.FinishPanel;
+        RaceMonitor.instance.MobileRigController.SetActive(false);
+        PhotonNetwork.RaiseEvent((byte)RaiseEventCodes.WhoFinishedEventCode, data, raiseEventOptions, sendOptions);
+        if(!backgroundPanel.activeSelf)
+            {
+                backgroundPanel.SetActive(true);
+            }
     }
 
 
@@ -102,46 +113,33 @@ public class LapController : MonoBehaviourPun
         PhotonNetwork.NetworkingClient.EventReceived += OnEvent;
     }
 
+    void PlayerFinishPanelUpdate()
+    {
+            GameObject orderUIGameObject =  RaceMonitor.instance.finishOrderText[finishOrder -1];
+            GameObject orderImage = RaceMonitor.instance.orderImage;
+            GameObject[] CountdownItems = RaceMonitor.instance.coutdownItems;
+           
+            
+            orderUIGameObject.GetComponent<Text>().text = finishOrder + "      ............     " + nickNameofFinishPlayer;
+            orderUIGameObject.GetComponent<Text>().color = Color.red;
+            orderUIGameObject.SetActive(true);
+    }
+
+
     void OnEvent(EventData photonEvent)
     {
         if(photonEvent.Code == (byte)RaiseEventCodes.WhoFinishedEventCode)
         {
             object[] data = (object[])photonEvent.CustomData;
 
-            string nickNameofFinishPlayer = (string)data[0];
-
+            nickNameofFinishPlayer = (string)data[0];
             finishOrder = (int)data[1];
-
             int viewId = (int)data[2];
+
             Debug.Log("LapController: Nickname of finishedPLayer : " + nickNameofFinishPlayer + "  position: "+ finishOrder);
 
-            GameObject orderUIGameObject =  RaceMonitor.instance.finishOrderText[finishOrder -1];
-            GameObject orderImage = RaceMonitor.instance.orderImage;
-            GameObject[] CountdownItems = RaceMonitor.instance.coutdownItems;
-            GameObject backgroundPanel = RaceMonitor.instance.FinishPanel;
-            
-            
-
-            if(photonView.IsMine)
-            {
-                orderUIGameObject.GetComponent<Text>().text = finishOrder + "      ............     " + nickNameofFinishPlayer  + " ....................  (You)";
-                orderUIGameObject.GetComponent<Text>().color = Color.red;
-
-                if(!backgroundPanel.activeSelf)
-                {
-                    backgroundPanel.SetActive(true);
-                }
-                orderUIGameObject.SetActive(true);
-                
-            }
-            else
-            {
-                orderUIGameObject.GetComponent<Text>().text = finishOrder + "    ..............    " + nickNameofFinishPlayer ;
-            }
-            
+            PlayerFinishPanelUpdate();
         }
-
-
     }
 
     private void OnDisable()

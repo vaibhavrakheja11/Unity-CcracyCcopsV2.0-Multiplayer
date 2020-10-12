@@ -21350,6 +21350,10 @@ public:
 	int32_t ___LapTriggerNumber_7;
 	// UnityEngine.GameObject LapController::LastCheckPoint
 	GameObject_tBD1244AD56B4E59AAD76E5E7C9282EC5CE434F0F * ___LastCheckPoint_8;
+	// UnityEngine.GameObject LapController::backgroundPanel
+	GameObject_tBD1244AD56B4E59AAD76E5E7C9282EC5CE434F0F * ___backgroundPanel_9;
+	// System.String LapController::nickNameofFinishPlayer
+	String_t* ___nickNameofFinishPlayer_10;
 
 public:
 	inline static int32_t get_offset_of_LapTriggers_5() { return static_cast<int32_t>(offsetof(LapController_tDFA6D7A009405A5129DB63536FD07343AA7A2211, ___LapTriggers_5)); }
@@ -21384,6 +21388,24 @@ public:
 	{
 		___LastCheckPoint_8 = value;
 		Il2CppCodeGenWriteBarrier((void**)(&___LastCheckPoint_8), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_backgroundPanel_9() { return static_cast<int32_t>(offsetof(LapController_tDFA6D7A009405A5129DB63536FD07343AA7A2211, ___backgroundPanel_9)); }
+	inline GameObject_tBD1244AD56B4E59AAD76E5E7C9282EC5CE434F0F * get_backgroundPanel_9() const { return ___backgroundPanel_9; }
+	inline GameObject_tBD1244AD56B4E59AAD76E5E7C9282EC5CE434F0F ** get_address_of_backgroundPanel_9() { return &___backgroundPanel_9; }
+	inline void set_backgroundPanel_9(GameObject_tBD1244AD56B4E59AAD76E5E7C9282EC5CE434F0F * value)
+	{
+		___backgroundPanel_9 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___backgroundPanel_9), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_nickNameofFinishPlayer_10() { return static_cast<int32_t>(offsetof(LapController_tDFA6D7A009405A5129DB63536FD07343AA7A2211, ___nickNameofFinishPlayer_10)); }
+	inline String_t* get_nickNameofFinishPlayer_10() const { return ___nickNameofFinishPlayer_10; }
+	inline String_t** get_address_of_nickNameofFinishPlayer_10() { return &___nickNameofFinishPlayer_10; }
+	inline void set_nickNameofFinishPlayer_10(String_t* value)
+	{
+		___nickNameofFinishPlayer_10 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___nickNameofFinishPlayer_10), (void*)value);
 	}
 };
 
@@ -34406,12 +34428,14 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4232[4] =
 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4233;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize4233 = { sizeof (LapController_tDFA6D7A009405A5129DB63536FD07343AA7A2211), -1, 0, 0 };
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4233[4] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4233[6] = 
 {
 	LapController_tDFA6D7A009405A5129DB63536FD07343AA7A2211::get_offset_of_LapTriggers_5(),
 	LapController_tDFA6D7A009405A5129DB63536FD07343AA7A2211::get_offset_of_finishOrder_6(),
 	LapController_tDFA6D7A009405A5129DB63536FD07343AA7A2211::get_offset_of_LapTriggerNumber_7(),
 	LapController_tDFA6D7A009405A5129DB63536FD07343AA7A2211::get_offset_of_LastCheckPoint_8(),
+	LapController_tDFA6D7A009405A5129DB63536FD07343AA7A2211::get_offset_of_backgroundPanel_9(),
+	LapController_tDFA6D7A009405A5129DB63536FD07343AA7A2211::get_offset_of_nickNameofFinishPlayer_10(),
 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize4234;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize4234 = { sizeof (RaiseEventCodes_tB30F442BA493ACF7A5C2B626A2407E88B3B5DB3E)+ sizeof (RuntimeObject), sizeof(int32_t), 0, 0 };

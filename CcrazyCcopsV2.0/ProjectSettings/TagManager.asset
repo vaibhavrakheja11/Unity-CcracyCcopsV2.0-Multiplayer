@@ -26,6 +26,7 @@ TagManager:
   - FartWeapon
   - ShieldWeapon
   - ResetCollider
+  - water
   layers:
   - Default
   - TransparentFX

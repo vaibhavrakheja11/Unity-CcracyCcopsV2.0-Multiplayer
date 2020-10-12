@@ -1,4 +1,4 @@
-com.FlukeGames.CcrazyCcops
+com.FlukeGames.CrazyCops
 mipmap app_icon
 mipmap app_icon_round
 mipmap ic_launcher_background
