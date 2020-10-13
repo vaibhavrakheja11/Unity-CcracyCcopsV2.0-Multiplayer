@@ -55,8 +55,13 @@ public class LapController : MonoBehaviourPun
                 {
                     GameFinished();
                 }
-
                 LastCheckPoint = other.gameObject;
+                
+            }
+
+            if(other.name=="ResetCollider")
+            {
+                RaceMonitor.instance.RespawnTargetCar(this.gameObject,LastCheckPoint);
             }
        } 
         
@@ -74,6 +79,18 @@ public class LapController : MonoBehaviourPun
         {
             gameObject.GetComponent<CarUserControl>().SetCarEnableBool(true);
         }
+
+        // if(gameObject.GetComponent<CarController>().CurrentSpeed > 100)
+        // {
+        //     if(!RaceMonitor.instance.speedLines.GetComponent<ParticleSystem>().isPlaying)
+        //     {
+        //         RaceMonitor.instance.speedLines.GetComponent<ParticleSystem>().Play();
+        //     }
+        // }
+        // else
+        // {
+        //     RaceMonitor.instance.speedLines.GetComponent<ParticleSystem>().Stop();
+        // }
     }
 
 

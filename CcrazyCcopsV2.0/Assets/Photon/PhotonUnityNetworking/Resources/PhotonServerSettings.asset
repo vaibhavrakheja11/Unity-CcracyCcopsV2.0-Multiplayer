@@ -25,24 +25,22 @@ MonoBehaviour:
     AuthMode: 0
     EnableLobbyStatistics: 0
     NetworkLogging: 1
-  DevRegion: cae
+  DevRegion: 
   PunLogging: 0
   EnableSupportLogger: 0
   RunInBackground: 1
   StartInOfflineMode: 0
   RpcList:
-  - ClickRpc
-  - DestroyRpc
-  - StartMatch
-  - DeactivateWeapon
-  - FireMissile
-  - DoDamage
-  - ShootFunc
-  - SetScore
-  - IsTarget
   - ActivateWeapon
+  - ClickRpc
+  - DeactivateWeapon
+  - DestroyRpc
+  - DoDamage
   - IncreaseHealth
+  - IsTarget
+  - SetScore
   - ShowEmojiImage
+  - StartMatch
   DisableAutoOpenWizard: 1
   ShowSettings: 0
-  DevRegionSetOnce: 1
+  DevRegionSetOnce: 0
