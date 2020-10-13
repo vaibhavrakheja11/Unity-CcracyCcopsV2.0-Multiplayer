@@ -154,6 +154,7 @@ namespace UnityStandardAssets.Vehicles.Car
             ApplyDrive(accel, footbrake);
             CapSpeed();
 
+
             //Set the handbrake.
             //Assuming that wheels 2 and 3 are the rear wheels.
             if (handbrake > 0f)
@@ -171,6 +172,7 @@ namespace UnityStandardAssets.Vehicles.Car
             CheckForWheelSpin();
             TractionControl();
         }
+        
 
 
         private void CapSpeed()

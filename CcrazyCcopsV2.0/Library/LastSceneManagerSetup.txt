@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Components/Scenes/RaceScene-1.unity
+- path: Assets/Components/Scenes/LobbyScene.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

@@ -28,6 +28,8 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
 
     public GameObject FinishPanel;
 
+    public GameObject speedLines;
+
     GameObject pcar = null;
     int playerCar;
     int playerWeapon;
@@ -162,6 +164,7 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
     [PunRPC]
     public void StartMatch()
     {
+        Debug.Log("----------------------------->>> ");
         StartGame.SetActive(false);
         waitingText.SetActive(false);
         StartCoroutine(playCountdown());
@@ -213,9 +216,6 @@ public class RaceMonitor : MonoBehaviourPunCallbacks
         pcar.transform.position = StartPos;
         pcar.transform.rotation = StartRot;
     }
-
-
-
 
     public void ReturnLobbyScene()
     {
