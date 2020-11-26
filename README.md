@@ -17,10 +17,10 @@ Clone the repository in a new folder. Make sure you have the suitable versions o
 
 #### Project Completions
 - Multiplayer Networking : 100%
-- Asset Management : 50%
-- Game Mode Creation : 80%
-- Game Asset Creation : 60%
-- Game Optimisation : 20%
+- Asset Management : 100%
+- Game Mode Creation : 100%
+- Game Asset Creation : 100%
+- Game Optimisation : 60%
 
 #### Contributers: 
 
